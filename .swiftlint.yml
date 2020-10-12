@@ -1,0 +1,6 @@
+excluded:
+   - Pods
+   - Localization
+function_parameter_count: 8
+function_body_length: 50
+line_length: 140

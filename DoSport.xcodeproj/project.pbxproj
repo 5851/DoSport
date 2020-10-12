@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A292533DC7700DEB14B /* AppDelegate.swift */; };
+		04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A2B2533DC7700DEB14B /* SceneDelegate.swift */; };
+		04D40A332533DC7700DEB14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A322533DC7700DEB14B /* Assets.xcassets */; };
+		04D40A362533DC7700DEB14B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A342533DC7700DEB14B /* LaunchScreen.storyboard */; };
+		04D40A482533DCCA00DEB14B /* Halant-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A412533DCCA00DEB14B /* Halant-Light.ttf */; };
+		04D40A492533DCCA00DEB14B /* Halant-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A422533DCCA00DEB14B /* Halant-Semibold.ttf */; };
+		04D40A4A2533DCCA00DEB14B /* Halant-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A432533DCCA00DEB14B /* Halant-Medium.ttf */; };
+		04D40A4B2533DCCA00DEB14B /* Halant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A442533DCCA00DEB14B /* Halant-Bold.ttf */; };
+		04D40A4D2533DCCA00DEB14B /* Halant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A462533DCCA00DEB14B /* Halant-Regular.ttf */; };
+		04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A502533E17D00DEB14B /* MapViewController.swift */; };
+		04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A512533E17D00DEB14B /* PageViewController.swift */; };
+		04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A522533E17D00DEB14B /* StartViewController.swift */; };
+		04D40A582533E4F200DEB14B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A572533E4F200DEB14B /* Montserrat-Bold.ttf */; };
+		04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */; };
+		04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */; };
+		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04D40A262533DC7700DEB14B /* DoSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D40A292533DC7700DEB14B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04D40A2B2533DC7700DEB14B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		04D40A322533DC7700DEB14B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04D40A352533DC7700DEB14B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04D40A372533DC7700DEB14B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D40A412533DCCA00DEB14B /* Halant-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Halant-Light.ttf"; sourceTree = "<group>"; };
+		04D40A422533DCCA00DEB14B /* Halant-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Halant-Semibold.ttf"; sourceTree = "<group>"; };
+		04D40A432533DCCA00DEB14B /* Halant-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Halant-Medium.ttf"; sourceTree = "<group>"; };
+		04D40A442533DCCA00DEB14B /* Halant-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Halant-Bold.ttf"; sourceTree = "<group>"; };
+		04D40A462533DCCA00DEB14B /* Halant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Halant-Regular.ttf"; sourceTree = "<group>"; };
+		04D40A502533E17D00DEB14B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		04D40A512533E17D00DEB14B /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		04D40A522533E17D00DEB14B /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		04D40A572533E4F200DEB14B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
+		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04D40A232533DC7700DEB14B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04D40A1D2533DC7600DEB14B = {
+			isa = PBXGroup;
+			children = (
+				04D40A282533DC7700DEB14B /* DoSport */,
+				04D40A272533DC7700DEB14B /* Products */,
+				C4DD56A0EA60A23858CA68C9 /* Pods */,
+				B1BE418ACEE0449E5909D0B0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04D40A272533DC7700DEB14B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A262533DC7700DEB14B /* DoSport.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04D40A282533DC7700DEB14B /* DoSport */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A5D2533E87B00DEB14B /* Application */,
+				04D40A3D2533DC7F00DEB14B /* Flow */,
+				04D40A5E2533E88A00DEB14B /* Services */,
+				04D40A3E2533DC8B00DEB14B /* Helpers */,
+				04D40A5C2533E84300DEB14B /* Resources */,
+			);
+			path = DoSport;
+			sourceTree = "<group>";
+		};
+		04D40A3D2533DC7F00DEB14B /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A4F2533E16600DEB14B /* StartController */,
+				04D40A592533E5D600DEB14B /* PageController */,
+				04D40A5F2533E89600DEB14B /* MapController */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		04D40A3E2533DC8B00DEB14B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A3F2533DCA800DEB14B /* Extensions */,
+				04D40A402533DCBA00DEB14B /* Font */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04D40A3F2533DCA800DEB14B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */,
+				04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04D40A402533DCBA00DEB14B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A442533DCCA00DEB14B /* Halant-Bold.ttf */,
+				04D40A412533DCCA00DEB14B /* Halant-Light.ttf */,
+				04D40A432533DCCA00DEB14B /* Halant-Medium.ttf */,
+				04D40A462533DCCA00DEB14B /* Halant-Regular.ttf */,
+				04D40A422533DCCA00DEB14B /* Halant-Semibold.ttf */,
+				04D40A572533E4F200DEB14B /* Montserrat-Bold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		04D40A4F2533E16600DEB14B /* StartController */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A522533E17D00DEB14B /* StartViewController.swift */,
+			);
+			path = StartController;
+			sourceTree = "<group>";
+		};
+		04D40A592533E5D600DEB14B /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A512533E17D00DEB14B /* PageViewController.swift */,
+			);
+			path = PageController;
+			sourceTree = "<group>";
+		};
+		04D40A5C2533E84300DEB14B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A322533DC7700DEB14B /* Assets.xcassets */,
+				04D40A342533DC7700DEB14B /* LaunchScreen.storyboard */,
+				04D40A372533DC7700DEB14B /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04D40A5D2533E87B00DEB14B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A292533DC7700DEB14B /* AppDelegate.swift */,
+				04D40A2B2533DC7700DEB14B /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		04D40A5E2533E88A00DEB14B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04D40A5F2533E89600DEB14B /* MapController */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A502533E17D00DEB14B /* MapViewController.swift */,
+			);
+			path = MapController;
+			sourceTree = "<group>";
+		};
+		B1BE418ACEE0449E5909D0B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16A06897C0CD08F51C213544 /* Pods_DoSport.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4DD56A0EA60A23858CA68C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */,
+				0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04D40A252533DC7700DEB14B /* DoSport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04D40A3A2533DC7700DEB14B /* Build configuration list for PBXNativeTarget "DoSport" */;
+			buildPhases = (
+				32D9DE828C0BFE5C54055290 /* [CP] Check Pods Manifest.lock */,
+				04D40A222533DC7700DEB14B /* Sources */,
+				04D40A232533DC7700DEB14B /* Frameworks */,
+				04D40A242533DC7700DEB14B /* Resources */,
+				5DD8673C1AE9188141E425BA /* [CP] Embed Pods Frameworks */,
+				6BEDC3ECAD0D40DC008BB38A /* [CP] Copy Pods Resources */,
+				04D40A562533E2D700DEB14B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DoSport;
+			productName = DoSport;
+			productReference = 04D40A262533DC7700DEB14B /* DoSport.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04D40A1E2533DC7600DEB14B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = MAC;
+				TargetAttributes = {
+					04D40A252533DC7700DEB14B = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 04D40A212533DC7600DEB14B /* Build configuration list for PBXProject "DoSport" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04D40A1D2533DC7600DEB14B;
+			productRefGroup = 04D40A272533DC7700DEB14B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04D40A252533DC7700DEB14B /* DoSport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04D40A242533DC7700DEB14B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D40A362533DC7700DEB14B /* LaunchScreen.storyboard in Resources */,
+				04D40A482533DCCA00DEB14B /* Halant-Light.ttf in Resources */,
+				04D40A332533DC7700DEB14B /* Assets.xcassets in Resources */,
+				04D40A4B2533DCCA00DEB14B /* Halant-Bold.ttf in Resources */,
+				04D40A582533E4F200DEB14B /* Montserrat-Bold.ttf in Resources */,
+				04D40A492533DCCA00DEB14B /* Halant-Semibold.ttf in Resources */,
+				04D40A4A2533DCCA00DEB14B /* Halant-Medium.ttf in Resources */,
+				04D40A4D2533DCCA00DEB14B /* Halant-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04D40A562533E2D700DEB14B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		32D9DE828C0BFE5C54055290 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoSport-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DD8673C1AE9188141E425BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BEDC3ECAD0D40DC008BB38A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoSport/Pods-DoSport-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04D40A222533DC7700DEB14B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
+				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
+				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
+				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
+				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
+				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
+				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04D40A342533DC7700DEB14B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04D40A352533DC7700DEB14B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04D40A382533DC7700DEB14B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04D40A392533DC7700DEB14B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04D40A3B2533DC7700DEB14B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F9K6TF7ASC;
+				INFOPLIST_FILE = DoSport/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = StudyProject.DoSport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04D40A3C2533DC7700DEB14B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F9K6TF7ASC;
+				INFOPLIST_FILE = DoSport/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = StudyProject.DoSport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04D40A212533DC7600DEB14B /* Build configuration list for PBXProject "DoSport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D40A382533DC7700DEB14B /* Debug */,
+				04D40A392533DC7700DEB14B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04D40A3A2533DC7700DEB14B /* Build configuration list for PBXNativeTarget "DoSport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D40A3B2533DC7700DEB14B /* Debug */,
+				04D40A3C2533DC7700DEB14B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04D40A1E2533DC7600DEB14B /* Project object */;
+}
