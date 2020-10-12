@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageViewController: UIViewController {
+final class PageViewController: UIViewController {
 
     // MARK: - Properties
     var pages: [PageModel] = [
@@ -84,7 +84,7 @@ class PageViewController: UIViewController {
 
     @objc private func handleDismiss() {
         let controller = MapViewController()
-        present(controller, animated: true, completion: nil)
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - Helpers functions

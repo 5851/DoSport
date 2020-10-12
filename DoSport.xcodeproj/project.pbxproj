@@ -24,6 +24,9 @@
 		04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */; };
 		04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A6325342B4200DEB14B /* PageViewCell.swift */; };
 		04D40A662534586700DEB14B /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A652534586700DEB14B /* PageModel.swift */; };
+		04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A682534945200DEB14B /* CustomPopAnimator.swift */; };
+		04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A692534945200DEB14B /* CustomPushAnimator.swift */; };
+		04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A6A2534945200DEB14B /* CustomNavigationController.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		04D40A6325342B4200DEB14B /* PageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewCell.swift; sourceTree = "<group>"; };
 		04D40A652534586700DEB14B /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
+		04D40A682534945200DEB14B /* CustomPopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		04D40A692534945200DEB14B /* CustomPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		04D40A6A2534945200DEB14B /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		04D40A3E2533DC8B00DEB14B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04D40A672534943C00DEB14B /* Navigation */,
 				04D40A3F2533DCA800DEB14B /* Extensions */,
 				04D40A402533DCBA00DEB14B /* Font */,
 			);
@@ -193,6 +200,16 @@
 				04D40A652534586700DEB14B /* PageModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		04D40A672534943C00DEB14B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A6A2534945200DEB14B /* CustomNavigationController.swift */,
+				04D40A682534945200DEB14B /* CustomPopAnimator.swift */,
+				04D40A692534945200DEB14B /* CustomPushAnimator.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		B1BE418ACEE0449E5909D0B0 /* Frameworks */ = {
@@ -368,9 +385,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
+				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
+				04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */,
 				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,

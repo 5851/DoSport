@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
 
     // MARK: - Outlets
     private let loginLabel: UILabel = {
@@ -37,6 +37,7 @@ class StartViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         setupUI()
         setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: .white)
     }
@@ -44,8 +45,7 @@ class StartViewController: UIViewController {
     // MARK: - Actions
     @objc private func handleStart(sender: UIButton) {
         let controller = PageViewController()
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true, completion: nil)
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - Helpers function
