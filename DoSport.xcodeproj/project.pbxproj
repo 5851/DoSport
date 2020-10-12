@@ -22,6 +22,8 @@
 		04D40A582533E4F200DEB14B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A572533E4F200DEB14B /* Montserrat-Bold.ttf */; };
 		04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */; };
 		04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */; };
+		04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A6325342B4200DEB14B /* PageViewCell.swift */; };
+		04D40A662534586700DEB14B /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A652534586700DEB14B /* PageModel.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		04D40A572533E4F200DEB14B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		04D40A6325342B4200DEB14B /* PageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewCell.swift; sourceTree = "<group>"; };
+		04D40A652534586700DEB14B /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		04D40A592533E5D600DEB14B /* PageController */ = {
 			isa = PBXGroup;
 			children = (
+				04D40A6225342B2600DEB14B /* Cell */,
 				04D40A512533E17D00DEB14B /* PageViewController.swift */,
 			);
 			path = PageController;
@@ -179,6 +184,15 @@
 				04D40A502533E17D00DEB14B /* MapViewController.swift */,
 			);
 			path = MapController;
+			sourceTree = "<group>";
+		};
+		04D40A6225342B2600DEB14B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04D40A6325342B4200DEB14B /* PageViewCell.swift */,
+				04D40A652534586700DEB14B /* PageModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B1BE418ACEE0449E5909D0B0 /* Frameworks */ = {
@@ -359,6 +373,8 @@
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
 				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
+				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
+				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
 			);

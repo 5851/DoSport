@@ -10,75 +10,185 @@ import UIKit
 
 class PageViewController: UIViewController {
 
-    // MARK: - Outlets
-    var myControllers = [UIViewController]()
+    // MARK: - Properties
+    var pages: [PageModel] = [
+        PageModel(imageName: "map", textDescription: "Находи на карте города стадион, площадку, поле.Делись локацией с друзьями"),
+        PageModel(imageName: "man", textDescription: "Cоздавай свой круг по интересам и общайся в чате "),
+        PageModel(imageName: "map", textDescription: "Находи на карте города стадион, площадку, поле.Делись локацией с друзьями"),
+        PageModel(imageName: "man", textDescription: "Cоздавай свой круг по интересам и общайся в чате")
+    ]
 
-    // MARK: - View lifecycles
+    // MARK: - Outlets
+    var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("PREV", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.gray, for: .normal)
+        button.addTarget(self, action: #selector(handlePrevious), for: .touchUpInside)
+        return button
+    }()
+
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("NEXT", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = pages.count
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
+        return pageControl
+    }()
+
+    private let dismissButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Пропустить", for: .normal)
+        button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .white
-
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
-        myControllers.append(viewController)
-
-        let viewController1 = UIViewController()
-        viewController1.view.backgroundColor = .green
-        myControllers.append(viewController1)
+        configureCollectionView()
+        setupUI()
+        setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
+        setupBottomControls()
+        setupDismissButton()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presentPageVC()
+    // MARK: - Actions
+    @objc private func handleNext() {
+        let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
-    func presentPageVC() {
-        guard let first = myControllers.first else {
-            return
-        }
-        let pageVC = UIPageViewController(transitionStyle: .scroll,
-                                                  navigationOrientation: .horizontal,
-                                                  options: nil)
-        pageVC.delegate = self
-        pageVC.dataSource = self
-        pageVC.setViewControllers([first],
-                              direction: .forward,
-                              animated: true,
-                              completion: nil)
-        pageVC.modalPresentationStyle = .fullScreen
-        present(pageVC, animated: true)
+    @objc private func handlePrevious() {
+        let nextIndex = min(pageControl.currentPage - 1, 0)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+
+    @objc private func handleDismiss() {
+        let controller = MapViewController()
+        present(controller, animated: true, completion: nil)
+    }
+
+    // MARK: - Helpers functions
+    private func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 
-// MARK: - UIPageViewControllerDelegate, UIPageViewControllerDataSource
-extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension PageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = myControllers.firstIndex(of: viewController), index > 0 else {
-            return nil
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pages.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PageViewCell.reuseId,
+            for: indexPath) as? PageViewCell else {
+            return UICollectionViewCell()
         }
-        let before = index - 1
 
-        return myControllers[before]
+        let page = pages[indexPath.row]
+        cell.page = page
+
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = myControllers.firstIndex(of: viewController), index < (myControllers.count - 1) else {
-            return nil
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let xCoord = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(xCoord / view.frame.width)
+    }
+}
+
+// MARK: - SetupUI
+extension PageViewController {
+
+    private func configureCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+
+        collectionView.register(PageViewCell.self, forCellWithReuseIdentifier: PageViewCell.reuseId)
+    }
+
+    private func setupUI() {
+        view.addSubview(collectionView)
+
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
         }
-        let after = index + 1
-
-        return myControllers[after]
     }
 
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return self.myControllers.count
+    private func setupDismissButton() {
+        view.addSubview(dismissButton)
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dismissButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+        ])
     }
 
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return self.currentIndex
-//    }
+    private func setupBottomControls() {
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [
+            previousButton, pageControl, nextButton
+        ])
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
+
+        view.addSubview(bottomControlsStackView)
+
+        NSLayoutConstraint.activate([
+            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
 }
