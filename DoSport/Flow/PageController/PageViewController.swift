@@ -60,7 +60,7 @@ final class PageViewController: UIViewController {
 
     // MARK: - Actions
     @objc private func handleDismiss() {
-        let controller = MapViewController()
+        let controller = LoginViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
 
