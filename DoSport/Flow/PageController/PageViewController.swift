@@ -10,6 +10,9 @@ import UIKit
 
 final class PageViewController: UIViewController {
 
+    // MARK: - Dependency
+    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
+
     // MARK: - Properties
     var pages: [PageModel] = [
         PageModel(imageName: "map", textDescription: "Находи на карте города стадион, площадку, поле.Делись локацией с друзьями"),
@@ -65,6 +68,11 @@ final class PageViewController: UIViewController {
         setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
         setupBottomControls()
         setupDismissButton()
+
+        // Тестовое
+        authService.registerUser(user: UserFullInform(login: "111", password: "111")) { item in
+            print(item)
+        }
     }
 
     // MARK: - Actions
