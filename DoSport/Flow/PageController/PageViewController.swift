@@ -23,38 +23,21 @@ final class PageViewController: UIViewController {
 
     // MARK: - Outlets
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private let previousButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("PREV", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.gray, for: .normal)
-        button.addTarget(self, action: #selector(handlePrevious), for: .touchUpInside)
-        return button
-    }()
-
-    private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("NEXT", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.red, for: .normal)
-        button.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
-        return button
-    }()
 
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.numberOfPages = pages.count
-        pageControl.currentPageIndicatorTintColor = .red
-        pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1)
+        pageControl.pageIndicatorTintColor = .white
         return pageControl
     }()
 
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Пропустить", for: .normal)
+        button.setImage(UIImage(systemName: "xmark")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         return button
@@ -71,25 +54,11 @@ final class PageViewController: UIViewController {
 
         // Тестовое
         authService.registerUser(user: UserFullInform(login: "111", password: "111")) { item in
-            print(item)
+            print(item ?? "")
         }
     }
 
     // MARK: - Actions
-    @objc private func handleNext() {
-        let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
-        pageControl.currentPage = nextIndex
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
-
-    @objc private func handlePrevious() {
-        let nextIndex = min(pageControl.currentPage - 1, 0)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
-        pageControl.currentPage = nextIndex
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
-
     @objc private func handleDismiss() {
         let controller = MapViewController()
         navigationController?.pushViewController(controller, animated: true)
@@ -168,7 +137,6 @@ extension PageViewController {
 
     private func setupUI() {
         view.addSubview(collectionView)
-
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
@@ -176,27 +144,29 @@ extension PageViewController {
 
     private func setupDismissButton() {
         view.addSubview(dismissButton)
-        dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dismissButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
-        ])
+        dismissButton.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            make.trailing.equalTo(view).offset(-30)
+            make.width.equalTo(145)
+        }
+        dismissButton.imageView?.snp.makeConstraints({ (make) in
+            make.trailing.equalTo(dismissButton)
+            make.centerY.equalTo(dismissButton)
+        })
     }
 
     private func setupBottomControls() {
         let bottomControlsStackView = UIStackView(arrangedSubviews: [
-            previousButton, pageControl, nextButton
+            pageControl
         ])
-        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
 
         view.addSubview(bottomControlsStackView)
-
-        NSLayoutConstraint.activate([
-            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        bottomControlsStackView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.leading.equalTo(view)
+            make.trailing.equalTo(view)
+            make.height.equalTo(50)
+        }
     }
 }
