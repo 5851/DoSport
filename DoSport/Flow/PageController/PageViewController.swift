@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
 final class PageViewController: UIViewController {
 
     // MARK: - Dependency
     private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
+    private let testRequest = RequestFactory()
 
     // MARK: - Properties
     var pages: [PageModel] = [
@@ -53,9 +54,21 @@ final class PageViewController: UIViewController {
         setupDismissButton()
 
         // Тестовое
-        authService.registerUser(user: UserFullInform(login: "111", password: "111")) { item in
-            print(item ?? "")
+        let auth = testRequest.makeAuthRequestFactory()
+        auth.login(userName: "admin", password: "admin") { response in
+            switch response.result {
+            case .success(let login):
+                let username = login.username
+                let token = login.token
+                print("response from server \(abs), token \(token)")
+            case .failure(let error):
+                print("Error discrubing \(error.localizedDescription)")
+                
+            }
         }
+//        authService.registerUser(user: UserFullInform(login: "admin", password: "admin")) { item in
+//            print("response from server \(item)")
+//        }
     }
 
     // MARK: - Actions
