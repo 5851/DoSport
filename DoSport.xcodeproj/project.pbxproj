@@ -37,6 +37,10 @@
 		04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8125349D9A00DEB14B /* Configuration.swift */; };
 		04D40A85253539F500DEB14B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A84253539F500DEB14B /* LoginViewController.swift */; };
 		04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8725353A6300DEB14B /* CustomTextField.swift */; };
+		CE76980B2535FA0D003D8344 /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76980A2535FA0D003D8344 /* AuthRequest.swift */; };
+		CE76980F2535FA7C003D8344 /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76980E2535FA7C003D8344 /* AbstractRequestFactory.swift */; };
+		CE7698132535FB10003D8344 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7698122535FB10003D8344 /* Responses.swift */; };
+		CE7698162535FF5A003D8344 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7698152535FF5A003D8344 /* RequestFactory.swift */; };
 		04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */; };
 		04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8E2535773500DEB14B /* CustomAuthLabel.swift */; };
 		04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A91253681F500DEB14B /* UILabel+Extensions.swift */; };
@@ -90,6 +94,10 @@
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
+		CE76980A2535FA0D003D8344 /* AuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
+		CE76980E2535FA7C003D8344 /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
+		CE7698122535FB10003D8344 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		CE7698152535FF5A003D8344 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +229,7 @@
 		04D40A5E2533E88A00DEB14B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE7698092535F863003D8344 /* Network2 */,
 				04D40A70253495E400DEB14B /* Network */,
 			);
 			path = Services;
@@ -334,6 +343,25 @@
 				0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE7698092535F863003D8344 /* Network2 */ = {
+			isa = PBXGroup;
+			children = (
+				CE7698112535FB03003D8344 /* ResponseEntity */,
+				CE76980A2535FA0D003D8344 /* AuthRequest.swift */,
+				CE7698152535FF5A003D8344 /* RequestFactory.swift */,
+				CE76980E2535FA7C003D8344 /* AbstractRequestFactory.swift */,
+			);
+			path = Network2;
+			sourceTree = "<group>";
+		};
+		CE7698112535FB03003D8344 /* ResponseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				CE7698122535FB10003D8344 /* Responses.swift */,
+			);
+			path = ResponseEntity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,7 +525,8 @@
 				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
-				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
+        04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
+        CE76980F2535FA7C003D8344 /* AbstractRequestFactory.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
 				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,
 				04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */,
@@ -506,19 +535,22 @@
 				04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */,
 				04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */,
 				04D40A73253495F900DEB14B /* AuthUser.swift in Sources */,
-				04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,
+        04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,
+        CE7698132535FB10003D8344 /* Responses.swift in Sources */,
 				04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */,
 				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
 				04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */,
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
-				04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
+        04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
+        CE7698162535FF5A003D8344 /* RequestFactory.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
 				04D40A7E25349C6A00DEB14B /* ErrorParser.swift in Sources */,
 				04D40A782534984E00DEB14B /* UserModel.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
+				CE76980B2535FA0D003D8344 /* AuthRequest.swift in Sources */,
 				04D40A7C25349BE200DEB14B /* NetworkService.swift in Sources */,
 				04D40A7A25349B7200DEB14B /* AuthService.swift in Sources */,
 			);
