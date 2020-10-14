@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LoginViewController: CommonSettingsViewController {
+final class LoginViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -90,6 +90,7 @@ final class LoginViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
+        setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
     }
 
     // MARK: - Actions
@@ -110,6 +111,17 @@ final class LoginViewController: CommonSettingsViewController {
         } else {
              sender.backgroundColor = UIColor.white
         }
+    }
+
+    // MARK: - Helpers functions
+    private func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

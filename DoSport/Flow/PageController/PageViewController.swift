@@ -8,8 +8,7 @@
 
 import UIKit
 import Alamofire
-
-final class PageViewController: CommonSettingsViewController {
+final class PageViewController: UIViewController {
 
     // MARK: - Dependency
     private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
@@ -50,6 +49,7 @@ final class PageViewController: CommonSettingsViewController {
         super.viewDidLoad()
         configureCollectionView()
         setupUI()
+        setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
         setupBottomControls()
         setupDismissButton()
 
@@ -75,6 +75,17 @@ final class PageViewController: CommonSettingsViewController {
     @objc private func handleDismiss() {
         let controller = LoginViewController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+
+    // MARK: - Helpers functions
+    private func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 
