@@ -37,6 +37,9 @@
 		04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8125349D9A00DEB14B /* Configuration.swift */; };
 		04D40A85253539F500DEB14B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A84253539F500DEB14B /* LoginViewController.swift */; };
 		04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8725353A6300DEB14B /* CustomTextField.swift */; };
+		04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */; };
+		04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A8E2535773500DEB14B /* CustomAuthLabel.swift */; };
+		04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A91253681F500DEB14B /* UILabel+Extensions.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		04D40A8125349D9A00DEB14B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		04D40A84253539F500DEB14B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04D40A8725353A6300DEB14B /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorderAuthView.swift; sourceTree = "<group>"; };
+		04D40A8E2535773500DEB14B /* CustomAuthLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAuthLabel.swift; sourceTree = "<group>"; };
+		04D40A91253681F500DEB14B /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 			children = (
 				04D40A5A2533E6B800DEB14B /* UIFont+Extensions.swift */,
 				04D40A602533E9BA00DEB14B /* UIButton+Extensions.swift */,
+				04D40A91253681F500DEB14B /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +284,8 @@
 		04D40A8625353A5C00DEB14B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04D40A8E2535773500DEB14B /* CustomAuthLabel.swift */,
+				04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */,
 				04D40A8725353A6300DEB14B /* CustomTextField.swift */,
 			);
 			path = View;
@@ -460,8 +469,11 @@
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
+				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,
+				04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */,
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
+				04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */,
 				04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */,
 				04D40A73253495F900DEB14B /* AuthUser.swift in Sources */,
 				04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */,

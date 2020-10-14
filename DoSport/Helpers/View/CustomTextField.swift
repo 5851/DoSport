@@ -14,6 +14,10 @@ class CustomTextField: UITextField {
         self.height = height
         self.fontSize = fontSize
         super.init(frame: .zero)
+        let placeholderString = NSAttributedString(
+            string: labelText,
+            attributes: [NSAttributedString.Key.font: UIFont.halantRegular(size: fontSize)])
+        self.attributedPlaceholder = placeholderString
         placeholder = labelText
         textColor = .gray
         backgroundColor = .white
@@ -21,8 +25,6 @@ class CustomTextField: UITextField {
         font = UIFont.halantRegular(size: fontSize)
         delegate = self
         borderStyle = .none
-//        let placeholderString = NSAttributedString(string: labelText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//        self.attributedPlaceholder = placeholderString
     }
 
     required init?(coder aDecoder: NSCoder) {

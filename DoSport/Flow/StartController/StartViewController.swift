@@ -29,7 +29,7 @@ final class StartViewController: UIViewController {
     }()
 
     private let startButton: UIButton = {
-        let button = UIButton(title: "Начать", isShadow: true)
+        let button = UIButton(title: "Начать", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), isShadow: true)
         button.addTarget(self, action: #selector(handleStart), for: .touchUpInside)
         return button
     }()
@@ -92,7 +92,7 @@ extension StartViewController {
         startButton.snp.makeConstraints { (make) in
             make.bottom.equalTo(view).offset(-40)
             make.centerX.equalTo(view)
-            make.width.equalTo(100)
+//            make.width.equalTo(100)
             make.height.equalTo(50)
         }
     }
