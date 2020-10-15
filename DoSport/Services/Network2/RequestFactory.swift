@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-  
+
     let sessionQueue = DispatchQueue.global(qos: .utility)
 
     func makeErrorParser() -> AbstractErrorParser {
