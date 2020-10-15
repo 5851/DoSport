@@ -30,3 +30,4 @@ class ErrorParser: AbstractErrorParser {
         return error
     }
 }
+

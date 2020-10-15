@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class PageViewController: CommonSettingsViewController {
 
@@ -61,7 +62,6 @@ final class PageViewController: CommonSettingsViewController {
                 print("response from server \(String(describing: abs)), token \(token)")
             case .failure(let error):
                 print("Error discrubing \(error.localizedDescription)")
-
             }
         }
     }
