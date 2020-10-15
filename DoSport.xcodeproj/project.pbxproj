@@ -386,7 +386,7 @@
 		CE7698112535FB03003D8344 /* ResponseEntity */ = {
 			isa = PBXGroup;
 			children = (
-				CE7698122535FB10003D8344 /* Responses.swift */,
+				04AB6DBD2537D24400D412AC /* Responses.swift */,
 			);
 			path = ResponseEntity;
 			sourceTree = "<group>";
