@@ -53,22 +53,17 @@ final class PageViewController: CommonSettingsViewController {
         setupBottomControls()
         setupDismissButton()
 
-        // Тестовое
         let auth = testRequest.makeAuthRequestFactory()
         auth.login(userName: "admin", password: "admin") { response in
             switch response.result {
             case .success(let login):
                 let username = login.username
                 let token = login.token
-                print("response from server \(abs), token \(token)")
+                print("response from server \(String(describing: abs)), token \(token)")
             case .failure(let error):
                 print("Error discrubing \(error.localizedDescription)")
-                
             }
         }
-//        authService.registerUser(user: UserFullInform(login: "admin", password: "admin")) { item in
-//            print("response from server \(item)")
-//        }
     }
 
     // MARK: - Actions
