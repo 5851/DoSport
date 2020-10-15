@@ -28,7 +28,7 @@ extension RequestRouter {
     }
 
     var encoding: RequestRouterEncoding {
-        return .url
+        return .json
     }
     func asURLRequest() throws -> URLRequest {
         var urlRequest = URLRequest(url: fullUrl)

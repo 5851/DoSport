@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AB6DBE2537D24400D412AC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBD2537D24400D412AC /* Responses.swift */; };
+		04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */; };
+		04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DC02537D24C00D412AC /* AuthRequest.swift */; };
+		04AB6DC42537D24C00D412AC /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DC12537D24C00D412AC /* RequestFactory.swift */; };
 		04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A292533DC7700DEB14B /* AppDelegate.swift */; };
 		04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A2B2533DC7700DEB14B /* SceneDelegate.swift */; };
 		04D40A332533DC7700DEB14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D40A322533DC7700DEB14B /* Assets.xcassets */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04AB6DBD2537D24400D412AC /* Responses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
+		04AB6DC02537D24C00D412AC /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
+		04AB6DC12537D24C00D412AC /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		04D40A262533DC7700DEB14B /* DoSport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoSport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D40A292533DC7700DEB14B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04D40A2B2533DC7700DEB14B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04AB6DBB2537D21D00D412AC /* Network2 */ = {
+			isa = PBXGroup;
+			children = (
+				04AB6DBC2537D22C00D412AC /* ResponseEntity */,
+				04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */,
+				04AB6DC02537D24C00D412AC /* AuthRequest.swift */,
+				04AB6DC12537D24C00D412AC /* RequestFactory.swift */,
+			);
+			path = Network2;
+			sourceTree = "<group>";
+		};
+		04AB6DBC2537D22C00D412AC /* ResponseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				04AB6DBD2537D24400D412AC /* Responses.swift */,
+			);
+			path = ResponseEntity;
+			sourceTree = "<group>";
+		};
 		04D40A1D2533DC7600DEB14B = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +248,7 @@
 		04D40A5E2533E88A00DEB14B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				04AB6DBB2537D21D00D412AC /* Network2 */,
 				04D40A70253495E400DEB14B /* Network */,
 			);
 			path = Services;
@@ -492,11 +520,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AB6DC42537D24C00D412AC /* RequestFactory.swift in Sources */,
+				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
 				04D40A85253539F500DEB14B /* LoginViewController.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
+				04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */,
 				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
+				04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */,
 				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
 				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserFullInform: Decodable {
+struct UserFullInform: Codable {
     let login: String?
     let password: String
 }
