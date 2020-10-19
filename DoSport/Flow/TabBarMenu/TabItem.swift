@@ -36,6 +36,6 @@ enum TabItem: String, CaseIterable {
     }
 
     var displayTitle: String {
-        return self.rawValue.capitalized(with: nil)
+        return self.rawValue
     }
 }

@@ -59,6 +59,7 @@ class CustomTabView: UIView {
         itemView.tag = 10
         itemView.translatesAutoresizingMaskIntoConstraints = false
         itemView.layer.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        itemView.clipsToBounds = true
 
         itemTitleLabel.text = item.displayTitle
         itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
@@ -84,11 +85,11 @@ class CustomTabView: UIView {
 
             itemIconView.heightAnchor.constraint(equalToConstant: 20),
             itemIconView.widthAnchor.constraint(equalToConstant: 20),
-            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 7),
+            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 4),
             itemIconView.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
             itemIconView.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
 
-            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: -5),
+            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 0),
             itemTitleLabel.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
             itemTitleLabel.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
             itemTitleLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)

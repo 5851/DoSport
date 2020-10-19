@@ -58,10 +58,12 @@ final class LoginViewController: CommonSettingsViewController {
 
     // Набор согласия на обработку персональных данных
     private let checkButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 15
+        let button = UIButton()
         button.addTarget(self, action: #selector(handleCheckTapped), for: .touchUpInside)
-        button.backgroundColor = .white
+        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
+        button.setImage(UIImage(
+            systemName: "circle.fill",
+            withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
         return button
     }()
     private let descriptionLabel: UILabel = {
@@ -107,7 +109,16 @@ final class LoginViewController: CommonSettingsViewController {
                 sender.transform = .identity
             })
         })
-        checkButton.backgroundColor = sender.isSelected ? .red : .white
+        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
+        if sender.isSelected {
+            checkButton.setImage(UIImage(
+                systemName: "checkmark.circle.fill",
+                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .selected)
+        } else {
+            checkButton.setImage(UIImage(
+                systemName: "circle.fill",
+                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
+        }
     }
 
     @objc func dismissController() {
