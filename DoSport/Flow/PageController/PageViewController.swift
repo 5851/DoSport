@@ -57,7 +57,7 @@ final class PageViewController: CommonSettingsViewController {
         auth.login(userName: "admin", password: "admin") { response in
             switch response.result {
             case .success(let login):
-                let username = login.username
+                _ = login.username
                 let token = login.token
                 print("response from server \(String(describing: abs)), token \(token)")
             case .failure(let error):
@@ -68,7 +68,7 @@ final class PageViewController: CommonSettingsViewController {
 
     // MARK: - Actions
     @objc private func handleDismiss() {
-        let controller = LoginViewController()
+        let controller = MainMenuTabController()
         navigationController?.pushViewController(controller, animated: true)
     }
 }
