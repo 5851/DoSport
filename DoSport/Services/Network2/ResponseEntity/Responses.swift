@@ -25,3 +25,8 @@ struct LoginResult: Codable {
 struct Role: Codable {
     let authority: String
 }
+
+struct Test: Codable {
+    let code: Int
+    let message: String
+}

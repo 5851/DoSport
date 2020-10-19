@@ -84,3 +84,48 @@ extension UIButton {
         })
     }
 }
+
+extension UIButton {
+
+    convenience init(titleProvider: String,
+                     heigth: CGFloat,
+                     width: CGFloat,
+                     fontSize: CGFloat,
+                     isShadow: Bool = false) {
+        self.init(type: .system)
+
+        setTitle(titleProvider, for: .normal)
+        titleLabel?.font = UIFont.halantRegular(size: fontSize)
+        layer.cornerRadius = heigth / 2
+        backgroundColor = #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1)
+        layer.masksToBounds = true
+
+        configureButton(width: width, height: heigth)
+
+        if isShadow {
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowRadius = 16
+            self.layer.shadowOffset = CGSize(width: 10, height: 10)
+        }
+    }
+
+    private func configureButton(width: CGFloat, height: CGFloat) {
+        snp.makeConstraints { (make) in
+            make.width.equalTo(width)
+            make.height.equalTo(height)
+        }
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 70)
+    }
+}
+
+class EditButton: UIButton {
+    convenience init(width: CGFloat, hight: CGFloat) {
+        self.init(type: .custom)
+//        backgroundColor = .white
+        setImage(#imageLiteral(resourceName: "edit_pen"), for: .normal)
+        self.snp.makeConstraints { (make) in
+            make.width.equalTo(width)
+            make.height.equalTo(hight)
+        }
+    }
+}

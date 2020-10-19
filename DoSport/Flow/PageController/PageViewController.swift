@@ -55,12 +55,14 @@ final class PageViewController: UIViewController {
 
         // Тестовое
         let auth = testRequest.makeAuthRequestFactory()
-        auth.login(userName: "admin", password: "admin") { response in
+        auth.login(userName: "123", password: "admin") { response in
             switch response.result {
             case .success(let login):
-                let username = login.username
-                let token = login.token
-                print("response from server \(abs), token \(token)")
+//                let username = login.username
+//                let token = login.token
+                let username = login.code
+                let token = login.message
+                print("response from server \(username), token \(token)")
             case .failure(let error):
                 print("Error discrubing \(error.localizedDescription)")
                 
