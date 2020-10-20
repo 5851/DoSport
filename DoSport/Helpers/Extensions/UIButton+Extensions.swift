@@ -98,7 +98,7 @@ extension UIButton {
         titleLabel?.font = UIFont.halantRegular(size: fontSize)
         layer.cornerRadius = heigth / 2
         backgroundColor = #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1)
-        layer.masksToBounds = true
+//        layer.masksToBounds = true
 
         configureButton(width: width, height: heigth)
 

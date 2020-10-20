@@ -140,8 +140,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     private let mySkillsButton: UIButton =  {
         let button = UIButton(titleProvider: "Виды спорта, \n уровень подготовки", heigth: 70, width: 245, fontSize: 17, isShadow: false)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.aligm
-        button.contentVerticalAlignment = .center
+        button.
         button.backgroundColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
         button.tintColor = .white
         button.titleLabel?.numberOfLines = 2
