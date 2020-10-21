@@ -18,7 +18,7 @@ enum TabItem: String, CaseIterable {
         case .mainMenu:
             return UINavigationController(rootViewController: MenuViewController())
         case .chat:
-            return UIViewController()
+            return RecoveryPasswordController()
         case .privatCabinet:
             return UIViewController()
         }

@@ -15,6 +15,8 @@
 		0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB35253D8367006011C1 /* MainMenuTabController.swift */; };
 		0474FB3B253E64F3006011C1 /* CustomPopupRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */; };
 		0474FB3D253FC35D006011C1 /* CustomPopuLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */; };
+		0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */; };
+		0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */; };
 		04AB6DBE2537D24400D412AC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBD2537D24400D412AC /* Responses.swift */; };
 		04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */; };
 		04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DC02537D24C00D412AC /* AuthRequest.swift */; };
@@ -68,6 +70,8 @@
 		0474FB35253D8367006011C1 /* MainMenuTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTabController.swift; sourceTree = "<group>"; };
 		0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupRegView.swift; sourceTree = "<group>"; };
 		0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopuLogoutView.swift; sourceTree = "<group>"; };
+		0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordController.swift; sourceTree = "<group>"; };
+		0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupLogoutController.swift; sourceTree = "<group>"; };
 		04AB6DBD2537D24400D412AC /* Responses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
 		04AB6DC02537D24C00D412AC /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -163,6 +167,15 @@
 			path = "Not use";
 			sourceTree = "<group>";
 		};
+		0474FB3E253FCFAF006011C1 /* RecoveryPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */,
+				0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */,
+			);
+			path = RecoveryPassword;
+			sourceTree = "<group>";
+		};
 		04AB6DBB2537D21D00D412AC /* Network2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +230,7 @@
 		04D40A3D2533DC7F00DEB14B /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				0474FB3E253FCFAF006011C1 /* RecoveryPassword */,
 				04D40A4F2533E16600DEB14B /* StartController */,
 				0474FB32253D834D006011C1 /* TabBarMenu */,
 				04D40A93253684F200DEB14B /* MenuViewController */,
@@ -379,8 +393,8 @@
 				04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */,
 				04D40A8725353A6300DEB14B /* CustomTextField.swift */,
 				0474FB28253BD52E006011C1 /* CustomSwitch.swift */,
-				0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */,
 				0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */,
+				0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +608,8 @@
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
 				04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */,
+				0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */,
+				0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */,
 				04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */,
 				04D40A73253495F900DEB14B /* AuthUser.swift in Sources */,
 				04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,

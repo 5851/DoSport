@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol CustomPopupRegViewDelegate: class {
+    func toRecoveryController()
+}
+
 class CustomPopupRegView: UIView {
+
+    // MARK: - Properties
+    weak var delegate: CustomPopupRegViewDelegate?
 
     // MARK: - Outlets
     private let backgroundView: UIView = {
@@ -49,6 +56,7 @@ class CustomPopupRegView: UIView {
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.halantRegular(size: 18)
+        button.addTarget(self, action: #selector(recoveryTapped), for: .touchUpInside)
         return button
     }()
     private let enterButon: UIButton = {
@@ -69,6 +77,10 @@ class CustomPopupRegView: UIView {
     }
 
     // MARK: - Actions
+    @objc func recoveryTapped() {
+        delegate?.toRecoveryController()
+    }
+
     @objc func animationOut() {
         UIView.animate(withDuration: 0.3,
                        delay: 0,

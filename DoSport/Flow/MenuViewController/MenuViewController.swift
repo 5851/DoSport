@@ -60,9 +60,21 @@ final class MenuViewController: CommonSettingsViewController {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 
+    var popupWindow: UIWindow?
+
     @objc private func handleLogout() {
-        view.addSubview(alertView)
-        alertView.animationIn()
+//        view.addSubview(alertView)
+//        alertView.animationIn()
+//        alertView.delegate = self
+        let controller = CustomPopupLogoutController()
+        controller.modalPresentationStyle = .custom
+        self.present(controller, animated: true, completion: nil)
+    }
+}
+
+extension MenuViewController: CustomPopupRegViewDelegate {
+    func toRecoveryController() {
+        navigationController?.pushViewController(RecoveryPasswordController(), animated: true)
     }
 }
 
