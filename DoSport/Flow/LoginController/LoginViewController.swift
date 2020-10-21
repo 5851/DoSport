@@ -10,6 +10,10 @@ import UIKit
 
 final class LoginViewController: CommonSettingsViewController {
 
+    // MARK: - Dependency
+    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
+    private let testRequest = RequestFactory()
+
     // MARK: - Outlets
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -93,6 +97,18 @@ final class LoginViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
+
+        let auth = testRequest.makeAuthRequestFactory()
+        auth.login(userName: "admin", password: "admin") { response in
+            switch response.result {
+            case .success(let login):
+                _ = login.username
+                let token = login.token
+                print("response from server \(String(describing: abs)), token \(token)")
+            case .failure(let error):
+                print("Error discrubing \(error.localizedDescription)")
+            }
+        }
     }
 
     // MARK: - Actions

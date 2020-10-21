@@ -12,15 +12,31 @@ extension UILabel {
 
     convenience init(title: String, height: CGFloat, fontSize: CGFloat) {
         self.init()
-        text = title
-        textAlignment = .center
-        numberOfLines = 0
-        textColor = .white
-        font = UIFont.halantRegular(size: fontSize)
-        layer.masksToBounds = true
-        heightAnchor.constraint(equalToConstant: height).isActive = true
-        layer.cornerRadius = height / 2
-        layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        layer.borderWidth = 2
+        self.text = title
+        self.textAlignment = .center
+        self.numberOfLines = 0
+        self.textColor = .white
+        self.font = UIFont.halantRegular(size: fontSize)
+        self.layer.masksToBounds = true
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
+        self.layer.cornerRadius = height / 2
+        self.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.layer.borderWidth = 2
+    }
+}
+
+extension UILabel {
+
+    convenience init(title: String,
+                     textAlignment: NSTextAlignment,
+                     textColor: UIColor,
+                     numberOfLines: Int,
+                     fontSize: CGFloat) {
+        self.init()
+        self.textAlignment = textAlignment
+        self.text = title
+        self.numberOfLines = numberOfLines
+        self.textColor = textColor
+        self.font = UIFont.halantRegular(size: fontSize)
     }
 }

@@ -14,6 +14,7 @@ final class MenuViewController: CommonSettingsViewController {
     private let forwardButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         return button
     }()
     private let logoImageView: UIImageView = {
@@ -44,6 +45,7 @@ final class MenuViewController: CommonSettingsViewController {
         "Любительские лиги", "Авторские туры",
         "Здоровое питание", "О нас"
     ]
+    let alertView = CustomPopupRegView()
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -56,6 +58,11 @@ final class MenuViewController: CommonSettingsViewController {
     // MARK: - Actions
     @objc private func handleRegistration() {
         navigationController?.pushViewController(LoginViewController(), animated: true)
+    }
+
+    @objc private func handleLogout() {
+        view.addSubview(alertView)
+        alertView.animationIn()
     }
 }
 

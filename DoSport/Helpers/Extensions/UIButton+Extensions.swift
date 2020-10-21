@@ -24,15 +24,17 @@ extension UIButton {
 
     convenience init(title: String,
                      background: UIColor,
-                     heigth: CGFloat,
+                     heigth: CGFloat? = nil,
                      width: CGFloat? = nil,
                      isShadow: Bool = false) {
         self.init(type: .system)
-
         self.setTitle(title, for: .normal)
-        self.layer.cornerRadius = heigth / 2
+        if let height = heigth {
+            self.layer.cornerRadius = height / 2
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
         backgroundColor = background
-        heightAnchor.constraint(equalToConstant: heigth).isActive = true
+
         setTitleColor(#colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), for: .normal)
         titleLabel?.font = UIFont.halantRegular(size: 18)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)

@@ -13,6 +13,8 @@
 		0474FB36253D8367006011C1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB33253D8367006011C1 /* TabItem.swift */; };
 		0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB34253D8367006011C1 /* CustomTabView.swift */; };
 		0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB35253D8367006011C1 /* MainMenuTabController.swift */; };
+		0474FB3B253E64F3006011C1 /* CustomPopupRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */; };
+		0474FB3D253FC35D006011C1 /* CustomPopuLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */; };
 		04AB6DBE2537D24400D412AC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBD2537D24400D412AC /* Responses.swift */; };
 		04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */; };
 		04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DC02537D24C00D412AC /* AuthRequest.swift */; };
@@ -64,6 +66,8 @@
 		0474FB33253D8367006011C1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		0474FB34253D8367006011C1 /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		0474FB35253D8367006011C1 /* MainMenuTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTabController.swift; sourceTree = "<group>"; };
+		0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupRegView.swift; sourceTree = "<group>"; };
+		0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopuLogoutView.swift; sourceTree = "<group>"; };
 		04AB6DBD2537D24400D412AC /* Responses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
 		04AB6DC02537D24C00D412AC /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 				04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */,
 				04D40A8725353A6300DEB14B /* CustomTextField.swift */,
 				0474FB28253BD52E006011C1 /* CustomSwitch.swift */,
+				0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */,
+				0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -599,7 +605,9 @@
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
 				04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
 				0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */,
+				0474FB3D253FC35D006011C1 /* CustomPopuLogoutView.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
+				0474FB3B253E64F3006011C1 /* CustomPopupRegView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
 				0474FB36253D8367006011C1 /* TabItem.swift in Sources */,
