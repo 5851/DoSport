@@ -5,24 +5,36 @@
 //  Created by MAC on 19.10.2020.
 //  Copyright © 2020 MAC. All rights reserved.
 //
-
 import UIKit
 
-class MainMenuTabController: UITabBarController {
+final class MainMenuTabController: UITabBarController, UINavigationControllerDelegate {
 
+    // MARK: - Outlets
+    let backGroundView: UIView = {
+        let view = UIView()
+        return view
+    }()
     var customTabBar: CustomTabView!
+
+    // MARK: - Properteis
     var tabBarHeight: CGFloat = 80.0
 
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadTabBar()
         delegate = self
     }
 
+    // MARK: - Setup custom tabbar
     private func loadTabBar() {
         let tabItems: [TabItem] = [.mainMenu, .chat, .privatCabinet]
         self.setupCustomTabBar(tabItems) { (controllers) in
             self.viewControllers = controllers
+            let navControllers = controllers[0] as? UINavigationController
+            let controller = navControllers?.viewControllers.first as? MenuViewController
+            controller?.delegate = self
+            controller?.alertView.delegate = self
         }
         self.selectedIndex = 0
     }
@@ -59,12 +71,34 @@ class MainMenuTabController: UITabBarController {
 
     func changeTab(tab: Int) {
         self.selectedIndex = tab
-        print("selected: \(self.selectedIndex) ")
-        print("controller: \(self.viewControllers![self.selectedIndex])")
     }
 }
 
-// Animation change viewControllers
+// MARK: - MenuViewControllerProtocol
+/// Добавление BackgroundView при работе с popupController'ом
+extension MainMenuTabController: MenuViewControllerProtocol {
+    func doBlackBackGroundColor() {
+        backGroundView.backgroundColor = .black
+        backGroundView.alpha = 0.2
+        backGroundView.layer.opacity = 0.7
+        self.view.addSubview(backGroundView)
+        backGroundView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+    }
+}
+
+// MARK: - CustomPopupLogoutControllerProtocol
+/// Удаление BackgroundView при работе с popupController'ом
+extension MainMenuTabController: CustomPopupLogoutControllerProtocol {
+    func dismissBackgroundView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.backGroundView.removeFromSuperview()
+        }
+    }
+}
+
+// MARK: - Animation change viewControllers
 extension MainMenuTabController: UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController,

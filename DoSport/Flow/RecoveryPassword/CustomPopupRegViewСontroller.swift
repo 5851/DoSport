@@ -8,19 +8,12 @@
 
 import UIKit
 
-protocol CustomPopupRegViewDelegate: class {
-    func toRecoveryController()
-}
-
-class CustomPopupRegView: UIView {
-
-    // MARK: - Properties
-    weak var delegate: CustomPopupRegViewDelegate?
+class CustomPopupRegViewСontroller: UIViewController {
 
     // MARK: - Outlets
     private let backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         view.alpha = 0.2
         view.layer.opacity = 0.7
         return view
@@ -65,64 +58,36 @@ class CustomPopupRegView: UIView {
     }()
 
     // MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         setupUI()
 
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animationOut)))
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: - Actions
-    @objc func recoveryTapped() {
-        delegate?.toRecoveryController()
-    }
-
     @objc func animationOut() {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseIn,
-                       animations: {
-            self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
-            self.alpha = 0
-        }, completion: { (complete) in
-            if complete {
-                self.removeFromSuperview()
-            }
-        })
+        self.dismiss(animated: true, completion: nil)
     }
 
-    func animationIn() {
-        self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
-        self.alpha = 0
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseIn,
-                       animations: {
-            self.containerView.transform = .identity
-            self.alpha = 1
-        })
+    @objc func recoveryTapped() {
+        let controller = RecoveryPasswordController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     // MARK: - Helpers
     private func setupUI() {
-        self.frame = UIScreen.main.bounds
-        addSubview(backgroundView)
+        self.view.frame = UIScreen.main.bounds
+        view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
+            make.edges.equalTo(view)
         }
-        addSubview(containerView)
+        view.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalTo(self)
-            make.width.equalTo(self).multipliedBy(0.8)
-            make.height.equalTo(self).multipliedBy(0.6)
+            make.centerX.centerY.equalTo(view)
+            make.width.equalTo(view).multipliedBy(0.8)
+            make.height.equalTo(view).multipliedBy(0.6)
         }
 
         containerView.addSubview(backButton)

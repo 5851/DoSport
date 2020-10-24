@@ -7,15 +7,18 @@
 //
 import UIKit
 
-class CustomPopupLogoutController: UIViewController {
+protocol CustomPopupLogoutControllerProtocol: class {
+    /// Функция для изменения цвета BackgroundView TabBarVC
+    func dismissBackgroundView()
+}
+
+// Экран выхода из личного кабинета
+final class CustomPopupLogoutController: UIViewController {
 
     // MARK: - Outlets
     private let backgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.alpha = 0.2
-        view.layer.opacity = 0.7
-        return view
+        let backGroundView = UIView()
+        return backGroundView
     }()
     private let containerView: UIView = {
         let view = UIView()
@@ -47,6 +50,9 @@ class CustomPopupLogoutController: UIViewController {
         return button
     }()
 
+    // MARK: - Properties
+    weak var delegate: CustomPopupLogoutControllerProtocol?
+
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,39 +62,14 @@ class CustomPopupLogoutController: UIViewController {
 
     // MARK: - Actions
     @objc func animationOut() {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseIn,
-                       animations: {
-                        self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
-            self.view.alpha = 0
-        }, completion: { (complete) in
-            if complete {
-                self.dismiss(animated: true, completion: nil)
-            }
-        })
+        self.dismiss(animated: true, completion: nil)
+        self.delegate?.dismissBackgroundView()
     }
+}
 
-    func animationIn() {
-        self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
-        self.view.alpha = 0
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseIn,
-                       animations: {
-            self.containerView.transform = .identity
-                        self.view.alpha = 1
-        })
-    }
-
-    // MARK: - Helpers
+// MARK: - SetupUI
+extension CustomPopupLogoutController {
     private func setupUI() {
-//        self.frame = UIScreen.main.bounds
-
         view.addSubview(backgroundView)
         backgroundView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)

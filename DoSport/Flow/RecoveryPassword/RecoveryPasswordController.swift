@@ -8,8 +8,10 @@
 
 import UIKit
 
-class RecoveryPasswordController: UIViewController {
+// Экран восстановления пароля
+final class RecoveryPasswordController: UIViewController {
 
+    // MARK: - Outlets
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -58,6 +60,7 @@ class RecoveryPasswordController: UIViewController {
     private let emailTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Адрес эл. почты")
     private let numberTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Код")
 
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

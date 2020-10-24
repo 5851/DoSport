@@ -10,9 +10,11 @@ import UIKit
 
 class CustomTabView: UIView {
 
+    // MARK: - Properties
     var itemTapped: ((_ tab: Int) -> Void)?
     var activeItem: Int = 0
 
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -50,6 +52,7 @@ class CustomTabView: UIView {
         self.activateTab(tab: 0)
     }
 
+    // MARK: - Setup UI tabitem
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView()
         let itemTitleLabel = UILabel()
@@ -100,6 +103,7 @@ class CustomTabView: UIView {
         return tabBarItem
     }
 
+    // MARK: - Actions
     @objc func handleTap(_ sender: UIGestureRecognizer) {
         self.switchTab(from: self.activeItem, too: sender.view!.tag)
     }

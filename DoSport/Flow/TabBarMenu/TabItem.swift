@@ -8,7 +8,10 @@
 
 import UIKit
 
+// Enum определяющий наименование и изображения иконок
+// Также определяет типы контроллеров
 enum TabItem: String, CaseIterable {
+
     case mainMenu = "Главное\nменю"
     case chat = "Чат"
     case privatCabinet = "Личный\nкабинет"
@@ -20,7 +23,7 @@ enum TabItem: String, CaseIterable {
         case .chat:
             return RecoveryPasswordController()
         case .privatCabinet:
-            return UIViewController()
+            return  UINavigationController(rootViewController: CustomPopupRegViewСontroller())
         }
     }
 

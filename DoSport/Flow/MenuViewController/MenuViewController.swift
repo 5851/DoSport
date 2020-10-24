@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MenuViewControllerProtocol: class {
+    /// Для изменения цвета backgoundView TabBarVC
+    func doBlackBackGroundColor()
+}
+
 final class MenuViewController: CommonSettingsViewController {
 
     // MARK: - Outlets
@@ -45,7 +50,8 @@ final class MenuViewController: CommonSettingsViewController {
         "Любительские лиги", "Авторские туры",
         "Здоровое питание", "О нас"
     ]
-    let alertView = CustomPopupRegView()
+    let alertView = CustomPopupLogoutController()
+    weak var delegate: MenuViewControllerProtocol?
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -60,22 +66,18 @@ final class MenuViewController: CommonSettingsViewController {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 
-    var popupWindow: UIWindow?
-
     @objc private func handleLogout() {
-//        view.addSubview(alertView)
-//        alertView.animationIn()
-//        alertView.delegate = self
-        let controller = CustomPopupLogoutController()
-        controller.modalPresentationStyle = .custom
-        self.present(controller, animated: true, completion: nil)
+        delegate?.doBlackBackGroundColor()
+        alertView.modalPresentationStyle = .custom
+        self.present(alertView, animated: true, completion: nil)
     }
 }
 
-extension MenuViewController: CustomPopupRegViewDelegate {
-    func toRecoveryController() {
-        navigationController?.pushViewController(RecoveryPasswordController(), animated: true)
-    }
+// MARK: - CustomPopupRegViewDelegate
+extension MenuViewController {
+//    func toRecoveryController() {
+//        navigationController?.pushViewController(RecoveryPasswordController(), animated: true)
+//    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -113,13 +115,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 0, bottom: 70, right: 0)
-    }
-}
-
-// MARK: - WarmodroidSwitchDelegate
-extension MenuViewController: CustomSwitchDelegate {
-    func didTapSwitch(isON: Bool) {
-        print(isON)
     }
 }
 

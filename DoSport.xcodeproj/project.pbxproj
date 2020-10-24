@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0474FB27253B0E58006011C1 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB26253B0E58006011C1 /* MainMenuViewController.swift */; };
 		0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB28253BD52E006011C1 /* CustomSwitch.swift */; };
-		0474FB2D253BE718006011C1 /* MainMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB2C253BE718006011C1 /* MainMenuCell.swift */; };
 		0474FB36253D8367006011C1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB33253D8367006011C1 /* TabItem.swift */; };
 		0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB34253D8367006011C1 /* CustomTabView.swift */; };
 		0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB35253D8367006011C1 /* MainMenuTabController.swift */; };
-		0474FB3B253E64F3006011C1 /* CustomPopupRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */; };
-		0474FB3D253FC35D006011C1 /* CustomPopuLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */; };
+		0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */; };
 		0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */; };
 		0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */; };
 		04AB6DBE2537D24400D412AC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBD2537D24400D412AC /* Responses.swift */; };
@@ -62,14 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0474FB26253B0E58006011C1 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		0474FB28253BD52E006011C1 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
-		0474FB2C253BE718006011C1 /* MainMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCell.swift; sourceTree = "<group>"; };
 		0474FB33253D8367006011C1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		0474FB34253D8367006011C1 /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		0474FB35253D8367006011C1 /* MainMenuTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTabController.swift; sourceTree = "<group>"; };
-		0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupRegView.swift; sourceTree = "<group>"; };
-		0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopuLogoutView.swift; sourceTree = "<group>"; };
+		0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomPopupRegViewСontroller.swift"; sourceTree = "<group>"; };
 		0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordController.swift; sourceTree = "<group>"; };
 		0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupLogoutController.swift; sourceTree = "<group>"; };
 		04AB6DBD2537D24400D412AC /* Responses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
@@ -132,23 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0474FB2A253BE6FF006011C1 /* MainMenu */ = {
-			isa = PBXGroup;
-			children = (
-				0474FB2B253BE70E006011C1 /* Cell */,
-				0474FB26253B0E58006011C1 /* MainMenuViewController.swift */,
-			);
-			path = MainMenu;
-			sourceTree = "<group>";
-		};
-		0474FB2B253BE70E006011C1 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				0474FB2C253BE718006011C1 /* MainMenuCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		0474FB32253D834D006011C1 /* TabBarMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,19 +136,12 @@
 			path = TabBarMenu;
 			sourceTree = "<group>";
 		};
-		0474FB39253DD147006011C1 /* Not use */ = {
-			isa = PBXGroup;
-			children = (
-				0474FB2A253BE6FF006011C1 /* MainMenu */,
-			);
-			path = "Not use";
-			sourceTree = "<group>";
-		};
 		0474FB3E253FCFAF006011C1 /* RecoveryPassword */ = {
 			isa = PBXGroup;
 			children = (
 				0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */,
 				0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */,
+				0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */,
 			);
 			path = RecoveryPassword;
 			sourceTree = "<group>";
@@ -222,7 +192,6 @@
 				04D40A5E2533E88A00DEB14B /* Services */,
 				04D40A3E2533DC8B00DEB14B /* Helpers */,
 				04D40A5C2533E84300DEB14B /* Resources */,
-				0474FB39253DD147006011C1 /* Not use */,
 			);
 			path = DoSport;
 			sourceTree = "<group>";
@@ -393,8 +362,6 @@
 				04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */,
 				04D40A8725353A6300DEB14B /* CustomTextField.swift */,
 				0474FB28253BD52E006011C1 /* CustomSwitch.swift */,
-				0474FB3C253FC35D006011C1 /* CustomPopuLogoutView.swift */,
-				0474FB3A253E64F3006011C1 /* CustomPopupRegView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,7 +569,6 @@
 				04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */,
 				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
-				0474FB2D253BE718006011C1 /* MainMenuCell.swift in Sources */,
 				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,
 				04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */,
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
@@ -615,15 +581,13 @@
 				04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,
 				04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */,
 				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
-				0474FB27253B0E58006011C1 /* MainMenuViewController.swift in Sources */,
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
 				04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */,
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
 				04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
 				0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */,
-				0474FB3D253FC35D006011C1 /* CustomPopuLogoutView.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
-				0474FB3B253E64F3006011C1 /* CustomPopupRegView.swift in Sources */,
+				0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
 				0474FB36253D8367006011C1 /* TabItem.swift in Sources */,
