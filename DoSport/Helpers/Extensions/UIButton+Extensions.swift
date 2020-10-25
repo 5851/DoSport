@@ -99,3 +99,77 @@ extension UIButton {
         })
     }
 }
+
+extension UIButton {
+
+    convenience init(titleProvider: String,
+                     heigth: CGFloat,
+                     width: CGFloat,
+                     fontSize: CGFloat,
+                     isShadow: Bool = false) {
+        self.init()
+
+        setTitle(titleProvider, for: .normal)
+        titleLabel?.font = UIFont.halantRegular(size: fontSize)
+        layer.cornerRadius = heigth / 2
+        backgroundColor = #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1)
+//        layer.masksToBounds = true
+
+        configureButton(width: width, height: heigth)
+
+        if isShadow {
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowRadius = 16
+            self.layer.shadowOffset = CGSize(width: 10, height: 10)
+        }
+    }
+
+    private func configureButton(width: CGFloat, height: CGFloat) {
+        snp.makeConstraints { (make) in
+            make.width.equalTo(width)
+            make.height.equalTo(height)
+        }
+    }
+}
+
+class EditButton: UIButton {
+    convenience init(width: CGFloat, hight: CGFloat) {
+        self.init(type: .custom)
+//        backgroundColor = .white
+        setImage(#imageLiteral(resourceName: "edit_pen"), for: .normal)
+        self.snp.makeConstraints { (make) in
+            make.width.equalTo(width)
+            make.height.equalTo(hight)
+        }
+    }
+}
+
+class ChangePasswordBtn : UIButton {
+    convenience init(titleProvider: String,
+                     heigth: CGFloat,
+                     width: CGFloat,
+                     fontSize: CGFloat) {
+        self.init()
+        
+        setTitle(titleProvider, for: .normal)
+        titleLabel?.font = UIFont.halantRegular(size: fontSize)
+        layer.cornerRadius = heigth / 2
+        backgroundColor = #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1)
+        configureButton(width: width, height: heigth)
+    }
+    private func configureButton(width: CGFloat, height: CGFloat) {
+        snp.makeConstraints { (make) in
+            make.width.equalTo(width)
+            make.height.equalTo(height)
+        }
+    }
+    override func draw(_ rect: CGRect) {
+        let arrowPath = UIBezierPath()
+        arrowPath.lineWidth = 3.0
+        arrowPath.move(to: CGPoint(x:bounds.maxX - bounds.maxY / 2,y: bounds.maxY))
+        arrowPath.addLine(to: CGPoint(x: bounds.maxX,y: bounds.height / 2))
+        arrowPath.addLine(to: CGPoint(x: bounds.maxX - bounds.maxY / 2, y: bounds.minY))
+        UIColor.white.setStroke()
+        arrowPath.stroke()
+    }
+}
