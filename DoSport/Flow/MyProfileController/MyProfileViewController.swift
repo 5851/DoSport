@@ -41,9 +41,9 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         imageView.widthAnchor.constraint(equalToConstant: 67).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 67).isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
+    //MARK: - UITextFields
     private let nameTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Имя")
         textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
@@ -54,24 +54,6 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Фамилия")
         textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
         textField.isEnabled = false
-        return textField
-    }()
-    private let oldPasswordTextField: CustomTextField = {
-        let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Старый пароль")
-        return textField
-    }()
-    private let newPasswordTextField: CustomTextField = {
-        let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Новый пароль")
-        return textField
-    }()
-    private let infoNewPasswordTextField: CustomTextField = {
-        let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Вы можете изменить пароль")
-        textField.backgroundColor = .none
-        textField.isEnabled = false
-        return textField
-    }()
-    private let retypeNewPasswordTextField: CustomTextField = {
-        let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Введите новый пароль еще раз")
         return textField
     }()
     private let birthdayDateTextField: CustomTextField = {
@@ -106,12 +88,10 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     }()
     private let saveFullInfoButton: UIButton = {
         let button = UIButton(titleProvider: "Сохранить", heigth: 40, width: 132, fontSize: 18)
-        button.setTitle("Сохранить", for: .normal)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1), for: .normal)
         button.layer.borderWidth = 0
-//        button.titleLabel?.textAlignment = .center
-        button.contentHorizontalAlignment = .center
-        button.contentVerticalAlignment = .center
+        button.alpha = 0
         button.isHidden = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(saveFullInfoAction), for: .touchUpInside)
@@ -131,23 +111,24 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         button.layer.cornerRadius = 18
        return button
     }()
-    private let changePasswordButton: UIButton = {
-        let button = UIButton(title: "Вы можете сменить пароль", background: .red)
+    private let changePasswordButton: ChangePasswordBtn = {
+        let button = ChangePasswordBtn(titleProvider: "Вы можете сменить пароль", heigth: 23, width: 253, fontSize: 18)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         button.backgroundColor = .none
+        button.addTarget(self, action: #selector(changePasswordAction), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
     private let mySkillsButton: UIButton =  {
-        let button = UIButton(titleProvider: "Виды спорта, \n уровень подготовки", heigth: 70, width: 245, fontSize: 17, isShadow: false)
+        let button = UIButton(titleProvider: "Виды спорта, \n уровень подготовки", heigth: 70, width: 245, fontSize: 18, isShadow: false)
         button.titleLabel?.textAlignment = .center
-        button.
         button.backgroundColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
         button.tintColor = .white
         button.titleLabel?.numberOfLines = 2
         return button
     }()
     private let myTimingButton: UIButton =  {
-        let button = UIButton(titleProvider: "Моё расписание", heigth: 70, width: 245, fontSize: 17, isShadow: false)
+        let button = UIButton(titleProvider: "Моё расписание", heigth: 70, width: 245, fontSize: 18, isShadow: false)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
         button.tintColor = .white
@@ -155,7 +136,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         return button
     }()
     private let myRoomsButton: UIButton =  {
-        let button = UIButton(titleProvider: "Мои площадки, залы \n и тренировки", heigth: 70, width: 245, fontSize: 17, isShadow: false)
+        let button = UIButton(titleProvider: "Мои площадки, залы \n и тренировки", heigth: 70, width: 245, fontSize: 18, isShadow: false)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
         button.tintColor = .white
@@ -167,7 +148,6 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         let textField = UILabel(title: "Внести изменения", height: 22, fontSize: 14)
         textField.layer.borderWidth = 0
         textField.clipsToBounds = true
-//        textField.adjustsFontSizeToFitWidth = true
         return textField
     }()
     private let genderLabel: UILabel = {
@@ -217,6 +197,15 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         birthdayDateTextField.inputAccessoryView = toolBar
         birthdayDateTextField.inputView = datePicker
     }
+    private func createOverlay(frame: CGRect) {
+        let overlayView = UIView(frame: frame)
+        let maskLayer = CAShapeLayer()
+        maskLayer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
+            maskLayer.fillRule = .evenOdd
+        overlayView.layer.mask = maskLayer
+            overlayView.clipsToBounds = true
+        view.addSubview(overlayView)
+    }
     // MARK: - Actions
     @objc func confirmButtonTapped(sender: UIButton) {
         UIView.animate(withDuration: 0.2, animations: {
@@ -242,9 +231,8 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         self.birthdayDateTextField.endEditing(true)
     }
     @objc func editFullInfoAction() {
-        let textFieldsArray = [nameTextField,surnameTextField,aboutMeTextField,birthdayDateTextField]
-
-        let buttonsArray = [genderManButton,genderWomanButton]
+        let textFieldsArray = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
+        let buttonsArray = [genderManButton, genderWomanButton]
 
         UIView.animate(withDuration: 0.5) { [self] in
             self.editFullInfoButton.alpha = 0
@@ -253,6 +241,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             self.editFullInfoButton.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 self.saveFullInfoButton.isHidden = false
+                self.saveFullInfoButton.alpha = 1
             }
             buttonsArray.map {
                 $0.isEnabled = true
@@ -267,11 +256,11 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     
     @objc func saveFullInfoAction() {
         let textFieldsArray = [nameTextField,surnameTextField,aboutMeTextField,birthdayDateTextField]
-
         let buttonsArray = [genderManButton,genderWomanButton]
 
         UIView.animate(withDuration: 0.5) { [self] in
             self.saveFullInfoButton.isHidden = true
+            self.saveFullInfoButton.alpha = 0
             UIView.animate(withDuration: 0.5) {
                 self.editFullInfoButton.alpha = 1
                 self.editFullInfoLabel.alpha = 1
@@ -288,7 +277,16 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
+    @objc func changePasswordAction() {
+        let newView = ChangePasswordView(frame: CGRect(x: view.center.x - 150, y: view.center.y-220, width: 300, height: 445))
+        newView.alpha = 0
+        createOverlay(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        self.view.addSubview(newView)
+        UIView.animate(withDuration: 0.5) {
+            newView.alpha = 1
+        }
 
+    }
 
 // MARK: - UISettings
     private func configureUI() {
@@ -350,13 +348,17 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         }
         genderTypeStackView.axis = .horizontal
         genderTypeStackView.spacing = 40
-        genderTypeStackView.alignment = .leading
-        
-        let birthdayStackView = UIStackView(arrangedSubviews: [birthdayLabel, birthdayDateTextField])
+        genderTypeStackView.alignment = .center
+        let birthdayStackView = UIStackView(arrangedSubviews: [birthdayLabel, birthdayDateTextField, UIView()])
         birthdayStackView.axis = .horizontal
         birthdayStackView.spacing = 10
         birthdayStackView.alignment = .center
-        
+        birthdayLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(149)
+        }
+        birthdayDateTextField.snp.makeConstraints { (make) in
+            make.width.equalTo(135)
+        }
         let fullNameStackView = UIStackView(arrangedSubviews: [nameTextField,
                                                                surnameTextField,
                                                                genderTypeStackView,
@@ -364,6 +366,13 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
                                                                changePasswordButton])
         fullNameStackView.axis = .vertical
         fullNameStackView.spacing = 20
+        fullNameStackView.alignment = .leading
+        nameTextField.snp.makeConstraints { (make) in
+            make.width.equalTo(230)
+        }
+        surnameTextField.snp.makeConstraints { (make) in
+            make.width.equalTo(230)
+        }
         contentView.addSubview(fullNameStackView)
         fullNameStackView.snp.makeConstraints { (make) in
             make.top.equalTo(avatarAndEditButtonStackView.snp.bottom).offset(40)

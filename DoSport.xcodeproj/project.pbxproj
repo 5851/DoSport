@@ -45,6 +45,7 @@
 		CE7698132535FB10003D8344 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7698122535FB10003D8344 /* Responses.swift */; };
 		CE7698162535FF5A003D8344 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7698152535FF5A003D8344 /* RequestFactory.swift */; };
 		CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76982725370681003D8344 /* MyProfileViewController.swift */; };
+		CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		CE7698122535FB10003D8344 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		CE7698152535FF5A003D8344 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		CE76982725370681003D8344 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,8 +345,17 @@
 			isa = PBXGroup;
 			children = (
 				CE76982725370681003D8344 /* MyProfileViewController.swift */,
+				CEBBE73D254099CA002FFBEB /* ChangePassword */,
 			);
 			path = MyProfileController;
+			sourceTree = "<group>";
+		};
+		CEBBE73D254099CA002FFBEB /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +536,7 @@
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
 				CE7698162535FF5A003D8344 /* RequestFactory.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
+				CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
 				04D40A7E25349C6A00DEB14B /* ErrorParser.swift in Sources */,
