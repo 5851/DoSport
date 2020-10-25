@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class StartViewController: CommonSettingsViewController {
+// Стартовый экран после запуска приложения
+final class StartViewController: UIViewController {
 
     // MARK: - Outlets
     private let loginLabel: UILabel = {
@@ -29,7 +30,7 @@ final class StartViewController: CommonSettingsViewController {
     }()
 
     private let startButton: UIButton = {
-        let button = UIButton(title: "Начать", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), isShadow: true)
+        let button = UIButton(title: "Главное меню", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), heigth: 50, isShadow: true)
         button.addTarget(self, action: #selector(handleStart), for: .touchUpInside)
         return button
     }()

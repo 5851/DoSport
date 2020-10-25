@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB28253BD52E006011C1 /* CustomSwitch.swift */; };
+		0474FB36253D8367006011C1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB33253D8367006011C1 /* TabItem.swift */; };
+		0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB34253D8367006011C1 /* CustomTabView.swift */; };
+		0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB35253D8367006011C1 /* MainMenuTabController.swift */; };
+		0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */; };
+		0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */; };
+		0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */; };
 		04AB6DBE2537D24400D412AC /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBD2537D24400D412AC /* Responses.swift */; };
 		04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */; };
 		04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB6DC02537D24C00D412AC /* AuthRequest.swift */; };
@@ -61,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0474FB28253BD52E006011C1 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
+		0474FB33253D8367006011C1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		0474FB34253D8367006011C1 /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		0474FB35253D8367006011C1 /* MainMenuTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTabController.swift; sourceTree = "<group>"; };
+		0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomPopupRegViewСontroller.swift"; sourceTree = "<group>"; };
+		0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordController.swift; sourceTree = "<group>"; };
+		0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupLogoutController.swift; sourceTree = "<group>"; };
 		04AB6DBD2537D24400D412AC /* Responses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
 		04AB6DC02537D24C00D412AC /* AuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRequest.swift; sourceTree = "<group>"; };
@@ -129,6 +143,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0474FB32253D834D006011C1 /* TabBarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0474FB35253D8367006011C1 /* MainMenuTabController.swift */,
+				0474FB34253D8367006011C1 /* CustomTabView.swift */,
+				0474FB33253D8367006011C1 /* TabItem.swift */,
+			);
+			path = TabBarMenu;
+			sourceTree = "<group>";
+		};
+		0474FB3E253FCFAF006011C1 /* RecoveryPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0474FB3F253FD045006011C1 /* RecoveryPasswordController.swift */,
+				0474FB4125406B8E006011C1 /* CustomPopupLogoutController.swift */,
+				0474FB3A253E64F3006011C1 /* CustomPopupRegViewСontroller.swift */,
+			);
+			path = RecoveryPassword;
+			sourceTree = "<group>";
+		};
 		04AB6DBB2537D21D00D412AC /* Network2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,13 +216,13 @@
 		04D40A3D2533DC7F00DEB14B /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-
+				0474FB3E253FCFAF006011C1 /* RecoveryPassword */,
 				CE7698262537061F003D8344 /* MyProfileController */,
-
 				04D40A93253684F200DEB14B /* MainViewController */,
-
 				04D40A832535398300DEB14B /* LoginController */,
 				04D40A4F2533E16600DEB14B /* StartController */,
+				0474FB32253D834D006011C1 /* TabBarMenu */,
+				04D40A93253684F200DEB14B /* MenuViewController */,
 				04D40A592533E5D600DEB14B /* PageController */,
 				04D40A5F2533E89600DEB14B /* MapController */,
 				04D40A982536877B00DEB14B /* CommonViewController.swift */,
@@ -346,17 +380,18 @@
 				04D40A8E2535773500DEB14B /* CustomAuthLabel.swift */,
 				04D40A8D2535773500DEB14B /* CustomBorderAuthView.swift */,
 				04D40A8725353A6300DEB14B /* CustomTextField.swift */,
+				0474FB28253BD52E006011C1 /* CustomSwitch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		04D40A93253684F200DEB14B /* MainViewController */ = {
+		04D40A93253684F200DEB14B /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
 				04D40A9A25368C3500DEB14B /* Cell */,
 				04D40A962536869900DEB14B /* MenuViewController.swift */,
 			);
-			path = MainViewController;
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
 		04D40A9A25368C3500DEB14B /* Cell */ = {
@@ -562,6 +597,7 @@
 				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
 				04D40A85253539F500DEB14B /* LoginViewController.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
+				0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */,
 				04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */,
 				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
@@ -575,6 +611,8 @@
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
 				CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */,
 				04D40A8F2535773500DEB14B /* CustomBorderAuthView.swift in Sources */,
+				0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */,
+				0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */,
 				04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */,
 				04D40A73253495F900DEB14B /* AuthUser.swift in Sources */,
 				04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,
@@ -584,13 +622,17 @@
 				04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */,
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
 				04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
+				0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
+				0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */,
 				CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
+				0474FB36253D8367006011C1 /* TabItem.swift in Sources */,
 				04D40A7E25349C6A00DEB14B /* ErrorParser.swift in Sources */,
 				04D40A782534984E00DEB14B /* UserModel.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
+				0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */,
 				04D40A7C25349BE200DEB14B /* NetworkService.swift in Sources */,
 				04D40A7A25349B7200DEB14B /* AuthService.swift in Sources */,
 			);
@@ -660,7 +702,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -714,7 +756,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

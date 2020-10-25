@@ -11,10 +11,6 @@ import Alamofire
 
 final class PageViewController: CommonSettingsViewController {
 
-    // MARK: - Dependency
-    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
-    private let testRequest = RequestFactory()
-
     // MARK: - Properties
     var pages: [PageModel] = [
         PageModel(imageName: "map", textDescription: "Находи на карте города стадион, площадку, поле.Делись локацией с друзьями"),
@@ -52,25 +48,11 @@ final class PageViewController: CommonSettingsViewController {
         setupUI()
         setupBottomControls()
         setupDismissButton()
-
-        let auth = testRequest.makeAuthRequestFactory()
-        auth.login(userName: "123", password: "admin") { response in
-            switch response.result {
-            case .success(let login):
-//                let username = login.username
-//                let token = login.token
-                let username = login.code
-                let token = login.message
-                print("response from server \(username), token \(token)")
-            case .failure(let error):
-                print("Error discrubing \(error.localizedDescription)")
-            }
-        }
     }
 
     // MARK: - Actions
     @objc private func handleDismiss() {
-        let controller = LoginViewController()
+        let controller = MainMenuTabController()
         navigationController?.pushViewController(controller, animated: true)
     }
 }

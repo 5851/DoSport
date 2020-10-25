@@ -10,9 +10,27 @@ import UIKit
 
 final class LoginViewController: CommonSettingsViewController {
 
-    // MARK: - Outlets
+    // MARK: - Dependency
+    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
+    private let testRequest = RequestFactory()
 
-    // Набор лого картинки и гостевой вход
+    // MARK: - Outlets
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        return scrollView
+    }()
+    private let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        return button
+    }()
+    private let forwardButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        return button
+    }()
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "DoSport")
@@ -20,10 +38,19 @@ final class LoginViewController: CommonSettingsViewController {
         imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         return imageView
     }()
-    private let questButton: UIButton = {
-        let button = UIButton(title: "Гостевой вход", background: #colorLiteral(red: 0.319616586, green: 0.5028756261, blue: 1, alpha: 1), isShadow: true)
-        button.setTitleColor(.white, for: .normal)
-        return button
+    private let menuLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Регистрация"
+        label.font = UIFont.halantRegular(size: 24)
+        label.textColor = .white
+        return label
+    }()
+    private let repeatLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Введите пароль еще раз"
+        label.font = UIFont.halantRegular(size: 20)
+        label.textColor = .white
+        return label
     }()
 
     // Набор textField'o
@@ -31,13 +58,16 @@ final class LoginViewController: CommonSettingsViewController {
     private let surnameTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Фамилия")
     private let emailTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Адрес эл. почты")
     private let passwordTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Пароль")
+    private let repeatPasswordTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Пароль")
 
     // Набор согласия на обработку персональных данных
     private let checkButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 15
+        let button = UIButton()
         button.addTarget(self, action: #selector(handleCheckTapped), for: .touchUpInside)
-        button.backgroundColor = .white
+        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
+        button.setImage(UIImage(
+            systemName: "circle.fill",
+            withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
         return button
     }()
     private let descriptionLabel: UILabel = {
@@ -48,48 +78,37 @@ final class LoginViewController: CommonSettingsViewController {
     }()
 
     // Набор ИЛИ и линии
-    private let borderLabel: UILabel = {
-        let label = CustomAuthLabel(title: "ИЛИ", fontSize: 20, fontWeight: .medium, color: .white)
-        return label
-    }()
-    private let leftBorderView: UIView = {
-        let view = CustomBorderAuthView()
-        view.backgroundColor = .white
-        return view
-    }()
-
-    private let rigthBorderView: UIView = {
-        let view = CustomBorderAuthView()
-        view.backgroundColor = .white
-        return view
-    }()
+    private let borderLabel = CustomAuthLabel(title: "ИЛИ", fontSize: 20, fontWeight: .medium, color: .white)
+    private let leftBorderView = CustomBorderAuthView()
+    private let rigthBorderView = CustomBorderAuthView()
 
     // Набор кнопок регистрации
     private let registrationButton: UIButton = {
-        let button = UIButton(title: "Регистрация", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), isShadow: true)
+        let button = UIButton(title: "Регистрация", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), heigth: 50, isShadow: true)
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
         return button
     }()
-
-    private let providerVKontakteRegButton: UIButton = {
-        let button = UIButton(titleProvider: "login with Vkontakte", heigth: 50, width: 280, image: #imageLiteral(resourceName: "vk"), fontSize: 18)
-        return button
-    }()
-    private let providerGoogleRegButton: UIButton = {
-        let button = UIButton(titleProvider: "login with Google", heigth: 50, width: 280, image: #imageLiteral(resourceName: "google"), fontSize: 18)
-        button.setTitle("login with Google", for: .normal)
-        return button
-    }()
-    private let providerFacebookRegButton: UIButton = {
-        let button = UIButton(titleProvider: "login with Facebook", heigth: 50, width: 280, image: #imageLiteral(resourceName: "facebook"), fontSize: 18)
-        return button
-    }()
+    private let providerVKontakteRegButton = UIButton(titleProvider: "login with Vkontakte", heigth: 50, width: 280, image: #imageLiteral(resourceName: "vk"), fontSize: 18)
+    private let providerGoogleRegButton = UIButton(titleProvider: "login with Google", heigth: 50, width: 280, image: #imageLiteral(resourceName: "google"), fontSize: 18)
+    private let providerFacebookRegButton = UIButton(titleProvider: "login with Facebook", heigth: 50, width: 280, image: #imageLiteral(resourceName: "facebook"), fontSize: 18)
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
+
+        let auth = testRequest.makeAuthRequestFactory()
+        auth.login(userName: "admin", password: "admin") { response in
+            switch response.result {
+            case .success(let login):
+                _ = login.username
+                let token = login.token
+                print("response from server \(String(describing: abs)), token \(token)")
+            case .failure(let error):
+                print("Error discrubing \(error.localizedDescription)")
+            }
+        }
     }
 
     // MARK: - Actions
@@ -100,16 +119,26 @@ final class LoginViewController: CommonSettingsViewController {
     @objc private func handleCheckTapped(sender: UIButton) {
         UIView.animate(withDuration: 0.2, animations: {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.isSelected = !sender.isSelected
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 sender.transform = .identity
             })
         })
-        if sender.backgroundColor == UIColor.white {
-             sender.backgroundColor = UIColor.blue
+        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
+        if sender.isSelected {
+            checkButton.setImage(UIImage(
+                systemName: "checkmark.circle.fill",
+                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .selected)
         } else {
-             sender.backgroundColor = UIColor.white
+            checkButton.setImage(UIImage(
+                systemName: "circle.fill",
+                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
         }
+    }
+
+    @objc func dismissController() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -121,29 +150,65 @@ extension LoginViewController {
     }
 
     private func setupViews() {
-        //Расположение лого картинки и гостевой вход
-        let topStackView = UIStackView(arrangedSubviews: [
-            logoImageView, UIView(), questButton
+        // Расположение ScrollView
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+
+        // Расположение кнопок навигации
+        let buttonsStackView = UIStackView(arrangedSubviews: [
+            backButton, UIView(), forwardButton
         ])
-        view.addSubview(topStackView)
+        scrollView.addSubview(buttonsStackView)
+        buttonsStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(scrollView).offset(20)
+            make.trailing.equalTo(view).offset(-20)
+            make.leading.equalTo(view).offset(20)
+        }
+
+        // Расположение логотипа и label
+        let topStackView = UIStackView(arrangedSubviews: [
+            logoImageView, UIView(), menuLabel
+        ])
+        scrollView.addSubview(topStackView)
         topStackView.alignment = .center
         topStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.leading.equalTo(view).offset(20)
+            make.top.equalTo(buttonsStackView.snp.bottom).offset(20)
             make.trailing.equalTo(view).offset(-20)
+            make.leading.equalTo(view).offset(20)
+            make.height.equalTo(50)
         }
+
         // Расположение textfield'ов
         let textFieldStackView = UIStackView(arrangedSubviews: [
-            nameTextField, surnameTextField, emailTextField, passwordTextField
+            nameTextField,
+            surnameTextField,
+            emailTextField,
+            passwordTextField,
+            repeatLabel,
+            repeatPasswordTextField
         ])
         textFieldStackView.axis = .vertical
-        view.addSubview(textFieldStackView)
-        textFieldStackView.spacing = 15
+        scrollView.addSubview(textFieldStackView)
+        textFieldStackView.spacing = 20
         textFieldStackView.snp.makeConstraints { (make) in
             make.top.equalTo(topStackView.snp.bottom).offset(20)
-            make.leading.equalTo(view).offset(40)
-            make.trailing.equalTo(view).offset(-40)
+            make.leading.equalTo(view).offset(60)
+            make.trailing.equalTo(view).offset(-60)
         }
+
+        scrollView.addSubview(repeatLabel)
+        scrollView.addSubview(repeatPasswordTextField)
+        repeatLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(textFieldStackView.snp.bottom).offset(20)
+            make.leading.equalTo(textFieldStackView.snp.leading).offset(10)
+        }
+        repeatPasswordTextField.snp.makeConstraints { (make) in            make.top.equalTo(repeatLabel.snp.bottom).offset(10)
+            make.leading.equalTo(textFieldStackView.snp.leading)
+            make.trailing.equalTo(textFieldStackView.snp.trailing)
+        }
+
         // Расположение объектов согласия на обработку персональных данных
         checkButton.snp.makeConstraints { (make) in
             make.width.height.equalTo(30)
@@ -153,15 +218,15 @@ extension LoginViewController {
             checkButton, descriptionLabel
         ])
         centerStackView.spacing = 20
-        view.addSubview(centerStackView)
+        scrollView.addSubview(centerStackView)
         centerStackView.alignment = .center
         centerStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(textFieldStackView.snp.bottom).offset(30)
+            make.top.equalTo(repeatPasswordTextField.snp.bottom).offset(30)
             make.leading.equalTo(view).offset(20)
             make.trailing.equalTo(view).offset(-20)
         }
         // Расположение кнопки регистрации
-        view.addSubview(registrationButton)
+        scrollView.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { (make) in
             make.top.equalTo(centerStackView.snp.bottom).offset(30)
             make.width.equalTo(200)
@@ -174,7 +239,7 @@ extension LoginViewController {
         ])
         borderStackView.alignment = .center
         borderStackView.distribution = .fillEqually
-        view.addSubview(borderStackView)
+        scrollView.addSubview(borderStackView)
         borderStackView.snp.makeConstraints { (make) in
             make.top.equalTo(registrationButton.snp.bottom).offset(30)
             make.leading.equalTo(view).offset(30)
@@ -188,10 +253,11 @@ extension LoginViewController {
         ])
         registrationStackView.axis = .vertical
         registrationStackView.spacing = 20
-        view.addSubview(registrationStackView)
+        scrollView.addSubview(registrationStackView)
         registrationStackView.snp.makeConstraints { (make) in
             make.top.equalTo(borderStackView.snp.bottom).offset(30)
-            make.centerX.equalTo(view)
+            make.centerX.equalTo(scrollView)
+            make.bottom.equalTo(scrollView)
         }
     }
 }

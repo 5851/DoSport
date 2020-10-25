@@ -16,12 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-
-        window?.rootViewController = CustomNavigationController(rootViewController: MyProfileViewController())
-//        window?.rootViewController = CustomNavigationController(rootViewController: StartViewController())
-
-        window?.rootViewController = CustomNavigationController(rootViewController: PageViewController())
-
+        window?.rootViewController = CustomNavigationController(rootViewController: StartViewController())
         window?.makeKeyAndVisible()
     }
 
