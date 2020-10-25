@@ -56,9 +56,13 @@ final class MenuViewController: CommonSettingsViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
         configureCollectionView()
         setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - Actions
@@ -71,13 +75,6 @@ final class MenuViewController: CommonSettingsViewController {
         alertView.modalPresentationStyle = .custom
         self.present(alertView, animated: true, completion: nil)
     }
-}
-
-// MARK: - CustomPopupRegViewDelegate
-extension MenuViewController {
-//    func toRecoveryController() {
-//        navigationController?.pushViewController(RecoveryPasswordController(), animated: true)
-//    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -99,7 +96,13 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        switch indexPath.item {
+        case 0:
+            let controller = MapViewController()
+            navigationController?.pushViewController(controller, animated: true)
+        default:
+            print(indexPath.item)
+        }
     }
 }
 

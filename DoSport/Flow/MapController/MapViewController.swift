@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
 
         mapView.mapWindow.map.move(
             with: YMKCameraPosition(target: targetLocation, zoom: 10, azimuth: 0, tilt: 0),
-            animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 5),
+            animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 1),
             cameraCallback: nil)
     }
 }
@@ -35,8 +35,8 @@ class MapViewController: UIViewController {
 // MARK: - Setup UI
 extension MapViewController {
     private func setupUI() {
+        navigationController?.navigationBar.isHidden = false
         self.view.addSubview(mapView)
-        mapView.backgroundColor = .green
         mapView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }

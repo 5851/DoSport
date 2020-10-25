@@ -28,9 +28,9 @@ final class MenuViewCell: UICollectionViewCell {
         return view
     }()
 
-    override var isSelected: Bool {
+    override var isHighlighted: Bool {
         didSet {
-            viewCircle.backgroundColor = isSelected ? #colorLiteral(red: 0.2595242858, green: 0.4154637456, blue: 0.9985032678, alpha: 1) : #colorLiteral(red: 0.9865223765, green: 0.9866868854, blue: 0.9667844176, alpha: 1)
+            viewCircle.backgroundColor = isHighlighted ? #colorLiteral(red: 0.2595242858, green: 0.4154637456, blue: 0.9985032678, alpha: 1) : #colorLiteral(red: 0.9865223765, green: 0.9866868854, blue: 0.9667844176, alpha: 1)
         }
     }
 
