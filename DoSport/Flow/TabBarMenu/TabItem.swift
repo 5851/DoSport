@@ -23,7 +23,7 @@ enum TabItem: String, CaseIterable {
         case .chat:
             return RecoveryPasswordController()
         case .privatCabinet:
-            return  UINavigationController(rootViewController: CustomPopupRegViewСontroller())
+            return  MyProfileViewController()
         }
     }
 
