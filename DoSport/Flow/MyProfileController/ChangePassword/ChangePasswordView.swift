@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class ChangePasswordView: UIView {
-    
-    //MARK: - OUTLETS
+
+    // MARK: - OUTLETS
     private let oldPasswordTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 18, labelText: "Старый пароль")
         return textField
@@ -50,13 +50,12 @@ class ChangePasswordView: UIView {
         self.frame = frame
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //MARK: - Actions
+    // MARK: - Actions
     @objc func saveFullInfoAction(sender: UIButton) {
-        
     }
     @objc func closeViewAction() {
         UIView.animate(withDuration: 0.5) {
@@ -64,7 +63,7 @@ class ChangePasswordView: UIView {
         }
         removeFromSuperview()
     }
-    //MARK: - SetupUI
+    // MARK: - SetupUI
     func setupUI() {
         addSubview(oldPasswordTextField)
         addSubview(newPasswordTextField)
@@ -105,7 +104,7 @@ class ChangePasswordView: UIView {
             make.height.equalTo(20)
         }
     }
-    //MARK: - HelpersFunctions
+    // MARK: - HelpersFunctions
     func drawCross() { // не используется
         let crossPath = UIBezierPath()
         let crossShapeLayer = CAShapeLayer()

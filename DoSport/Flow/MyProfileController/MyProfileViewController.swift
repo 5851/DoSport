@@ -43,7 +43,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    //MARK: - UITextFields
+    // MARK: - UITextFields
     private let nameTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Имя")
         textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
@@ -253,10 +253,10 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-    
+
     @objc func saveFullInfoAction() {
-        let textFieldsArray = [nameTextField,surnameTextField,aboutMeTextField,birthdayDateTextField]
-        let buttonsArray = [genderManButton,genderWomanButton]
+        let textFieldsArray = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
+        let buttonsArray = [genderManButton, genderWomanButton]
 
         UIView.animate(withDuration: 0.5) { [self] in
             self.saveFullInfoButton.isHidden = true
@@ -321,7 +321,8 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.width.equalTo(scrollView.snp.width)
             make.bottom.equalTo(scrollView.snp.bottom)
         }
-        let avatarAndEditButtonStackView = UIStackView(arrangedSubviews: [avatarImageView,editFullInfoLabel,editFullInfoButton,saveFullInfoButton])
+        let avatarAndEditButtonStackView = UIStackView(arrangedSubviews:
+            [avatarImageView, editFullInfoLabel, editFullInfoButton, saveFullInfoButton])
         avatarAndEditButtonStackView.axis = .horizontal
         avatarAndEditButtonStackView.alignment = .center
         avatarAndEditButtonStackView.spacing = 15
@@ -337,7 +338,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         }
 
         // MARK: - Расположение маленьких textfield'ов
-        let genderTypeStackView = UIStackView(arrangedSubviews: [genderLabel,genderManButton,genderWomanButton, UIView()])
+        let genderTypeStackView = UIStackView(arrangedSubviews: [genderLabel, genderManButton, genderWomanButton, UIView()])
         genderManButton.snp.makeConstraints { (make) in
             make.width.equalTo(36)
             make.height.equalTo(36)
@@ -379,12 +380,12 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.leading.equalTo(contentView.snp.leading).offset(40)
             make.trailing.equalTo(contentView.snp.trailing).offset(-40)
         }
-        let myButtonsStackView = UIStackView(arrangedSubviews: [mySkillsButton,myRoomsButton,myTimingButton])
+        let myButtonsStackView = UIStackView(arrangedSubviews: [mySkillsButton, myRoomsButton, myTimingButton])
         myButtonsStackView.alignment = .center
         myButtonsStackView.axis = .vertical
         myButtonsStackView.spacing = 28
-        
-        let bigTextFieldsStackView = UIStackView(arrangedSubviews: [aboutMeTextField,myButtonsStackView])
+
+        let bigTextFieldsStackView = UIStackView(arrangedSubviews: [aboutMeTextField, myButtonsStackView])
         bigTextFieldsStackView.axis = .vertical
         contentView.addSubview(bigTextFieldsStackView)
         bigTextFieldsStackView.spacing = 40
@@ -401,5 +402,5 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
 //            make.width.equalTo(28)
 //            make.trailing.equalTo(bigTextFieldsStackView.snp.trailing)
 //        }
-}
+    }
 }

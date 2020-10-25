@@ -97,18 +97,6 @@ final class LoginViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
-
-        let auth = testRequest.makeAuthRequestFactory()
-        auth.login(userName: "admin", password: "admin") { response in
-            switch response.result {
-            case .success(let login):
-                _ = login.username
-                let token = login.token
-                print("response from server \(String(describing: abs)), token \(token)")
-            case .failure(let error):
-                print("Error discrubing \(error.localizedDescription)")
-            }
-        }
     }
 
     // MARK: - Actions

@@ -144,13 +144,13 @@ class EditButton: UIButton {
     }
 }
 
-class ChangePasswordBtn : UIButton {
+class ChangePasswordBtn: UIButton {
     convenience init(titleProvider: String,
                      heigth: CGFloat,
                      width: CGFloat,
                      fontSize: CGFloat) {
         self.init()
-        
+
         setTitle(titleProvider, for: .normal)
         titleLabel?.font = UIFont.halantRegular(size: fontSize)
         layer.cornerRadius = heigth / 2
@@ -166,8 +166,8 @@ class ChangePasswordBtn : UIButton {
     override func draw(_ rect: CGRect) {
         let arrowPath = UIBezierPath()
         arrowPath.lineWidth = 3.0
-        arrowPath.move(to: CGPoint(x:bounds.maxX - bounds.maxY / 2,y: bounds.maxY))
-        arrowPath.addLine(to: CGPoint(x: bounds.maxX,y: bounds.height / 2))
+        arrowPath.move(to: CGPoint(x: bounds.maxX - bounds.maxY / 2, y: bounds.maxY))
+        arrowPath.addLine(to: CGPoint(x: bounds.maxX, y: bounds.height / 2))
         arrowPath.addLine(to: CGPoint(x: bounds.maxX - bounds.maxY / 2, y: bounds.minY))
         UIColor.white.setStroke()
         arrowPath.stroke()
