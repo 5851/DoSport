@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class StartViewController: UIViewController {
+final class StartViewController: CommonSettingsViewController {
 
     // MARK: - Outlets
     private let loginLabel: UILabel = {
@@ -39,7 +39,6 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
-        setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: .white)
     }
 
     // MARK: - Actions
@@ -53,16 +52,6 @@ final class StartViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: title, attributes: [.foregroundColor: UIColor.red])
         attributedString.append(.init(string: description, attributes: [.foregroundColor: UIColor.white]))
         return attributedString
-    }
-
-    private func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor, colorTop.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.locations = [0, 0.25, 1]
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

@@ -8,7 +8,8 @@
 
 import UIKit
 import Alamofire
-final class PageViewController: UIViewController {
+
+final class PageViewController: CommonSettingsViewController {
 
     // MARK: - Dependency
     private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
@@ -49,11 +50,9 @@ final class PageViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         setupUI()
-        setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
         setupBottomControls()
         setupDismissButton()
 
-        // Тестовое
         let auth = testRequest.makeAuthRequestFactory()
         auth.login(userName: "123", password: "admin") { response in
             switch response.result {
@@ -65,29 +64,14 @@ final class PageViewController: UIViewController {
                 print("response from server \(username), token \(token)")
             case .failure(let error):
                 print("Error discrubing \(error.localizedDescription)")
-                
             }
         }
-//        authService.registerUser(user: UserFullInform(login: "admin", password: "admin")) { item in
-//            print("response from server \(item)")
-//        }
     }
 
     // MARK: - Actions
     @objc private func handleDismiss() {
         let controller = LoginViewController()
         navigationController?.pushViewController(controller, animated: true)
-    }
-
-    // MARK: - Helpers functions
-    private func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.locations = [0, 1]
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 
