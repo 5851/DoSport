@@ -146,7 +146,7 @@ extension LoginViewController {
 
         // Расположение кнопок навигации
         let buttonsStackView = UIStackView(arrangedSubviews: [
-            backButton, UIView(), forwardButton
+            backButton, UIView()
         ])
         scrollView.addSubview(buttonsStackView)
         buttonsStackView.snp.makeConstraints { (make) in

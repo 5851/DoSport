@@ -46,30 +46,31 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - UITextFields
     private let nameTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Имя")
-        textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
-        textField.isEnabled = false
+        textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         return textField
     }()
     private let surnameTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 20, labelText: "Фамилия")
-        textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
-        textField.isEnabled = false
+        textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         return textField
     }()
     private let birthdayDateTextField: CustomTextField = {
        let textField = CustomTextField(cornerRadius: 20, height: 40, fontSize: 19, labelText: "__.__.____")
         textField.textAlignment = .center
         textField.sizeToFit()
-        textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
-        textField.isEnabled = false
+        textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         return textField
     }()
     private let aboutMeTextField: CustomTextField = {
         let textField = CustomTextField(cornerRadius: 20, height: 120, fontSize: 20, labelText: "О Себе")
         textField.contentVerticalAlignment = .fill
         textField.contentHorizontalAlignment = .fill
-        textField.backgroundColor = #colorLiteral(red: 0.8635390401, green: 0.8635593057, blue: 0.863548398, alpha: 1)
-        textField.isEnabled = false
+        textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         return textField
     }()
     // MARK: - UIButtons
@@ -100,14 +101,14 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     private let genderManButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "manGender"), for: .normal)
-        button.layer.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.831372549, blue: 0.831372549, alpha: 1)
+        button.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 18
        return button
     }()
     private let genderWomanButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "womanGender"), for: .normal)
-        button.layer.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.831372549, blue: 0.831372549, alpha: 1)
+        button.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 18
        return button
     }()
@@ -267,20 +268,12 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
                 self.editFullInfoLabel.isHidden = false
                 self.editFullInfoButton.isHidden = false
             }
-            buttonsArray.map {
-                $0.isEnabled = false
-                $0.layer.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.831372549, blue: 0.831372549, alpha: 1)
-            }
-            textFieldsArray.map {
-                $0.isEnabled = false
-                $0.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.831372549, blue: 0.831372549, alpha: 1)
-            }
         }
     }
     @objc func changePasswordAction() {
         let newView = ChangePasswordView(frame: CGRect(x: view.center.x - 150, y: view.center.y-220, width: 300, height: 445))
         newView.alpha = 0
-        createOverlay(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+//        createOverlay(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
         self.view.addSubview(newView)
         UIView.animate(withDuration: 0.5) {
             newView.alpha = 1
@@ -312,7 +305,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.top.equalTo(topStackView.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
-            make.bottom.equalTo(view.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
 
         contentView.snp.makeConstraints { (make) in
@@ -322,14 +315,12 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.bottom.equalTo(scrollView.snp.bottom)
         }
         let avatarAndEditButtonStackView = UIStackView(arrangedSubviews:
-            [avatarImageView, editFullInfoLabel, editFullInfoButton, saveFullInfoButton])
+            [avatarImageView, UIView(), saveFullInfoButton])
         avatarAndEditButtonStackView.axis = .horizontal
         avatarAndEditButtonStackView.alignment = .center
         avatarAndEditButtonStackView.spacing = 15
         avatarAndEditButtonStackView.distribution = .equalCentering
-        editFullInfoLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(129)
-        }
+
         contentView.addSubview(avatarAndEditButtonStackView)
         avatarAndEditButtonStackView.snp.makeConstraints { (make) in
             make.top.equalTo(contentView.snp.top)
@@ -395,12 +386,15 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.trailing.equalTo(contentView.snp.trailing).offset(-40)
             make.bottom.equalTo(contentView.snp.bottom)
         }
-//        contentView.addSubview(confirmButton)
-//        confirmButton.snp.makeConstraints { (make) in
-//            make.top.equalTo(bigTextFieldsStackView.snp.bottom).offset(15)
-//            make.height.equalTo(28)
-//            make.width.equalTo(28)
-//            make.trailing.equalTo(bigTextFieldsStackView.snp.trailing)
-//        }
+    }
+}
+
+
+extension MyProfileViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5) { [self] in
+            self.saveFullInfoButton.isHidden = false
+            self.saveFullInfoButton.alpha = 1
+        }
     }
 }

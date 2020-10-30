@@ -46,9 +46,7 @@ final class MenuViewController: CommonSettingsViewController {
 
     // MARK: - Properties
     var namesCell: [String] = [
-        "Объекты на карте", "Аренда залов,\nплощадок", "Мои тренировки",
-        "Любительские лиги", "Авторские туры",
-        "Здоровое питание", "О нас"
+        "Объекты на карте", "Аренда залов,\nплощадок", "Мои тренировки"
     ]
     let alertView = CustomPopupLogoutController()
     weak var delegate: MenuViewControllerProtocol?
@@ -124,19 +122,13 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - SetupUI
 extension MenuViewController {
     private func setupUI() {
-        view.addSubview(forwardButton)
-        forwardButton.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
-            make.trailing.equalTo(view).offset(-20)
-            make.width.height.equalTo(25)
-        }
         let topStackView = UIStackView(arrangedSubviews: [
             logoImageView, UIView(), menuLabel
         ])
         view.addSubview(topStackView)
         topStackView.alignment = .center
         topStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(forwardButton.snp.bottom).offset(5)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
             make.trailing.equalTo(view).offset(-20)
             make.leading.equalTo(view).offset(20)
             make.height.equalTo(50)
