@@ -36,6 +36,8 @@ class MapViewController: UIViewController {
 extension MapViewController {
     private func setupUI() {
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        navigationController?.navigationBar.tintColor = .white
         self.view.addSubview(mapView)
         mapView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)

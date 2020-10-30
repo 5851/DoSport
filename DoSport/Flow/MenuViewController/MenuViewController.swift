@@ -46,9 +46,7 @@ final class MenuViewController: CommonSettingsViewController {
 
     // MARK: - Properties
     var namesCell: [String] = [
-        "Объекты на карте", "Аренда залов,\nплощадок", "Мои тренировки",
-        "Любительские лиги", "Авторские туры",
-        "Здоровое питание", "О нас"
+        "Объекты на карте", "Аренда залов,\nплощадок", "Мои тренировки"
     ]
     let alertView = CustomPopupLogoutController()
     weak var delegate: MenuViewControllerProtocol?
