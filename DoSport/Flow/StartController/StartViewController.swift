@@ -12,11 +12,12 @@ import UIKit
 final class StartViewController: UIViewController {
 
     // MARK: - Outlets
-    private let loginLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.montserratBold(size: 64)
-        return label
+    private let logoView: UIImageView = {
+        let logoView = UIImageView()
+        logoView.image = #imageLiteral(resourceName: "DoSport")
+//        label.textAlignment = .center
+//        label.font = UIFont.montserratBold(size: 64)
+        return logoView
     }()
 
     private let descriptionLabel: UILabel = {
@@ -61,20 +62,21 @@ extension StartViewController {
 
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1)
-        loginLabel.attributedText = generateAttributedString(title: "Do", description: "Sport")
+//        loginLabel.attributedText = generateAttributedString(title: "Do", description: "Sport")
 
-        view.addSubview(loginLabel)
+        view.addSubview(logoView)
         view.addSubview(startButton)
         view.addSubview(descriptionLabel)
 
-        loginLabel.snp.makeConstraints { (make) in
+        logoView.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(100)
-            make.left.equalTo(view).offset(20)
-            make.right.equalTo(view).offset(-20)
+            make.centerX.equalTo(view)
+            make.height.equalTo(59)
+            make.width.equalTo(283)
         }
 
         descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(loginLabel.snp.bottom).offset(30)
+            make.top.equalTo(logoView.snp.bottom).offset(30)
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
         }

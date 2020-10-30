@@ -55,7 +55,7 @@ class CustomTabView: UIView {
     // MARK: - Setup UI tabitem
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView()
-        let itemTitleLabel = UILabel()
+//        let itemTitleLabel = UILabel()
         let itemIconView = UIImageView()
         let itemView = UIView()
 
@@ -64,12 +64,12 @@ class CustomTabView: UIView {
         itemView.layer.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
         itemView.clipsToBounds = true
 
-        itemTitleLabel.text = item.displayTitle
-        itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
-        itemTitleLabel.textColor = .white
-        itemTitleLabel.textAlignment = .center
-        itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        itemTitleLabel.numberOfLines = 0
+//        itemTitleLabel.text = item.displayTitle
+//        itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
+//        itemTitleLabel.textColor = .white
+//        itemTitleLabel.textAlignment = .center
+//        itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        itemTitleLabel.numberOfLines = 0
 
         itemIconView.image = item.icon!.withRenderingMode(.automatic)
         itemIconView.contentMode = .scaleAspectFit
@@ -78,7 +78,7 @@ class CustomTabView: UIView {
 
         tabBarItem.addSubview(itemView)
         itemView.addSubview(itemIconView)
-        itemView.addSubview(itemTitleLabel)
+//        itemView.addSubview(itemTitleLabel)
 
         NSLayoutConstraint.activate([
             itemView.topAnchor.constraint(equalTo: tabBarItem.topAnchor),
@@ -86,16 +86,18 @@ class CustomTabView: UIView {
             itemView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor),
             itemView.trailingAnchor.constraint(equalTo: tabBarItem.trailingAnchor),
 
-            itemIconView.heightAnchor.constraint(equalToConstant: 20),
-            itemIconView.widthAnchor.constraint(equalToConstant: 20),
-            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 4),
-            itemIconView.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
-            itemIconView.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
+            itemIconView.heightAnchor.constraint(equalToConstant: 40),
+            itemIconView.widthAnchor.constraint(equalToConstant: 40),
+            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: -5),
+            itemIconView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor)
+//            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 4),
+//            itemIconView.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
+//            itemIconView.trailingAnchor.constraint(equalTo: itemView.trailingAnchor)
 
-            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 0),
-            itemTitleLabel.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
-            itemTitleLabel.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
-            itemTitleLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
+//            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 0),
+//            itemTitleLabel.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
+//            itemTitleLabel.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
+//            itemTitleLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
         ])
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
