@@ -13,12 +13,32 @@ import YandexMapsMobile
 class MapViewController: UIViewController {
 
     // MARK: - Outlets
-    let mapView: YMKMapView = {
+    private let mapView: YMKMapView = {
         let view = YMKMapView()
         return view
     }()
-    let targetLocation = YMKPoint(latitude: 59.945933, longitude: 30.320045)
-
+    private let targetLocation = YMKPoint(latitude: 59.945933, longitude: 30.320045)
+    private let pointButton: UIButton = {
+        let button = UIButton(title: "+   Выбрать точку", background: #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1), heigth: 50, width: 187, isShadow: false)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    private let detailsButton: UIButton = {
+        let button = UIButton(title: "+   Подробности", background: #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1), heigth: 50, width: 187, isShadow: false)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    private let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "backMap").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        return button
+    }()
+    private let forwardButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "forwardMap"), for: .normal)
+        return button
+    }()
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +50,57 @@ class MapViewController: UIViewController {
             animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 1),
             cameraCallback: nil)
     }
+
+    // MARK: - Actions
+    @objc private func dismissController() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Setup UI
 extension MapViewController {
+
     private func setupUI() {
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
         navigationController?.navigationBar.tintColor = .white
         self.view.addSubview(mapView)
         mapView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
+        }
+
+        setupButtons()
+    }
+
+    private func setupButtons() {
+
+        // Расположение кнопок управления
+        let stackView = UIStackView(arrangedSubviews: [
+            pointButton, detailsButton
+        ])
+        stackView.spacing = 20
+        stackView.axis = .vertical
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { (make) in
+            make.trailing.equalTo(view).offset(-30)
+            make.bottom.equalTo(view).offset(-110)
+        }
+
+        // Расположение кнопок навигации
+        backButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(36)
+        }
+        forwardButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(36)
+        }
+        let buttonsStackView = UIStackView(arrangedSubviews: [
+            backButton, UIView(), forwardButton
+        ])
+        view.addSubview(buttonsStackView)
+        buttonsStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view).offset(-20)
+            make.leading.equalTo(view).offset(20)
         }
     }
 }
