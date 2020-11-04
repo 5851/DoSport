@@ -40,10 +40,14 @@ class MapViewController: UIViewController {
         button.setBackgroundImage(#imageLiteral(resourceName: "forwardMap"), for: .normal)
         return button
     }()
-    private let menuView: UIView = {
+    private lazy var menuView: UIView = {
         let view = ButtomMenuView()
+        view.delegate = self
         return view
     }()
+
+    // MARK: - Properties
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -72,23 +76,29 @@ class MapViewController: UIViewController {
     }
 
     @objc private func showBottomMenu() {
-        showMenu()
-    }
-
-    // MARK: - Helpers function
-    private func showMenu() {
         UIView.animate(withDuration: 0.5) {
             self.menuView.transform = CGAffineTransform(translationX: 0, y: -260)
         }
     }
 }
 
+// MARK: - ButtomMenuViewDelegate
+extension MapViewController: ButtomMenuViewDelegate {
+    func launchSideMenu() {
+        let controller = SideMenuViewController()
+        controller.transitioningDelegate = slideInTransitioningDelegate
+        controller.modalPresentationStyle = .custom
+        slideInTransitioningDelegate.direction = .left
+        slideInTransitioningDelegate.disableCompactHeight = false
+        self.present(controller, animated: true, completion: nil)
+    }
+}
+
 // MARK: - Setup UI
 extension MapViewController {
     private func setupUI() {
+        // Настройка стартового экрана с картой
         navigationController?.navigationBar.isHidden = true
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
-        navigationController?.navigationBar.tintColor = .white
         self.view.addSubview(mapView)
         mapView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
@@ -97,6 +107,7 @@ extension MapViewController {
     }
 
     private func setupButtons() {
+        // Расположение кнопок стортового управленич (выбрать точку и подробности)
         let stackView = UIStackView(arrangedSubviews: [
             pointButton, detailsButton
         ])
@@ -107,7 +118,6 @@ extension MapViewController {
             make.trailing.equalTo(view).offset(-30)
             make.bottom.equalTo(view).offset(-110)
         }
-
         // Расположение кнопок навигации
         backButton.snp.makeConstraints { (make) in
             make.width.height.equalTo(36)
@@ -125,6 +135,7 @@ extension MapViewController {
             make.leading.equalTo(view).offset(20)
         }
 
+        // Расположение нижнего меню в стартом состоянии за пределами экрана
         view.addSubview(menuView)
         menuView.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview()

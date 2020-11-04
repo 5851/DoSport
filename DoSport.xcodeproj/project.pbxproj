@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		045EED042551B62E00B89F69 /* ButtomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EED032551B62E00B89F69 /* ButtomMenuView.swift */; };
+		045EED0E2552554C00B89F69 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EED0D2552554C00B89F69 /* SideMenuViewController.swift */; };
+		045EED1325525C3400B89F69 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EED1025525C3400B89F69 /* SlideInPresentationManager.swift */; };
+		045EED1425525C3400B89F69 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EED1125525C3400B89F69 /* SlideInPresentationController.swift */; };
+		045EED1525525C3400B89F69 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EED1225525C3400B89F69 /* SlideInPresentationAnimator.swift */; };
 		0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB28253BD52E006011C1 /* CustomSwitch.swift */; };
 		0474FB36253D8367006011C1 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB33253D8367006011C1 /* TabItem.swift */; };
 		0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474FB34253D8367006011C1 /* CustomTabView.swift */; };
@@ -63,6 +67,10 @@
 
 /* Begin PBXFileReference section */
 		045EED032551B62E00B89F69 /* ButtomMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomMenuView.swift; sourceTree = "<group>"; };
+		045EED0D2552554C00B89F69 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		045EED1025525C3400B89F69 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		045EED1125525C3400B89F69 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
+		045EED1225525C3400B89F69 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		0474FB28253BD52E006011C1 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0474FB33253D8367006011C1 /* TabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		0474FB34253D8367006011C1 /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
@@ -132,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045EED0F25525C2900B89F69 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				045EED1225525C3400B89F69 /* SlideInPresentationAnimator.swift */,
+				045EED1125525C3400B89F69 /* SlideInPresentationController.swift */,
+				045EED1025525C3400B89F69 /* SlideInPresentationManager.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		0474FB32253D834D006011C1 /* TabBarMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +239,7 @@
 		04D40A3E2533DC8B00DEB14B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				045EED0F25525C2900B89F69 /* Presentation */,
 				04D40A8625353A5C00DEB14B /* View */,
 				04D40A672534943C00DEB14B /* Navigation */,
 				04D40A3F2533DCA800DEB14B /* Extensions */,
@@ -302,6 +321,7 @@
 			children = (
 				04D40A502533E17D00DEB14B /* MapViewController.swift */,
 				045EED032551B62E00B89F69 /* ButtomMenuView.swift */,
+				045EED0D2552554C00B89F69 /* SideMenuViewController.swift */,
 			);
 			path = MapController;
 			sourceTree = "<group>";
@@ -586,14 +606,17 @@
 				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
 				04D40A85253539F500DEB14B /* RegistrationViewController.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
+				045EED0E2552554C00B89F69 /* SideMenuViewController.swift in Sources */,
 				0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */,
 				04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */,
 				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
+				045EED1325525C3400B89F69 /* SlideInPresentationManager.swift in Sources */,
 				04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */,
 				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
+				045EED1425525C3400B89F69 /* SlideInPresentationController.swift in Sources */,
 				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,
 				04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */,
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
@@ -623,6 +646,7 @@
 				04D40A782534984E00DEB14B /* UserModel.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
 				0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */,
+				045EED1525525C3400B89F69 /* SlideInPresentationAnimator.swift in Sources */,
 				04D40A7C25349BE200DEB14B /* NetworkService.swift in Sources */,
 				04D40A7A25349B7200DEB14B /* AuthService.swift in Sources */,
 			);

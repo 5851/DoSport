@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ButtomMenuViewDelegate: class {
+    func launchSideMenu()
+}
+
 class ButtomMenuView: UIView {
 
     // MARK: - Ouptlets
@@ -25,8 +29,12 @@ class ButtomMenuView: UIView {
     }()
     private let createButton: UIButton = {
         let button = UIButton(title: "Создать", background: #colorLiteral(red: 1, green: 0.9547553658, blue: 0.5084705353, alpha: 1), heigth: 50, width: 150, isShadow: false)
+        button.addTarget(self, action: #selector(createTypeSport), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Properties
+    weak var delegate: ButtomMenuViewDelegate?
 
     // MARK: - Init
     override init(frame: CGRect) {
@@ -37,6 +45,11 @@ class ButtomMenuView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+    @objc func createTypeSport() {
+        delegate?.launchSideMenu()
     }
 }
 
