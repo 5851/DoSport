@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 
 protocol AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<Test>) -> Void)
+    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
 }
 
-class Auth: AbstractRequestFactory {
+class AuthRequest: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue?
@@ -28,23 +28,24 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<Test>) -> Void) {
+extension AuthRequest: AuthRequestFactory {
+    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
+extension AuthRequest {
     struct Login: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "auth/login"
         let login: String
         let password: String
+
         var parameters: Parameters? {
             return [
-                "username": login,
+                "email": login,
                 "password": password
             ]
         }

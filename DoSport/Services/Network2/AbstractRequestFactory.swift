@@ -28,6 +28,7 @@ extension AbstractRequestFactory {
         -> DataRequest {
             return sessionManager
                 .request(request)
-            .responseDecodable(completionHandler: completionHandler)
+                .responseDecodable(completionHandler: completionHandler)
+                .validate(statusCode: 200...300)
     }
 }
