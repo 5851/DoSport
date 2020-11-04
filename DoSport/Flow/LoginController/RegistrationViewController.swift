@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LoginViewController: CommonSettingsViewController {
+final class RegistrationViewController: CommonSettingsViewController {
 
     // MARK: - Dependency
     private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
@@ -131,7 +131,7 @@ final class LoginViewController: CommonSettingsViewController {
 }
 
 // MARK: - Setup UI
-extension LoginViewController {
+extension RegistrationViewController {
     private func configureUI() {
         view.backgroundColor = .white
         setupViews()

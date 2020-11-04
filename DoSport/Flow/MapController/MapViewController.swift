@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
     private let pointButton: UIButton = {
         let button = UIButton(title: "+   Выбрать точку", background: #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1), heigth: 50, width: 187, isShadow: false)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(showBottomMenu), for: .touchUpInside)
         return button
     }()
     private let detailsButton: UIButton = {
@@ -39,6 +40,11 @@ class MapViewController: UIViewController {
         button.setBackgroundImage(#imageLiteral(resourceName: "forwardMap"), for: .normal)
         return button
     }()
+    private let menuView: UIView = {
+        let view = ButtomMenuView()
+        return view
+    }()
+
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +55,36 @@ class MapViewController: UIViewController {
             with: YMKCameraPosition(target: targetLocation, zoom: 10, azimuth: 0, tilt: 0),
             animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 1),
             cameraCallback: nil)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissMenuView))
+        view.addGestureRecognizer(tapGesture)
     }
 
     // MARK: - Actions
+    @objc private func dismissMenuView() {
+        UIView.animate(withDuration: 0.5) {
+            self.menuView.transform = .identity
+        }
+    }
+
     @objc private func dismissController() {
         self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func showBottomMenu() {
+        showMenu()
+    }
+
+    // MARK: - Helpers function
+    private func showMenu() {
+        UIView.animate(withDuration: 0.5) {
+            self.menuView.transform = CGAffineTransform(translationX: 0, y: -260)
+        }
     }
 }
 
 // MARK: - Setup UI
 extension MapViewController {
-
     private func setupUI() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
@@ -68,13 +93,10 @@ extension MapViewController {
         mapView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
-
         setupButtons()
     }
 
     private func setupButtons() {
-
-        // Расположение кнопок управления
         let stackView = UIStackView(arrangedSubviews: [
             pointButton, detailsButton
         ])
@@ -101,6 +123,12 @@ extension MapViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(view).offset(-20)
             make.leading.equalTo(view).offset(20)
+        }
+
+        view.addSubview(menuView)
+        menuView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.snp.bottom).offset(180)
         }
     }
 }
