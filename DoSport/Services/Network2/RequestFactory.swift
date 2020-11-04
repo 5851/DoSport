@@ -24,8 +24,12 @@ class RequestFactory {
         return manager
     }()
 
-    func makeAuthRequestFactory() -> AuthRequestFactory {
+    func makeAuthRequest() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
-        return Auth(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)
+        return AuthRequest(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)
+    }
+    func makeRegisterRequest() -> RegisterRequestFactory {
+        let errorParser = makeErrorParser()
+        return RegisterRequest(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)
     }
 }

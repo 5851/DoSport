@@ -389,7 +389,6 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
-
 extension MyProfileViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.5) { [self] in

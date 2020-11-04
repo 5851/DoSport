@@ -19,7 +19,7 @@ final class StartViewController: UIViewController {
 //        label.font = UIFont.montserratBold(size: 64)
         return logoView
     }()
-
+    private let datamanger = RequestFactory()
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "DoSport  поможет тебе заняться любимым видом спорта вместе с друзьями. Подбери площадку  на карте города, поделись локацией с теми, кто разделяет твои интересы. Общайся в чате, встречайся и начинай играть, тренироваться.\n\nDoSport - это новые впечатления, новые друзья и твои любимые занятия в отличной компании."
@@ -41,6 +41,7 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
+        loginTest()
     }
 
     // MARK: - Actions
@@ -86,6 +87,17 @@ extension StartViewController {
             make.centerX.equalTo(view)
 //            make.width.equalTo(100)
             make.height.equalTo(50)
+        }
+    }
+    func loginTest() {
+        let response = datamanger.makeAuthRequest()
+        response.login(userName: "admin", password: "admin") { (response) in
+            switch response.result {
+            case .success(let success):
+                print("success code \(success.token) ")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

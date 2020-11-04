@@ -11,7 +11,7 @@ import UIKit
 final class LoginViewController: CommonSettingsViewController {
 
     // MARK: - Dependency
-    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
+//    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
     private let testRequest = RequestFactory()
 
     // MARK: - Outlets

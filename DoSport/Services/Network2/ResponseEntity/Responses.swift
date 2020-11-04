@@ -12,21 +12,14 @@ import Foundation
 
 // MARK: - LoginResult
 struct LoginResult: Codable {
-    let roles: [Role]
-    let username, token: String
+    let token: String
     enum CodingKeys: String, CodingKey {
-        case username
         case token
-        case roles
     }
 }
 
-// MARK: - Role
-struct Role: Codable {
-    let authority: String
-}
-
-struct Test: Codable {
-    let code: Int
-    let message: String
+//MARK: - RegisterResult
+struct RegisterResult: Codable {
+    let id: Int
+    let username: String
 }

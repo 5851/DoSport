@@ -55,6 +55,7 @@
 		04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A982536877B00DEB14B /* CommonViewController.swift */; };
 		04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9B25368C3F00DEB14B /* MenuViewCell.swift */; };
 		04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9D253740E900DEB14B /* MenuHeaderCell.swift */; };
+		CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E960255302E400FFDD0F /* RegisterRequest.swift */; };
 		CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76982725370681003D8344 /* MyProfileViewController.swift */; };
 		CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
@@ -114,6 +115,7 @@
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
+		CE60E960255302E400FFDD0F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CE76982725370681003D8344 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,10 +155,12 @@
 		04AB6DBB2537D21D00D412AC /* Network2 */ = {
 			isa = PBXGroup;
 			children = (
+				CEA15E17255300300078DA9C /* RequestList */,
 				04AB6DBC2537D22C00D412AC /* ResponseEntity */,
 				04AB6DBF2537D24C00D412AC /* AbstractRequestFactory.swift */,
-				04AB6DC02537D24C00D412AC /* AuthRequest.swift */,
 				04AB6DC12537D24C00D412AC /* RequestFactory.swift */,
+				04D40A7D25349C6A00DEB14B /* ErrorParser.swift */,
+				04D40A742534964300DEB14B /* RequestRouter.swift */,
 			);
 			path = Network2;
 			sourceTree = "<group>";
@@ -328,7 +332,6 @@
 				04D40A71253495EF00DEB14B /* Model */,
 				04D40A7925349B7200DEB14B /* AuthService.swift */,
 				04D40A7B25349BE200DEB14B /* NetworkService.swift */,
-				04D40A7D25349C6A00DEB14B /* ErrorParser.swift */,
 				04D40A7F25349D6F00DEB14B /* NetworkServiceFactory.swift */,
 				04D40A8125349D9A00DEB14B /* Configuration.swift */,
 			);
@@ -339,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				04D40A72253495F900DEB14B /* AuthUser.swift */,
-				04D40A742534964300DEB14B /* RequestRouter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +415,15 @@
 				CEBBE73D254099CA002FFBEB /* ChangePassword */,
 			);
 			path = MyProfileController;
+			sourceTree = "<group>";
+		};
+		CEA15E17255300300078DA9C /* RequestList */ = {
+			isa = PBXGroup;
+			children = (
+				04AB6DC02537D24C00D412AC /* AuthRequest.swift */,
+				CE60E960255302E400FFDD0F /* RegisterRequest.swift */,
+			);
+			path = RequestList;
 			sourceTree = "<group>";
 		};
 		CEBBE73D254099CA002FFBEB /* ChangePassword */ = {
@@ -587,6 +598,7 @@
 				04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */,
 				04D40A6D2534945200DEB14B /* CustomNavigationController.swift in Sources */,
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
+				CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
 				04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */,
 				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
