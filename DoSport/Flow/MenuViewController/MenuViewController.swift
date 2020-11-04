@@ -65,7 +65,7 @@ final class MenuViewController: CommonSettingsViewController {
 
     // MARK: - Actions
     @objc private func handleRegistration() {
-        navigationController?.pushViewController(LoginViewController(), animated: true)
+        navigationController?.pushViewController(RegistrationViewController(), animated: true)
     }
 
     @objc private func handleLogout() {
@@ -122,13 +122,22 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - SetupUI
 extension MenuViewController {
     private func setupUI() {
+        let buttonsStackView = UIStackView(arrangedSubviews: [
+            UIView(), forwardButton
+        ])
+        view.addSubview(buttonsStackView)
+        buttonsStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view).offset(-20)
+            make.leading.equalTo(view).offset(20)
+        }
         let topStackView = UIStackView(arrangedSubviews: [
             logoImageView, UIView(), menuLabel
         ])
         view.addSubview(topStackView)
         topStackView.alignment = .center
         topStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
+            make.top.equalTo(buttonsStackView.snp.bottom).offset(5)
             make.trailing.equalTo(view).offset(-20)
             make.leading.equalTo(view).offset(20)
             make.height.equalTo(50)
