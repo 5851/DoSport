@@ -11,8 +11,7 @@ import UIKit
 final class RegistrationViewController: CommonSettingsViewController {
 
     // MARK: - Dependency
-//    private let authService = NetworkServiceFactory.shared.makeAuthRequestFactory()
-    private let testRequest = RequestFactory()
+    var viewModel: RegistrationViewModel?
 
     // MARK: - Outlets
     private let scrollView: UIScrollView = {
@@ -97,11 +96,24 @@ final class RegistrationViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
+        //MARK: - я понятия пока не имею как это делать правильно)
+        self.viewModel = RegistrationViewModelImpl(model: User(firstname: "123", lastname: "123", password: "123", passwordConfirm: "123", username: "123"))
     }
 
     // MARK: - Actions
     @objc private func handleRegistration() {
         print(#function)
+        
+        let user = User(firstname: nameTextField.text ?? "", lastname: surnameTextField.text ?? "",
+                        password: passwordTextField.text ?? "", passwordConfirm: repeatPasswordTextField.text ?? "" ,
+                        username: emailTextField.text ?? "")
+        self.viewModel = RegistrationViewModelImpl(model: user)
+        viewModel?.placeRregisterRequest(firstname: user.firstname, lastname: user.lastname,
+                                         password: user.password, passwordConfirm: user.passwordConfirm,
+                                         username: user.username, completion: { (completion) in
+                                            print(completion)
+                                         })
+
     }
 
     @objc private func handleCheckTapped(sender: UIButton) {
@@ -128,7 +140,24 @@ final class RegistrationViewController: CommonSettingsViewController {
     @objc func dismissController() {
         navigationController?.popViewController(animated: true)
     }
+    //MARK: - Helpers
+//    func chechRegisterBtn()   {
+//        registrationButton.isEnabled = viewModel?.areBtnEnabled ?? false
+//        viewModel?.areBtnEnabledChanged = { [unowned self] (enabled) in
+//            self.registrationButton.isEnabled = enabled
+//        }
+//    }
+//    func textFieldEditingChanged(_sender: Any) {
+//        let allTextfields = [nameTextField, surnameTextField, passwordTextField, repeatPasswordTextField, emailTextField]
+//        
+//        viewModel?.areBtnEnabledChanged(allTextfields.
+//    }
+//    func registerButtonPressed(_ sender: Any) {
+//        
+//    }
+
 }
+
 
 // MARK: - Setup UI
 extension RegistrationViewController {

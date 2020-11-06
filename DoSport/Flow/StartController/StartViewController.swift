@@ -41,7 +41,6 @@ final class StartViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
-        loginTest()
     }
 
     // MARK: - Actions
@@ -89,15 +88,5 @@ extension StartViewController {
             make.height.equalTo(50)
         }
     }
-    func loginTest() {
-        let response = datamanger.makeAuthRequest()
-        response.login(userName: "admin", password: "admin") { (response) in
-            switch response.result {
-            case .success(let success):
-                print("success code \(success.token) ")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
+
 }

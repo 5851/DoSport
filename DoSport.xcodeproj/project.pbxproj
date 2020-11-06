@@ -61,6 +61,8 @@
 		04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9B25368C3F00DEB14B /* MenuViewCell.swift */; };
 		04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9D253740E900DEB14B /* MenuHeaderCell.swift */; };
 		CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E960255302E400FFDD0F /* RegisterRequest.swift */; };
+		CE60E96925530E9000FFDD0F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */; };
+		CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */; };
 		CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76982725370681003D8344 /* MyProfileViewController.swift */; };
 		CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
@@ -126,6 +128,8 @@
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
 		CE60E960255302E400FFDD0F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		CE76982725370681003D8344 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,6 +385,8 @@
 			isa = PBXGroup;
 			children = (
 				04D40A84253539F500DEB14B /* RegistrationViewController.swift */,
+				CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */,
+				CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */,
 			);
 			path = LoginController;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
 				04D40A85253539F500DEB14B /* RegistrationViewController.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
+				CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */,
 				045EED0E2552554C00B89F69 /* SideMenuViewController.swift in Sources */,
 				0474FB37253D8367006011C1 /* CustomTabView.swift in Sources */,
 				04AB6DC22537D24C00D412AC /* AbstractRequestFactory.swift in Sources */,
@@ -645,6 +652,7 @@
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
 				04D40A8825353A6300DEB14B /* CustomTextField.swift in Sources */,
 				04D40A662534586700DEB14B /* PageModel.swift in Sources */,
+				CE60E96925530E9000FFDD0F /* RegistrationViewModel.swift in Sources */,
 				04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */,
 				0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
