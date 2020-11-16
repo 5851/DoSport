@@ -18,15 +18,11 @@ protocol RegisterModel {
 }
 
 protocol RegisterBtnValidate {
-   func isCodeValid (_ symbol:String) -> Bool
+   func isCodeValid (_ symbol: String) -> Bool
    var symbolLenght: Int {get}
 }
 
-
-
-
-
-struct User: RegisterModel{
+struct User: RegisterModel {
     let firstname: String
     let lastname: String
     let password: String
@@ -38,10 +34,8 @@ extension User: RegisterBtnValidate {
     func isCodeValid(_ symbol: String) -> Bool {
         return symbol.count >= symbolLenght
     }
-    
+
     var symbolLenght: Int {
         return 4
     }
-    
-    
 }

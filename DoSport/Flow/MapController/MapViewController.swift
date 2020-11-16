@@ -19,25 +19,25 @@ class MapViewController: UIViewController {
     }()
     private let targetLocation = YMKPoint(latitude: 59.945933, longitude: 30.320045)
     private let pointButton: UIButton = {
-        let button = UIButton(title: "+   Выбрать точку", background: #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1), heigth: 50, width: 187, isShadow: false)
+        let button = UIButton(title: "+   Выбрать точку", background: .mainBlue, heigth: 50, width: 187, isShadow: false)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(showBottomMenu), for: .touchUpInside)
         return button
     }()
     private let detailsButton: UIButton = {
-        let button = UIButton(title: "+   Подробности", background: #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1), heigth: 50, width: 187, isShadow: false)
+        let button = UIButton(title: "+   Подробности", background: .mainBlue, heigth: 50, width: 187, isShadow: false)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "backMap").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
         return button
     }()
     private let forwardButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "forwardMap"), for: .normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "forward"), for: .normal)
         return button
     }()
     private lazy var menuView: UIView = {

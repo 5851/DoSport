@@ -14,16 +14,13 @@ class SideMenuViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let bottomButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "bottomMap"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "bottomMap").withRenderingMode(.alwaysOriginal).withTintColor(.black), for: .normal)
         return button
     }()
 
     // MARK: - Properties
     private let typeOfSports = ["Футбол", "Волейбол", "Баскетбол",
-                                "Бокс", "Бег", "Скандинавская хотьба",
-                                "Настольный теннис", "Большой теннис", "Водное поло",
-                                "Регби", "Классическая борьба",
-                                "Вольная борьба", "Дзюдо", "Самбо", "Пентйбол"]
+                                "Воркаут", "Бег"]
 
     // MARK: - Life cycles
     override func viewDidLoad() {
@@ -44,7 +41,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = typeOfSports[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
-        cell.textLabel?.textColor = #colorLiteral(red: 0.07058823529, green: 0.2705882353, blue: 1, alpha: 1)
+        cell.textLabel?.textColor = .black
         cell.textLabel?.textAlignment = .left
         cell.backgroundColor = .clear
         return cell

@@ -56,13 +56,16 @@ class CustomTabView: UIView {
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView()
 //        let itemTitleLabel = UILabel()
-        let itemIconView = UIImageView()
+
         let itemView = UIView()
 
         itemView.tag = 10
         itemView.translatesAutoresizingMaskIntoConstraints = false
-        itemView.layer.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        itemView.layer.backgroundColor = UIColor.mainWhite.cgColor
         itemView.clipsToBounds = true
+
+        let itemIconView = UIImageView()
+        itemIconView.tag = 11
 
 //        itemTitleLabel.text = item.displayTitle
 //        itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
@@ -71,7 +74,7 @@ class CustomTabView: UIView {
 //        itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
 //        itemTitleLabel.numberOfLines = 0
 
-        itemIconView.image = item.icon!.withRenderingMode(.automatic)
+        itemIconView.image = item.icon!
         itemIconView.contentMode = .scaleAspectFit
         itemIconView.translatesAutoresizingMaskIntoConstraints = false
         itemIconView.clipsToBounds = true
@@ -117,13 +120,20 @@ class CustomTabView: UIView {
 
     func activateTab(tab: Int) {
         let tabToActivate = self.subviews[tab]
-        tabToActivate.viewWithTag(10)?.backgroundColor = #colorLiteral(red: 0.2595242858, green: 0.4154637456, blue: 0.9985032678, alpha: 1)
+        tabToActivate.viewWithTag(10)?.backgroundColor = .mainBlue
+        if let view: UIImageView = tabToActivate.viewWithTag(11) as? UIImageView {
+            view.setImageColor(color: .mainWhite)
+        }
         self.itemTapped?(tab)
         self.activeItem = tab
     }
 
     func deActivateTab(tab: Int) {
         let inactiveTab = self.subviews[tab]
-        inactiveTab.viewWithTag(10)?.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        inactiveTab.viewWithTag(10)?.backgroundColor = .mainWhite
+        if let view: UIImageView = inactiveTab.viewWithTag(11) as? UIImageView {
+            print(3333)
+            view.setImageColor(color: .mainBlue)
+        }
     }
 }

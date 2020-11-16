@@ -43,28 +43,32 @@ class RegistrationViewModelImpl: RegistrationViewModel {
     var username: String {
         return model.username
     }
-    
+
     var areBtnEnabled: Bool = false {
         didSet {
             areBtnEnabledChanged?(areBtnEnabled)
         }
     }
-    
+
     var areBtnEnabledChanged: ((Bool) -> Void)?
-    
+
     func handleCodeChanged(_ symbol: String) {
         areBtnEnabled = model.isCodeValid(symbol)
     }
-    
+
     func placeRregisterRequest (firstname: String, lastname: String,
                                 password: String, passwordConfirm: String,
-                                username: String, completion: @escaping (RegisterResult) -> Void)  {
+                                username: String, completion: @escaping (RegisterResult) -> Void) {
         let request = networkManager.makeRegisterRequest()
-        request.register(firstname: firstname, lastname: lastname, password: password, passwordConfirm: passwordConfirm, username: username, completionHandler: { (response) in
+        request.register(firstname: firstname,
+                         lastname: lastname,
+                         password: password,
+                         passwordConfirm: passwordConfirm,
+                         username: username, completionHandler: { (response) in
             switch response.result {
             case .success(let success):
                 completion(success)
-                print("success username \(success.username), success ID \(success.id) ")
+                print("success username \(success.username), success ID \(success.idResult) ")
             case .failure(let error):
                 print(error.localizedDescription)
             }

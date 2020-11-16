@@ -18,7 +18,7 @@ final class MenuViewController: CommonSettingsViewController {
     // MARK: - Outlets
     private let forwardButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage(named: "forward")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainBlue), for: .normal)
         button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         return button
     }()
@@ -33,13 +33,14 @@ final class MenuViewController: CommonSettingsViewController {
         let label = UILabel()
         label.text = "Главное меню"
         label.font = UIFont.halantRegular(size: 24)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
 
     private let regButton: UIButton = {
-        let button = UIButton(title: "Регистрация", background: .yellow, heigth: 40, width: 150, isShadow: false)
+        let button = UIButton(title: "Регистрация", background: .mainBlue, heigth: 40, width: 150, isShadow: false)
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -49,6 +50,7 @@ final class MenuViewController: CommonSettingsViewController {
         "Объекты на карте", "Аренда залов,\nплощадок", "Мои тренировки"
     ]
     let alertView = CustomPopupLogoutController()
+    let regView = CustomPopupRegViewСontroller()
     weak var delegate: MenuViewControllerProtocol?
 
     // MARK: - View lifecycle
@@ -89,7 +91,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
         }
         cell.textLabel.text = namesCell[indexPath.item]
-        cell.backgroundColor = #colorLiteral(red: 0.860845089, green: 0.898216784, blue: 0.9998374581, alpha: 1)
         return cell
     }
 
@@ -99,7 +100,11 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let controller = MapViewController()
             navigationController?.pushViewController(controller, animated: true)
         default:
-            print(indexPath.item)
+            delegate?.doBlackBackGroundColor()
+            let navController = UINavigationController(rootViewController: regView)
+            navController.navigationBar.isHidden = true
+            navController.modalPresentationStyle = .custom
+            self.present(navController, animated: true, completion: nil)
         }
     }
 }

@@ -41,18 +41,18 @@ final class RegistrationViewController: CommonSettingsViewController {
         let label = UILabel()
         label.text = "Регистрация"
         label.font = UIFont.halantRegular(size: 24)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     private let repeatLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите пароль еще раз"
-        label.font = UIFont.halantRegular(size: 20)
-        label.textColor = .white
+        label.font = UIFont.halantRegular(size: 18)
+        label.textColor = .black
         return label
     }()
 
-    // Набор textField'o
+    // Набор textField'oв
     private let nameTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Имя")
     private let surnameTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Фамилия")
     private let emailTextField = CustomTextField(cornerRadius: 25, height: 50, fontSize: 20, labelText: "Адрес эл. почты")
@@ -63,16 +63,18 @@ final class RegistrationViewController: CommonSettingsViewController {
     private let checkButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(handleCheckTapped), for: .touchUpInside)
-        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
-        button.setImage(UIImage(
-            systemName: "circle.fill",
-            withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.mainBlue.cgColor
+        button.layer.cornerRadius = 15
         return button
     }()
     private let descriptionLabel: UILabel = {
         let label = UILabel(
             title: "согласие на обработку персональных  данных \n(обязательно для продолжения)",
             height: 50, fontSize: 12)
+        label.textColor = .black
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.mainBlue.cgColor
         return label
     }()
 
@@ -83,8 +85,9 @@ final class RegistrationViewController: CommonSettingsViewController {
 
     // Набор кнопок регистрации
     private let registrationButton: UIButton = {
-        let button = UIButton(title: "Регистрация", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), heigth: 50, isShadow: true)
+        let button = UIButton(title: "Зарегистрироваться", background: .mainBlue, heigth: 50, isShadow: false)
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     private let providerVKontakteRegButton = UIButton(titleProvider: "login with Vkontakte", heigth: 50, width: 280, image: #imageLiteral(resourceName: "vk"), fontSize: 18)
@@ -96,14 +99,20 @@ final class RegistrationViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
-        //MARK: - я понятия пока не имею как это делать правильно)
-        self.viewModel = RegistrationViewModelImpl(model: User(firstname: "123", lastname: "123", password: "123", passwordConfirm: "123", username: "123"))
+        // MARK: - я понятия пока не имею как это делать правильно)
+        self.viewModel = RegistrationViewModelImpl(
+            model: User(
+                firstname: "123",
+                lastname: "123",
+                password: "123",
+                passwordConfirm: "123",
+                username: "123"))
     }
 
     // MARK: - Actions
     @objc private func handleRegistration() {
         print(#function)
-        
+
         let user = User(firstname: nameTextField.text ?? "", lastname: surnameTextField.text ?? "",
                         password: passwordTextField.text ?? "", passwordConfirm: repeatPasswordTextField.text ?? "" ,
                         username: emailTextField.text ?? "")
@@ -125,22 +134,18 @@ final class RegistrationViewController: CommonSettingsViewController {
                 sender.transform = .identity
             })
         })
-        let config = UIImage.SymbolConfiguration(pointSize: 40, weight: .bold)
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
         if sender.isSelected {
             checkButton.setImage(UIImage(
-                systemName: "checkmark.circle.fill",
-                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .selected)
-        } else {
-            checkButton.setImage(UIImage(
-                systemName: "circle.fill",
-                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.white), for: .normal)
+                systemName: "checkmark",
+                withConfiguration: config)?.withRenderingMode(.alwaysOriginal).withTintColor(.mainBlue), for: .selected)
         }
     }
 
     @objc func dismissController() {
         navigationController?.popViewController(animated: true)
     }
-    //MARK: - Helpers
+    // MARK: - Helpers
 //    func chechRegisterBtn()   {
 //        registrationButton.isEnabled = viewModel?.areBtnEnabled ?? false
 //        viewModel?.areBtnEnabledChanged = { [unowned self] (enabled) in
@@ -155,9 +160,7 @@ final class RegistrationViewController: CommonSettingsViewController {
 //    func registerButtonPressed(_ sender: Any) {
 //        
 //    }
-
 }
-
 
 // MARK: - Setup UI
 extension RegistrationViewController {
@@ -246,9 +249,8 @@ extension RegistrationViewController {
         scrollView.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { (make) in
             make.top.equalTo(centerStackView.snp.bottom).offset(30)
-            make.width.equalTo(200)
-            make.centerX.equalTo(view)
-            make.height.equalTo(50)
+            make.leading.equalTo(view).offset(60)
+            make.trailing.equalTo(view).offset(-60)
         }
         // Расположение разделительно линии
         let borderStackView = UIStackView(arrangedSubviews: [
@@ -261,20 +263,21 @@ extension RegistrationViewController {
             make.top.equalTo(registrationButton.snp.bottom).offset(30)
             make.leading.equalTo(view).offset(30)
             make.trailing.equalTo(view).offset(-30)
-        }
-        // Расположение кнопок регистрации
-        let registrationStackView = UIStackView(arrangedSubviews: [
-            providerVKontakteRegButton,
-            providerGoogleRegButton,
-            providerFacebookRegButton
-        ])
-        registrationStackView.axis = .vertical
-        registrationStackView.spacing = 20
-        scrollView.addSubview(registrationStackView)
-        registrationStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(borderStackView.snp.bottom).offset(30)
-            make.centerX.equalTo(scrollView)
             make.bottom.equalTo(scrollView)
         }
+        // Расположение кнопок регистрации
+//        let registrationStackView = UIStackView(arrangedSubviews: [
+//            providerVKontakteRegButton,
+//            providerGoogleRegButton,
+//            providerFacebookRegButton
+//        ])
+//        registrationStackView.axis = .vertical
+//        registrationStackView.spacing = 20
+//        scrollView.addSubview(registrationStackView)
+//        registrationStackView.snp.makeConstraints { (make) in
+//            make.top.equalTo(borderStackView.snp.bottom).offset(30)
+//            make.centerX.equalTo(scrollView)
+//            make.bottom.equalTo(scrollView)
+//        }
     }
 }

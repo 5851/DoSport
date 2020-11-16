@@ -23,7 +23,7 @@ class PageViewCell: UICollectionViewCell {
 
     private let commonOval: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2784313725, green: 0.4, blue: 0.8470588235, alpha: 0.84)
+        view.backgroundColor = UIColor.mainBlue
         view.layer.cornerRadius = 20
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowRadius = 20

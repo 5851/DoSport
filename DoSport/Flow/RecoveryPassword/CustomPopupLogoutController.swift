@@ -22,7 +22,7 @@ final class CustomPopupLogoutController: UIViewController {
     }()
     private let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        view.backgroundColor = .white
         view.layer.cornerRadius = 15
         return view
     }()
@@ -35,18 +35,22 @@ final class CustomPopupLogoutController: UIViewController {
     }()
     private let textLabel = UILabel(title: "Вы действительно хотите выйти из приложения?",
                                     textAlignment: .center,
-                                    textColor: .white,
+                                    textColor: .black,
                                     numberOfLines: 0,
                                     fontSize: 18)
     private let yesButon: UIButton = {
-        let button = UIButton(title: "ДА", background: #colorLiteral(red: 1, green: 0.9547553658, blue: 0.5084705353, alpha: 1), heigth: 60, isShadow: false)
+        let button = UIButton(title: "Да", background: .mainBlue, heigth: 60, isShadow: false)
         button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     private let noButon: UIButton = {
-        let button = UIButton(title: "НЕТ", background: #colorLiteral(red: 0.9895803332, green: 1, blue: 0.9852907062, alpha: 1), heigth: 60, isShadow: false)
+        let button = UIButton(title: "Нет", background: #colorLiteral(red: 0.9895803332, green: 1, blue: 0.9852907062, alpha: 1), heigth: 60, isShadow: false)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(animationOut), for: .touchUpInside)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.mainBlue.cgColor
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
 

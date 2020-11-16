@@ -23,7 +23,7 @@ class RequestFactory {
         let manager = Session(configuration: configuration)
         return manager
     }()
-//MARK: - тут выносишь по данному принципу все реквесты, которые потом легко доступны через класс
+// MARK: - тут выносишь по данному принципу все реквесты, которые потом легко доступны через класс
     func makeAuthRequest() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
         return AuthRequest(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)

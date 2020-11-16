@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "DoSport.png",
+      "filename" : "Vector.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "DoSport-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "DoSport-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

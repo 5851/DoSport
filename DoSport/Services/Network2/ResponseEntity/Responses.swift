@@ -18,8 +18,8 @@ struct LoginResult: Codable {
     }
 }
 
-//MARK: - RegisterResult
+// MARK: - RegisterResult
 struct RegisterResult: Codable {
-    let id: Int
+    let idResult: Int
     let username: String
 }

@@ -35,6 +35,7 @@ final class MainMenuTabController: UITabBarController, UINavigationControllerDel
             let controller = navControllers?.viewControllers.first as? MenuViewController
             controller?.delegate = self
             controller?.alertView.delegate = self
+            controller?.regView.delegate = self
         }
         self.selectedIndex = 0
     }
@@ -88,9 +89,9 @@ extension MainMenuTabController: MenuViewControllerProtocol {
     }
 }
 
-// MARK: - CustomPopupLogoutControllerProtocol
+// MARK: - CustomPopupLogoutControllerProtocol, CustomPopupRegViewСontrollerProtocol
 /// Удаление BackgroundView при работе с popupController'ом
-extension MainMenuTabController: CustomPopupLogoutControllerProtocol {
+extension MainMenuTabController: CustomPopupLogoutControllerProtocol, CustomPopupRegViewСontrollerProtocol {
     func dismissBackgroundView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.backGroundView.removeFromSuperview()

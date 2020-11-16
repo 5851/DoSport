@@ -244,11 +244,11 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
                 self.saveFullInfoButton.isHidden = false
                 self.saveFullInfoButton.alpha = 1
             }
-            buttonsArray.map {
+            _ = buttonsArray.map {
                 $0.isEnabled = true
                 $0.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             }
-            textFieldsArray.map {
+            _ = textFieldsArray.map {
                 $0.isEnabled = true
                 $0.backgroundColor = .white
             }
@@ -256,8 +256,8 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     }
 
     @objc func saveFullInfoAction() {
-        let textFieldsArray = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
-        let buttonsArray = [genderManButton, genderWomanButton]
+        _ = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
+        _ = [genderManButton, genderWomanButton]
 
         UIView.animate(withDuration: 0.5) { [self] in
             self.saveFullInfoButton.isHidden = true

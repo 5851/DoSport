@@ -16,21 +16,16 @@ final class MenuViewCell: UICollectionViewCell {
     let textLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.textColor = #colorLiteral(red: 0.1803921569, green: 0.3529411765, blue: 1, alpha: 1)
+        label.textColor = .black
         label.font = UIFont.halantRegular(size: 20)
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
-    }()
-
-    lazy var viewCircle: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
     }()
 
     override var isHighlighted: Bool {
         didSet {
-            viewCircle.backgroundColor = isHighlighted ? #colorLiteral(red: 0.2595242858, green: 0.4154637456, blue: 0.9985032678, alpha: 1) : #colorLiteral(red: 0.9865223765, green: 0.9866868854, blue: 0.9667844176, alpha: 1)
+            self.backgroundColor = isHighlighted ? UIColor.mainBlue : UIColor.mainWhite
+            self.textLabel.textColor = isHighlighted ? UIColor.mainWhite : .black
         }
     }
 
@@ -47,16 +42,14 @@ final class MenuViewCell: UICollectionViewCell {
     // MARK: - Helpers functions
     private func configureUI() {
         layer.cornerRadius = 90 / 2
+        layer.borderColor = UIColor.mainBlue.cgColor
+        layer.borderWidth = 2
 
         let stackView = UIStackView(arrangedSubviews: [
-            viewCircle, textLabel
+            textLabel
         ])
         stackView.alignment = .center
         stackView.spacing = 15
-        viewCircle.snp.makeConstraints { (make) in
-            make.width.height.equalTo(30)
-        }
-        viewCircle.layer.cornerRadius = 30/2
         addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(self)

@@ -20,24 +20,16 @@ final class PageViewController: CommonSettingsViewController {
     ]
 
     // MARK: - Outlets
-    var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-
-    private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        pageControl.currentPage = 0
-        pageControl.numberOfPages = pages.count
-        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1)
-        pageControl.pageIndicatorTintColor = .white
-        return pageControl
-    }()
+    private var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var pageControl = CustomPageControl(pageCount: pages.count)
 
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Пропустить", for: .normal)
-        button.setImage(UIImage(systemName: "xmark")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        button.setImage(UIImage(systemName: "xmark")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
 
@@ -48,6 +40,12 @@ final class PageViewController: CommonSettingsViewController {
         setupUI()
         setupBottomControls()
         setupDismissButton()
+    }
+
+    override func viewDidLayoutSubviews() {
+        pageControl.subviews.forEach {
+            $0.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }
     }
 
     // MARK: - Actions
@@ -147,7 +145,6 @@ extension PageViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
-            make.height.equalTo(50)
         }
     }
 }
