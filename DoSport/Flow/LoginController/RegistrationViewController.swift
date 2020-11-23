@@ -12,6 +12,7 @@ final class RegistrationViewController: CommonSettingsViewController {
 
     // MARK: - Dependency
     var viewModel: RegistrationViewModel?
+    private let token = Token()
 
     // MARK: - Outlets
     private let scrollView: UIScrollView = {
@@ -85,6 +86,8 @@ final class RegistrationViewController: CommonSettingsViewController {
     private let registrationButton: UIButton = {
         let button = UIButton(title: "Регистрация", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), heigth: 50, isShadow: true)
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
+        button.setBackgroundColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), for: .disabled)
+        button.isEnabled = false
         return button
     }()
     private let providerVKontakteRegButton = UIButton(titleProvider: "login with Vkontakte", heigth: 50, width: 280, image: #imageLiteral(resourceName: "vk"), fontSize: 18)
@@ -96,6 +99,7 @@ final class RegistrationViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
+        validateSymbols()
         //MARK: - я понятия пока не имею как это делать правильно)
         self.viewModel = RegistrationViewModelImpl(model: User(firstname: "123", lastname: "123", password: "123", passwordConfirm: "123", username: "123"))
     }
@@ -113,7 +117,6 @@ final class RegistrationViewController: CommonSettingsViewController {
                                          username: user.username, completion: { (completion) in
                                             print(completion)
                                          })
-
     }
 
     @objc private func handleCheckTapped(sender: UIButton) {
@@ -141,23 +144,31 @@ final class RegistrationViewController: CommonSettingsViewController {
         navigationController?.popViewController(animated: true)
     }
     //MARK: - Helpers
-//    func chechRegisterBtn()   {
-//        registrationButton.isEnabled = viewModel?.areBtnEnabled ?? false
-//        viewModel?.areBtnEnabledChanged = { [unowned self] (enabled) in
-//            self.registrationButton.isEnabled = enabled
-//        }
-//    }
-//    func textFieldEditingChanged(_sender: Any) {
-//        let allTextfields = [nameTextField, surnameTextField, passwordTextField, repeatPasswordTextField, emailTextField]
-//        
-//        viewModel?.areBtnEnabledChanged(allTextfields.
-//    }
-//    func registerButtonPressed(_ sender: Any) {
-//        
-//    }
+    func validateSymbols() {
+        [nameTextField, surnameTextField, passwordTextField, repeatPasswordTextField, emailTextField].forEach({
+                $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+    }
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard
+            let name = nameTextField.text, !name.isEmpty, name.count > 3,
+            let lastname = surnameTextField.text, !lastname.isEmpty, lastname.count > 3,
+            let password = passwordTextField.text, !password.isEmpty, password.count > 3,
+            let repeatPassword = repeatPasswordTextField.text, !repeatPassword.isEmpty, repeatPassword.count > 3,
+            let email = emailTextField.text, !email.isEmpty, email.count > 3
+        else {
+            registrationButton.isEnabled = false
+            return
+        }
+        registrationButton.isEnabled = true
+    }
 
 }
-
 
 // MARK: - Setup UI
 extension RegistrationViewController {

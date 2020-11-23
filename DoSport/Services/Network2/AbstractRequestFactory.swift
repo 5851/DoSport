@@ -30,5 +30,6 @@ extension AbstractRequestFactory {
                 .request(request)
                 .responseDecodable(completionHandler: completionHandler)
                 .validate(statusCode: 200...300)
+//                .request?.urlRequest?.addValue(UserDefaults.standard.object(forKey: "token") as! String, forHTTPHeaderField: "Authorization")
     }
 }

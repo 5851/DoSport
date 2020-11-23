@@ -14,12 +14,10 @@ protocol RegistrationViewModel {
     var password: String {get}
     var passwordConfirm: String {get}
     var username: String {get}
-    var areBtnEnabled: Bool {get}
-    var areBtnEnabledChanged: ((Bool) -> Void)? {get set}
     func placeRregisterRequest (firstname: String, lastname: String,
                                 password: String, passwordConfirm: String,
                                 username: String, completion: @escaping (RegisterResult) -> Void)
-    func handleCodeChanged (_ symbol: String)
+    func login (username: String, password: String)
 }
 
 class RegistrationViewModelImpl: RegistrationViewModel {
@@ -43,19 +41,6 @@ class RegistrationViewModelImpl: RegistrationViewModel {
     var username: String {
         return model.username
     }
-    
-    var areBtnEnabled: Bool = false {
-        didSet {
-            areBtnEnabledChanged?(areBtnEnabled)
-        }
-    }
-    
-    var areBtnEnabledChanged: ((Bool) -> Void)?
-    
-    func handleCodeChanged(_ symbol: String) {
-        areBtnEnabled = model.isCodeValid(symbol)
-    }
-    
     func placeRregisterRequest (firstname: String, lastname: String,
                                 password: String, passwordConfirm: String,
                                 username: String, completion: @escaping (RegisterResult) -> Void)  {
@@ -69,5 +54,19 @@ class RegistrationViewModelImpl: RegistrationViewModel {
                 print(error.localizedDescription)
             }
         })
+    }
+    func login(username: String, password: String) {
+        let request = networkManager.makeAuthRequest()
+        request.login(userName: username, password: password) { (response) in
+            switch response.result {
+            case .success(let success):
+                let temp = Token()
+                temp.saveToken(token: success.token)
+                print(success.token)
+                print(temp.loadToken())
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

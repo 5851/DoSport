@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 // Стартовый экран после запуска приложения
 final class StartViewController: UIViewController {
 
