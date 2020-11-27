@@ -88,12 +88,8 @@ final class RegistrationViewController: CommonSettingsViewController {
     private let registrationButton: UIButton = {
         let button = UIButton(title: "Зарегистрироваться", background: .mainBlue, heigth: 50, isShadow: false)
         button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationViewController.swift
-        button.setTitleColor(.white, for: .normal)
-=======
         button.setBackgroundColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), for: .disabled)
         button.isEnabled = false
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationViewController.swift
         return button
     }()
     private let providerVKontakteRegButton = UIButton(titleProvider: "login with Vkontakte", heigth: 50, width: 280, image: #imageLiteral(resourceName: "vk"), fontSize: 18)
@@ -105,7 +101,6 @@ final class RegistrationViewController: CommonSettingsViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         configureUI()
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationViewController.swift
         // MARK: - я понятия пока не имею как это делать правильно)
         self.viewModel = RegistrationViewModelImpl(
             model: User(
@@ -114,11 +109,7 @@ final class RegistrationViewController: CommonSettingsViewController {
                 password: "123",
                 passwordConfirm: "123",
                 username: "123"))
-=======
         validateSymbols()
-        //MARK: - я понятия пока не имею как это делать правильно)
-        self.viewModel = RegistrationViewModelImpl(model: User(firstname: "123", lastname: "123", password: "123", passwordConfirm: "123", username: "123"))
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationViewController.swift
     }
 
     // MARK: - Actions
@@ -157,23 +148,6 @@ final class RegistrationViewController: CommonSettingsViewController {
     @objc func dismissController() {
         navigationController?.popViewController(animated: true)
     }
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationViewController.swift
-    // MARK: - Helpers
-//    func chechRegisterBtn()   {
-//        registrationButton.isEnabled = viewModel?.areBtnEnabled ?? false
-//        viewModel?.areBtnEnabledChanged = { [unowned self] (enabled) in
-//            self.registrationButton.isEnabled = enabled
-//        }
-//    }
-//    func textFieldEditingChanged(_sender: Any) {
-//        let allTextfields = [nameTextField, surnameTextField, passwordTextField, repeatPasswordTextField, emailTextField]
-//        
-//        viewModel?.areBtnEnabledChanged(allTextfields.
-//    }
-//    func registerButtonPressed(_ sender: Any) {
-//        
-//    }
-=======
     //MARK: - Helpers
     func validateSymbols() {
         [nameTextField, surnameTextField, passwordTextField, repeatPasswordTextField, emailTextField].forEach({
@@ -198,8 +172,6 @@ final class RegistrationViewController: CommonSettingsViewController {
         }
         registrationButton.isEnabled = true
     }
-
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationViewController.swift
 }
 
 // MARK: - Setup UI

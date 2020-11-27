@@ -41,22 +41,7 @@ class RegistrationViewModelImpl: RegistrationViewModel {
     var username: String {
         return model.username
     }
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationViewModel.swift
 
-    var areBtnEnabled: Bool = false {
-        didSet {
-            areBtnEnabledChanged?(areBtnEnabled)
-        }
-    }
-
-    var areBtnEnabledChanged: ((Bool) -> Void)?
-
-    func handleCodeChanged(_ symbol: String) {
-        areBtnEnabled = model.isCodeValid(symbol)
-    }
-
-=======
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationViewModel.swift
     func placeRregisterRequest (firstname: String, lastname: String,
                                 password: String, passwordConfirm: String,
                                 username: String, completion: @escaping (RegisterResult) -> Void) {
@@ -69,7 +54,7 @@ class RegistrationViewModelImpl: RegistrationViewModel {
             switch response.result {
             case .success(let success):
                 completion(success)
-                print("success username \(success.username), success ID \(success.idResult) ")
+                print("success username \(success.username), success ID \(success.idResult)")
             case .failure(let error):
                 print(error.localizedDescription)
             }

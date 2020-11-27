@@ -267,34 +267,10 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         birthdayDateTextField.text = dateFormatter.string(from: datePicker.date)
         self.birthdayDateTextField.endEditing(true)
     }
-<<<<<<< HEAD
-    @objc func editFullInfoAction() {
-        let textFieldsArray = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
-        let buttonsArray = [genderManButton, genderWomanButton]
 
-        UIView.animate(withDuration: 0.5) { [self] in
-            self.editFullInfoButton.alpha = 0
-            self.editFullInfoLabel.alpha = 0
-            self.editFullInfoLabel.isHidden = true
-            self.editFullInfoButton.isHidden = true
-            UIView.animate(withDuration: 0.5) {
-                self.saveFullInfoButton.isHidden = false
-                self.saveFullInfoButton.alpha = 1
-            }
-            _ = buttonsArray.map {
-                $0.isEnabled = true
-                $0.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            }
-            _ = textFieldsArray.map {
-                $0.isEnabled = true
-                $0.backgroundColor = .white
-            }
-        }
-=======
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         starView.handleTouchAtLocation(withTouches: touches)
             print("\(#function) \(starView.ratingNumber)")
->>>>>>> udalov_features
     }
         override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
             starView.handleTouchAtLocation(withTouches: touches)

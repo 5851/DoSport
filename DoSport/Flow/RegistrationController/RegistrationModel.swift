@@ -22,11 +22,7 @@ protocol RegisterBtnValidate {
    var symbolLenght: Int {get}
 }
 
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationModel.swift
-struct User: RegisterModel {
-=======
 struct User: RegisterModel{
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationModel.swift
     let firstname: String
     let lastname: String
     let password: String
@@ -38,10 +34,6 @@ extension User: RegisterBtnValidate {
     func isCodeValid(_ symbol: String) -> Bool {
         return symbol.count >= symbolLenght
     }
-<<<<<<< HEAD:DoSport/Flow/RegistrationController/RegistrationModel.swift
-
-=======
->>>>>>> udalov_features:DoSport/Flow/LoginController/RegistrationModel.swift
     var symbolLenght: Int {
         return 4
     }
