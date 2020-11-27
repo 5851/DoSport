@@ -30,14 +30,17 @@ class GetInfoRequest: AbstractRequestFactory {
 
 extension GetInfoRequest: UserInfoRequestFactory {
     func getInfo(token: String, completionHandler: @escaping (AFDataResponse<UserInfoResult>) -> Void) {
-        let requestModel = GetInfo(baseUrl: baseUrl)
+        let headers = HTTPHeader(name: "Authorization", value: "Bearer_\(token)")
+        let requestModel = GetInfo(headers: headers, baseUrl: baseUrl)
         self.request(request: requestModel, completionHandler: completionHandler)
+        print("requestmodel printng \(requestModel)")
     }
 }
 
 extension GetInfoRequest {
     struct GetInfo: RequestRouter {
         var parameters: Parameters?
+        let headers: HTTPHeader
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "profile"

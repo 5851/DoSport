@@ -60,6 +60,7 @@
 		04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A982536877B00DEB14B /* CommonViewController.swift */; };
 		04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9B25368C3F00DEB14B /* MenuViewCell.swift */; };
 		04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9D253740E900DEB14B /* MenuHeaderCell.swift */; };
+		CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */; };
 		CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E960255302E400FFDD0F /* RegisterRequest.swift */; };
 		CE60E96925530E9000FFDD0F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */; };
 		CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */; };
@@ -133,6 +134,7 @@
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
+		CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileModel.swift; sourceTree = "<group>"; };
 		CE60E960255302E400FFDD0F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				CEBBE73D254099CA002FFBEB /* ChangePassword */,
 				CE76982725370681003D8344 /* MyProfileViewController.swift */,
 				CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */,
+				CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */,
 			);
 			path = MyProfileController;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
 				0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */,
 				045EED042551B62E00B89F69 /* ButtomMenuView.swift in Sources */,
+				CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */,
 				CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,

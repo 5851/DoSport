@@ -112,11 +112,12 @@ final class RegistrationViewController: CommonSettingsViewController {
                         password: passwordTextField.text ?? "", passwordConfirm: repeatPasswordTextField.text ?? "" ,
                         username: emailTextField.text ?? "")
         self.viewModel = RegistrationViewModelImpl(model: user)
-        viewModel?.placeRregisterRequest(firstname: user.firstname, lastname: user.lastname,
-                                         password: user.password, passwordConfirm: user.passwordConfirm,
-                                         username: user.username, completion: { (completion) in
-                                            print(completion)
-                                         })
+//        viewModel?.placeRregisterRequest(firstname: user.firstname, lastname: user.lastname,
+//                                         password: user.password, passwordConfirm: user.passwordConfirm,
+//                                         username: user.username, completion: { (completion) in
+//                                            print(completion)
+//                                         })
+        viewModel?.login(username: user.username, password: user.password)
     }
 
     @objc private func handleCheckTapped(sender: UIButton) {

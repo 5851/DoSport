@@ -11,16 +11,37 @@ import Foundation
 protocol MyProfileViewModel {
     var firstname: String {get}
     var lastname: String {get}
-    var password: String {get}
-    var passwordConfirm: String {get}
     var username: String {get}
-//    func getUserInfo (comletion: @escaping())
+    func getUserInfo (token: String, completion: @escaping(UserInfoResult) -> Void)
 }
 
 class MyProfileViewModelImpl: MyProfileViewModel {
-    var firstname: String = ""
-    var lastname: String = ""
-    var password: String = ""
-    var passwordConfirm: String = ""
-    var username: String = ""
+    func getUserInfo(token: String, completion: @escaping (UserInfoResult) -> Void) {
+        let request = networkManager.makeUserInfoRequest()
+        print("request printin \(request)")
+        request.getInfo(token: token) { (response) in
+            switch response.result {
+            case .success(let success):
+                completion(success)
+                print("success username \(success.username), success ID \(success.id) ")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+
+        }
+    }
+    let networkManager = RequestFactory()
+    private let model: UserInfoResult
+    init(model: UserInfoResult) {
+        self.model = model
+    }
+    var firstname: String {
+        return model.firstName
+    }
+    var lastname: String {
+        return model.lastName
+    }
+    var username: String {
+        return model.username
+    }
 }

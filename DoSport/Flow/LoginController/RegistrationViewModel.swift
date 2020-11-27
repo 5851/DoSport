@@ -62,7 +62,6 @@ class RegistrationViewModelImpl: RegistrationViewModel {
             case .success(let success):
                 let temp = Token()
                 temp.saveToken(token: success.token)
-                print(success.token)
                 print(temp.loadToken())
             case .failure(let error):
                 print(error.localizedDescription)
