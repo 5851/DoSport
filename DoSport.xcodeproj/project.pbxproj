@@ -71,11 +71,18 @@
 		04D40A992536877B00DEB14B /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A982536877B00DEB14B /* CommonViewController.swift */; };
 		04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9B25368C3F00DEB14B /* MenuViewCell.swift */; };
 		04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9D253740E900DEB14B /* MenuHeaderCell.swift */; };
+		CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */; };
 		CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E960255302E400FFDD0F /* RegisterRequest.swift */; };
 		CE60E96925530E9000FFDD0F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */; };
 		CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */; };
+		CE6199AF2559BA8400272F14 /* MySkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6199AE2559BA8400272F14 /* MySkillsTableViewCell.swift */; };
 		CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76982725370681003D8344 /* MyProfileViewController.swift */; };
+		CE77EC50256108F1004E9F42 /* TokenSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77EC4F256108F1004E9F42 /* TokenSecurity.swift */; };
+		CE77EC5325610E24004E9F42 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */; };
+		CE77EC562562F523004E9F42 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77EC552562F523004E9F42 /* GetUserInfo.swift */; };
 		CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */; };
+		CEFE522A2558719A00032BE1 /* MySkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52292558719900032BE1 /* MySkillsViewController.swift */; };
+		CEFE522D2559B36200032BE1 /* MySkillsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE522C2559B36100032BE1 /* MySkillsTableView.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,11 +156,18 @@
 		0E789D1C64439D522F33FEAF /* Pods-DoSport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.release.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.release.xcconfig"; sourceTree = "<group>"; };
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
+		CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileModel.swift; sourceTree = "<group>"; };
 		CE60E960255302E400FFDD0F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		CE6199AE2559BA8400272F14 /* MySkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsTableViewCell.swift; sourceTree = "<group>"; };
 		CE76982725370681003D8344 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		CE77EC4F256108F1004E9F42 /* TokenSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSecurity.swift; sourceTree = "<group>"; };
+		CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		CE77EC552562F523004E9F42 /* GetUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfo.swift; sourceTree = "<group>"; };
 		CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		CEFE52292558719900032BE1 /* MySkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsViewController.swift; sourceTree = "<group>"; };
+		CEFE522C2559B36100032BE1 /* MySkillsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +396,7 @@
 		04D40A5E2533E88A00DEB14B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE77EC4E256108DE004E9F42 /* Security */,
 				04AB6DBB2537D21D00D412AC /* Network2 */,
 				04D40A70253495E400DEB14B /* Network */,
 			);
@@ -502,19 +517,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE60E9702558708200FFDD0F /* MySkills */ = {
+			isa = PBXGroup;
+			children = (
+				CEFE52292558719900032BE1 /* MySkillsViewController.swift */,
+				CE6199AE2559BA8400272F14 /* MySkillsTableViewCell.swift */,
+				CEFE522C2559B36100032BE1 /* MySkillsTableView.swift */,
+			);
+			path = MySkills;
+			sourceTree = "<group>";
+		};
 		CE7698262537061F003D8344 /* MyProfileController */ = {
 			isa = PBXGroup;
 			children = (
-				CE76982725370681003D8344 /* MyProfileViewController.swift */,
+				CE60E9702558708200FFDD0F /* MySkills */,
 				CEBBE73D254099CA002FFBEB /* ChangePassword */,
+				CE76982725370681003D8344 /* MyProfileViewController.swift */,
+				CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */,
+				CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */,
 			);
 			path = MyProfileController;
+			sourceTree = "<group>";
+		};
+		CE77EC4E256108DE004E9F42 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				CE77EC4F256108F1004E9F42 /* TokenSecurity.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		CEA15E17255300300078DA9C /* RequestList */ = {
 			isa = PBXGroup;
 			children = (
 				04AB6DC02537D24C00D412AC /* AuthRequest.swift */,
+				CE77EC552562F523004E9F42 /* GetUserInfo.swift */,
 				CE60E960255302E400FFDD0F /* RegisterRequest.swift */,
 			);
 			path = RequestList;
@@ -697,8 +734,11 @@
 				04D40A6C2534945200DEB14B /* CustomPushAnimator.swift in Sources */,
 				CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */,
 				04D40A752534964300DEB14B /* RequestRouter.swift in Sources */,
+				CE77EC5325610E24004E9F42 /* MyProfileViewModel.swift in Sources */,
+				CE6199AF2559BA8400272F14 /* MySkillsTableViewCell.swift in Sources */,
 				045EED1325525C3400B89F69 /* SlideInPresentationManager.swift in Sources */,
 				04AB6DC32537D24C00D412AC /* AuthRequest.swift in Sources */,
+				CE77EC50256108F1004E9F42 /* TokenSecurity.swift in Sources */,
 				04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */,
 				04B5A53E256F2DCC0099D568 /* TypeSportsCell.swift in Sources */,
 				04D40A542533E17D00DEB14B /* PageViewController.swift in Sources */,
@@ -731,6 +771,7 @@
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
 				0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */,
 				045EED042551B62E00B89F69 /* ButtomMenuView.swift in Sources */,
+				CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */,
 				CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
@@ -738,13 +779,16 @@
 				04D40A7E25349C6A00DEB14B /* ErrorParser.swift in Sources */,
 				04B5A535256EA6C20099D568 /* PlacesViewController.swift in Sources */,
 				04D40A782534984E00DEB14B /* UserModel.swift in Sources */,
+				CEFE522D2559B36200032BE1 /* MySkillsTableView.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
 				0474FB29253BD52E006011C1 /* CustomSwitch.swift in Sources */,
 				045EED1525525C3400B89F69 /* SlideInPresentationAnimator.swift in Sources */,
 				04B5A538256EB1B90099D568 /* PromotionSectionHeader.swift in Sources */,
+				CEFE522A2558719A00032BE1 /* MySkillsViewController.swift in Sources */,
 				04D40A7C25349BE200DEB14B /* NetworkService.swift in Sources */,
 				04D40A7A25349B7200DEB14B /* AuthService.swift in Sources */,
 				04B9178325612FE500E401A4 /* CustomPageControl.swift in Sources */,
+				CE77EC562562F523004E9F42 /* GetUserInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +926,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F9K6TF7ASC;
+				DEVELOPMENT_TEAM = 4R79A6C4N5;
 				INFOPLIST_FILE = DoSport/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -901,7 +945,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F9K6TF7ASC;
+				DEVELOPMENT_TEAM = 4R79A6C4N5;
 				INFOPLIST_FILE = DoSport/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

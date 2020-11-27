@@ -23,3 +23,11 @@ struct RegisterResult: Codable {
     let idResult: Int
     let username: String
 }
+//MARK: - UserInfoResult
+struct UserInfoResult: Codable {
+    let birthdayDate, firstName, gender: String
+    let hideBirthdayDate: Bool
+    let id: Int
+    let info, lastName, photoLink, username: String
+}
+

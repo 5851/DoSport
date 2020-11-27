@@ -8,14 +8,25 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - OUTLETS
+    var viewModel: MyProfileViewModel?
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.clipsToBounds = true
         return scrollView
+    }()
+    private let skillsTableView: MySkillsTableView = {
+        let tableView = MySkillsTableView()
+        return tableView
+    }()
+    private let starView: StarIcon = {
+        let tableView = StarIcon()
+        tableView.isUserInteractionEnabled = true
+        return tableView
     }()
     private let contentView: UIView = {
         let view = UIView()
@@ -64,13 +75,11 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         return textField
     }()
-    private let aboutMeTextField: CustomTextField = {
-        let textField = CustomTextField(cornerRadius: 20, height: 120, fontSize: 20, labelText: "О Себе")
-        textField.contentVerticalAlignment = .fill
-        textField.contentHorizontalAlignment = .fill
+    private let aboutMeTextField: CustomTextView = {
+        let textField = CustomTextView(cornerRadius: 20, height: 120, fontSize: 20, labelText: "О Себе")
+        textField.textAlignment = .left
         textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//        textField.delegate = self
-        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
+        textField.target(forAction: #selector(textFieldDidBeginEditing(_:)), withSender: self)
         return textField
     }()
     // MARK: - UIButtons
@@ -83,7 +92,6 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     }()
     private let editFullInfoButton: EditButton = {
         let button = EditButton(width: 35, hight: 35)
-        button.addTarget(self, action: #selector(editFullInfoAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -103,6 +111,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         button.setImage(#imageLiteral(resourceName: "manGender"), for: .normal)
         button.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 18
+        button.layer.borderColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
        return button
     }()
     private let genderWomanButton: UIButton = {
@@ -110,6 +119,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         button.setImage(#imageLiteral(resourceName: "womanGender"), for: .normal)
         button.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.cornerRadius = 18
+        button.layer.borderColor = #colorLiteral(red: 0.3370614648, green: 0.5302922726, blue: 1, alpha: 1)
        return button
     }()
     private let changePasswordButton: ChangePasswordBtn = {
@@ -169,12 +179,38 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadModel()
         navigationController?.navigationBar.isHidden = true
+        self.aboutMeTextField.delegate = self
         configureUI()
         createDatePicker()
         setGradientBackground(colorTop: #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1), colorBottom: #colorLiteral(red: 0.8260528445, green: 0.8579083085, blue: 0.998154223, alpha: 1))
     }
     // MARK: - Helpers functions and property
+    func downloadModel() {
+        let baseModel = UserInfoResult(birthdayDate: "", firstName: "",
+                                       gender: "", hideBirthdayDate: true,
+                                       id: 0, info: "", lastName: "",
+                                       photoLink: "", username: "")
+        self.viewModel = MyProfileViewModelImpl(model: baseModel)
+        let token = Token()
+        let temp = token.loadToken()
+//        print("temp token \(temp)")
+        let headers: HTTPHeaders = ["Authorization": "Bearer_\(token)"]
+
+        let request = AF.request("https://dosport-ru.herokuapp.com/api/v1/profile", method: .get, parameters: nil, headers: headers).validate(statusCode: 200...300).response { (response) in
+            print("test response from new request \(response)")
+        }
+
+//        self.viewModel?.getUserInfo(token: temp, completion: { (response) in
+//            let model = UserInfoResult(birthdayDate: response.birthdayDate, firstName: response.firstName,
+//                                       gender: response.gender, hideBirthdayDate: response.hideBirthdayDate,
+//                                       id: response.id, info: response.info, lastName: response.lastName,
+//                                       photoLink: response.photoLink, username: response.username)
+//            self.viewModel = MyProfileViewModelImpl(model: model)
+//            self.nameTextField.text = self.viewModel?.firstname
+//        })
+    }
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -231,6 +267,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         birthdayDateTextField.text = dateFormatter.string(from: datePicker.date)
         self.birthdayDateTextField.endEditing(true)
     }
+<<<<<<< HEAD
     @objc func editFullInfoAction() {
         let textFieldsArray = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
         let buttonsArray = [genderManButton, genderWomanButton]
@@ -253,8 +290,16 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
                 $0.backgroundColor = .white
             }
         }
+=======
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        starView.handleTouchAtLocation(withTouches: touches)
+            print("\(#function) \(starView.ratingNumber)")
+>>>>>>> udalov_features
     }
-
+        override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+            starView.handleTouchAtLocation(withTouches: touches)
+            print("\(#function) \(starView.ratingNumber)")
+        }
     @objc func saveFullInfoAction() {
         _ = [nameTextField, surnameTextField, aboutMeTextField, birthdayDateTextField]
         _ = [genderManButton, genderWomanButton]
@@ -278,7 +323,6 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         UIView.animate(withDuration: 0.5) {
             newView.alpha = 1
         }
-
     }
 
 // MARK: - UISettings
@@ -305,7 +349,7 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
             make.top.equalTo(topStackView.snp.bottom)
             make.leading.equalTo(view.snp.leading)
             make.trailing.equalTo(view.snp.trailing)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
         }
 
         contentView.snp.makeConstraints { (make) in
@@ -376,7 +420,8 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         myButtonsStackView.axis = .vertical
         myButtonsStackView.spacing = 28
 
-        let bigTextFieldsStackView = UIStackView(arrangedSubviews: [aboutMeTextField, myButtonsStackView])
+        let bigTextFieldsStackView = UIStackView(arrangedSubviews: [aboutMeTextField, starView, myButtonsStackView])
+        bigTextFieldsStackView.isUserInteractionEnabled = true
         bigTextFieldsStackView.axis = .vertical
         contentView.addSubview(bigTextFieldsStackView)
         bigTextFieldsStackView.spacing = 40
@@ -389,11 +434,27 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
-extension MyProfileViewController: UITextFieldDelegate {
+extension MyProfileViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.5) { [self] in
             self.saveFullInfoButton.isHidden = false
             self.saveFullInfoButton.alpha = 1
+        }
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.gray
+        }
+        UIView.animate(withDuration: 0.5) { [self] in
+            self.saveFullInfoButton.isHidden = false
+            self.saveFullInfoButton.alpha = 1
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "О себе"
+            textView.textColor = UIColor.lightGray
         }
     }
 }

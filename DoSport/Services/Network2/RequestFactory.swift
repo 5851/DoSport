@@ -32,4 +32,12 @@ class RequestFactory {
         let errorParser = makeErrorParser()
         return RegisterRequest(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)
     }
+    func makeUserInfoRequest() -> UserInfoRequestFactory {
+        let errorParser = makeErrorParser()
+        let sessionManager = commonSessionManager
+//        let header = HTTPHeader(name: "Authorization", value: "Bearer_\(token)")
+//        print("header printing \(header)")
+//        sessionManager.sessionConfiguration.headers.add(header)
+        return GetInfoRequest(errorParser: errorParser, sessionManager: commonSessionManager, queue: sessionQueue)
+    }
 }
