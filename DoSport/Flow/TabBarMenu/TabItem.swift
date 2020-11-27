@@ -23,7 +23,7 @@ enum TabItem: String, CaseIterable {
         case .map:
             return UINavigationController(rootViewController: PlacesViewController())
         case .places:
-            return UIViewController()
+            return MapViewController()
         case .schedule:
             return UIViewController()
         case .chat:

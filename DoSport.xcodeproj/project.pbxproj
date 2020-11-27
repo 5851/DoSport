@@ -29,6 +29,7 @@
 		04B5A53C256F25460099D568 /* SectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A53B256F25460099D568 /* SectionCellModel.swift */; };
 		04B5A53E256F2DCC0099D568 /* TypeSportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A53D256F2DCC0099D568 /* TypeSportsCell.swift */; };
 		04B5A541256F45C00099D568 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A540256F45C00099D568 /* NavigationBar.swift */; };
+		04B5A5442570E3670099D568 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5A5432570E3670099D568 /* OpeningViewController.swift */; };
 		04B9177F2561282800E401A4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9177E2561282800E401A4 /* UIImage+Extensions.swift */; };
 		04B9178125612ABE00E401A4 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9178025612ABE00E401A4 /* UIColor+Extensions.swift */; };
 		04B9178325612FE500E401A4 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9178225612FE500E401A4 /* CustomPageControl.swift */; };
@@ -101,6 +102,7 @@
 		04B5A53B256F25460099D568 /* SectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCellModel.swift; sourceTree = "<group>"; };
 		04B5A53D256F2DCC0099D568 /* TypeSportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSportsCell.swift; sourceTree = "<group>"; };
 		04B5A540256F45C00099D568 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		04B5A5432570E3670099D568 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		04B9177E2561282800E401A4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		04B9178025612ABE00E401A4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		04B9178225612FE500E401A4 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
@@ -246,6 +248,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		04B5A5422570E3330099D568 /* OpeningController */ = {
+			isa = PBXGroup;
+			children = (
+				04B5A5432570E3670099D568 /* OpeningViewController.swift */,
+			);
+			path = OpeningController;
+			sourceTree = "<group>";
+		};
 		04D40A1D2533DC7600DEB14B = {
 			isa = PBXGroup;
 			children = (
@@ -280,10 +290,11 @@
 		04D40A3D2533DC7F00DEB14B /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				04B5A533256EA6A10099D568 /* PlacesController */,
+				04B5A5422570E3330099D568 /* OpeningController */,
 				04D40A4F2533E16600DEB14B /* StartController */,
 				04D40A592533E5D600DEB14B /* PageController */,
 				0474FB32253D834D006011C1 /* TabBarMenu */,
+				04B5A533256EA6A10099D568 /* PlacesController */,
 				04D40A93253684F200DEB14B /* MenuViewController */,
 				04D40A832535398300DEB14B /* RegistrationController */,
 				0474FB3E253FCFAF006011C1 /* RecoveryPassword */,
@@ -675,6 +686,7 @@
 			files = (
 				04AB6DC42537D24C00D412AC /* RequestFactory.swift in Sources */,
 				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
+				04B5A5442570E3670099D568 /* OpeningViewController.swift in Sources */,
 				04D40A85253539F500DEB14B /* RegistrationViewController.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
 				CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */,
