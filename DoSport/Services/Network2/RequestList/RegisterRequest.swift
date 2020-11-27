@@ -10,7 +10,12 @@ import Foundation
 import Alamofire
 
 protocol RegisterRequestFactory {
-    func register(firstname: String, lastname: String, password: String, passwordConfirm: String, username: String, completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void)
+    func register(firstname: String,
+                  lastname: String,
+                  password: String,
+                  passwordConfirm: String,
+                  username: String,
+                  completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void)
 }
 
 class RegisterRequest: AbstractRequestFactory {
@@ -27,11 +32,22 @@ class RegisterRequest: AbstractRequestFactory {
         self.queue = queue
     }
 }
-//MARK: - забиваем даные
+// MARK: - забиваем даные
 extension RegisterRequest: RegisterRequestFactory {
     //в @escaping вставляем модель из responses в каком формате оно выйдет легко проверить через приложение insomnia
-    func register(firstname: String, lastname: String, password: String, passwordConfirm: String, username: String, completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void) {
-        let requestModel = Register(baseUrl: baseUrl, firstname: firstname, lastname: lastname, password: password, passwordConfirm: passwordConfirm, username: username)
+    func register(firstname: String,
+                  lastname: String,
+                  password: String,
+                  passwordConfirm: String,
+                  username: String,
+                  completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void) {
+        let requestModel = Register(
+            baseUrl: baseUrl,
+            firstname: firstname,
+            lastname: lastname,
+            password: password,
+            passwordConfirm: passwordConfirm,
+            username: username)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }

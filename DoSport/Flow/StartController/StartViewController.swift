@@ -15,8 +15,6 @@ final class StartViewController: UIViewController {
     private let logoView: UIImageView = {
         let logoView = UIImageView()
         logoView.image = #imageLiteral(resourceName: "DoSport")
-//        label.textAlignment = .center
-//        label.font = UIFont.montserratBold(size: 64)
         return logoView
     }()
     private let datamanger = RequestFactory()
@@ -25,13 +23,15 @@ final class StartViewController: UIViewController {
         label.text = "DoSport  поможет тебе заняться любимым видом спорта вместе с друзьями. Подбери площадку  на карте города, поделись локацией с теми, кто разделяет твои интересы. Общайся в чате, встречайся и начинай играть, тренироваться.\n\nDoSport - это новые впечатления, новые друзья и твои любимые занятия в отличной компании."
         label.font = UIFont.halantRegular(size: 20)
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .justified
         return label
     }()
 
     private let startButton: UIButton = {
-        let button = UIButton(title: "Главное меню", background: #colorLiteral(red: 0.9921568627, green: 1, blue: 0.9843137255, alpha: 1), heigth: 50, isShadow: true)
+        let button = UIButton(title: "Главное меню", background: UIColor.mainBlue, heigth: 50, width: 200, isShadow: true)
+        button.setTitleColor(UIColor.mainWhite, for: .normal)
+        button.setBackgroundColor(#colorLiteral(red: 0.2004277706, green: 0.6143942475, blue: 1, alpha: 1), for: .selected)
         button.addTarget(self, action: #selector(handleStart), for: .touchUpInside)
         return button
     }()
@@ -61,8 +61,7 @@ final class StartViewController: UIViewController {
 extension StartViewController {
 
     private func setupUI() {
-        view.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4980392157, blue: 1, alpha: 1)
-//        loginLabel.attributedText = generateAttributedString(title: "Do", description: "Sport")
+        view.backgroundColor = UIColor.mainWhite
 
         view.addSubview(logoView)
         view.addSubview(startButton)
@@ -82,10 +81,8 @@ extension StartViewController {
         }
 
         startButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(-40)
+            make.bottom.equalTo(view).offset(-80)
             make.centerX.equalTo(view)
-//            make.width.equalTo(100)
-            make.height.equalTo(50)
         }
     }
 

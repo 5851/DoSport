@@ -55,30 +55,32 @@ class CustomTabView: UIView {
     // MARK: - Setup UI tabitem
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView()
-//        let itemTitleLabel = UILabel()
-        let itemIconView = UIImageView()
+        let itemTitleLabel = UILabel()
         let itemView = UIView()
+        let itemIconView = UIImageView()
 
-        itemView.tag = 10
-        itemView.translatesAutoresizingMaskIntoConstraints = false
-        itemView.layer.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
-        itemView.clipsToBounds = true
-
-//        itemTitleLabel.text = item.displayTitle
-//        itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
-//        itemTitleLabel.textColor = .white
-//        itemTitleLabel.textAlignment = .center
-//        itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        itemTitleLabel.numberOfLines = 0
-
-        itemIconView.image = item.icon!.withRenderingMode(.automatic)
+        itemIconView.tag = 11
+        itemIconView.image = item.icon!
         itemIconView.contentMode = .scaleAspectFit
         itemIconView.translatesAutoresizingMaskIntoConstraints = false
         itemIconView.clipsToBounds = true
 
+        itemView.tag = 10
+        itemView.translatesAutoresizingMaskIntoConstraints = false
+        itemView.layer.backgroundColor = UIColor.mainWhite.cgColor
+        itemView.clipsToBounds = true
+
+        itemTitleLabel.tag = 12
+        itemTitleLabel.text = item.displayTitle
+        itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
+        itemTitleLabel.textColor = .mainBlue
+        itemTitleLabel.textAlignment = .center
+        itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        itemTitleLabel.numberOfLines = 0
+
         tabBarItem.addSubview(itemView)
         itemView.addSubview(itemIconView)
-//        itemView.addSubview(itemTitleLabel)
+        itemView.addSubview(itemTitleLabel)
 
         NSLayoutConstraint.activate([
             itemView.topAnchor.constraint(equalTo: tabBarItem.topAnchor),
@@ -86,18 +88,16 @@ class CustomTabView: UIView {
             itemView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor),
             itemView.trailingAnchor.constraint(equalTo: tabBarItem.trailingAnchor),
 
-            itemIconView.heightAnchor.constraint(equalToConstant: 40),
-            itemIconView.widthAnchor.constraint(equalToConstant: 40),
-            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: -5),
-            itemIconView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor)
-//            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 4),
-//            itemIconView.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
-//            itemIconView.trailingAnchor.constraint(equalTo: itemView.trailingAnchor)
+            itemIconView.heightAnchor.constraint(equalToConstant: 25),
+            itemIconView.widthAnchor.constraint(equalToConstant: 25),
+            itemIconView.topAnchor.constraint(equalTo: itemView.topAnchor, constant: 4),
+            itemIconView.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
+            itemIconView.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
 
-//            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 0),
-//            itemTitleLabel.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
-//            itemTitleLabel.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
-//            itemTitleLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
+            itemTitleLabel.topAnchor.constraint(equalTo: itemIconView.bottomAnchor, constant: 5),
+            itemTitleLabel.leadingAnchor.constraint(equalTo: itemView.leadingAnchor),
+            itemTitleLabel.trailingAnchor.constraint(equalTo: itemView.trailingAnchor),
+            itemTitleLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor)
         ])
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
@@ -117,13 +117,25 @@ class CustomTabView: UIView {
 
     func activateTab(tab: Int) {
         let tabToActivate = self.subviews[tab]
-        tabToActivate.viewWithTag(10)?.backgroundColor = #colorLiteral(red: 0.2595242858, green: 0.4154637456, blue: 0.9985032678, alpha: 1)
+        tabToActivate.viewWithTag(10)?.backgroundColor = .mainBlue
+        if let view: UIImageView = tabToActivate.viewWithTag(11) as? UIImageView {
+            view.setImageColor(color: .mainWhite)
+        }
+        if let label: UILabel = tabToActivate.viewWithTag(12) as? UILabel {
+            label.textColor = .mainWhite
+        }
         self.itemTapped?(tab)
         self.activeItem = tab
     }
 
     func deActivateTab(tab: Int) {
         let inactiveTab = self.subviews[tab]
-        inactiveTab.viewWithTag(10)?.backgroundColor = #colorLiteral(red: 0.3619202375, green: 0.4967799783, blue: 1, alpha: 1)
+        inactiveTab.viewWithTag(10)?.backgroundColor = .mainWhite
+        if let view: UIImageView = inactiveTab.viewWithTag(11) as? UIImageView {
+            view.setImageColor(color: .mainBlue)
+        }
+        if let label: UILabel = inactiveTab.viewWithTag(12) as? UILabel {
+            label.textColor = .mainBlue
+        }
     }
 }

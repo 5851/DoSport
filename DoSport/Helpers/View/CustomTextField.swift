@@ -16,7 +16,11 @@ class CustomTextField: UITextField {
         super.init(frame: .zero)
         let placeholderString = NSAttributedString(
             string: labelText,
-            attributes: [NSAttributedString.Key.font: UIFont.halantRegular(size: fontSize)])
+            attributes: [NSAttributedString.Key.font: UIFont.halantRegular(size: fontSize),
+                         NSAttributedString.Key.foregroundColor: UIColor.init(
+                            displayP3Red: 71/255,
+                            green: 102/255,
+                            blue: 216/255, alpha: 0.3)])
         self.attributedPlaceholder = placeholderString
         placeholder = labelText
         textColor = .gray
@@ -24,7 +28,8 @@ class CustomTextField: UITextField {
         layer.cornerRadius = cornerRadius
         font = UIFont.halantRegular(size: fontSize)
         delegate = self
-        borderStyle = .none
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.mainBlue.cgColor
     }
 
     required init?(coder aDecoder: NSCoder) {
