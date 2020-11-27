@@ -22,13 +22,14 @@ final class MainMenuTabController: UITabBarController, UINavigationControllerDel
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         self.loadTabBar()
         delegate = self
     }
 
     // MARK: - Setup custom tabbar
     private func loadTabBar() {
-        let tabItems: [TabItem] = [.mainMenu, .chat, .privatCabinet]
+        let tabItems: [TabItem] = [.map, .places, .schedule, .chat, .bonus]
         self.setupCustomTabBar(tabItems) { (controllers) in
             self.viewControllers = controllers
             let navControllers = controllers[0] as? UINavigationController

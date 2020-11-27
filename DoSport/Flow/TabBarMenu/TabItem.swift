@@ -12,29 +12,39 @@ import UIKit
 // Также определяет типы контроллеров
 enum TabItem: String, CaseIterable {
 
-    case mainMenu = "Главное\nменю"
+    case map = "Площадки"
+    case places = "Залы"
+    case schedule = "Расписание"
     case chat = "Чат"
-    case privatCabinet = "Личный\nкабинет"
+    case bonus = "Акции"
 
     var viewController: UIViewController {
         switch self {
-        case .mainMenu:
-            return UINavigationController(rootViewController: MenuViewController())
+        case .map:
+            return UINavigationController(rootViewController: PlacesViewController())
+        case .places:
+            return UIViewController()
+        case .schedule:
+            return UIViewController()
         case .chat:
-            return RecoveryPasswordController()
-        case .privatCabinet:
-            return  MyProfileViewController()
+            return UIViewController()
+        case .bonus:
+            return UIViewController()
         }
     }
 
     var icon: UIImage? {
         switch self {
-        case .mainMenu:
-            return UIImage(named: "icon_menu")!
+        case .map:
+            return UIImage(named: "mapTab")!
+        case .places:
+            return UIImage(named: "areas")!
+        case .schedule:
+            return UIImage(named: "schedule")!
         case .chat:
-            return UIImage(named: "icon_chat")!
-        case .privatCabinet:
-            return UIImage(named: "icon_cabinet")!
+            return UIImage(named: "chat")!
+        case .bonus:
+            return UIImage(named: "bonus")!
         }
     }
 
