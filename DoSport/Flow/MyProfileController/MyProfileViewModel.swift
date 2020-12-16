@@ -27,7 +27,6 @@ class MyProfileViewModelImpl: MyProfileViewModel {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-
         }
     }
     let networkManager = RequestFactory()

@@ -72,6 +72,15 @@
 		04D40A9C25368C3F00DEB14B /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9B25368C3F00DEB14B /* MenuViewCell.swift */; };
 		04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D40A9D253740E900DEB14B /* MenuHeaderCell.swift */; };
 		CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */; };
+		CE545FE925718F6500C4C63A /* EditUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FE825718F6400C4C63A /* EditUserInfo.swift */; };
+		CE545FEC25729CE800C4C63A /* EditPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FEB25729CE800C4C63A /* EditPasswordRequest.swift */; };
+		CE545FF025740CDA00C4C63A /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FEF25740CDA00C4C63A /* EndPointType.swift */; };
+		CE545FF4257410F500C4C63A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FF3257410F500C4C63A /* HTTPMethod.swift */; };
+		CE545FF72574117600C4C63A /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FF62574117600C4C63A /* HTTPTask.swift */; };
+		CE545FFA2574132000C4C63A /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FF92574132000C4C63A /* ParameterEncoding.swift */; };
+		CE545FFD257413FE00C4C63A /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FFC257413FE00C4C63A /* URLParameterEncoder.swift */; };
+		CE54600025741CB800C4C63A /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE545FFF25741CB800C4C63A /* JSONParameterEncoder.swift */; };
+		CE54600325741D9600C4C63A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54600225741D9600C4C63A /* NetworkRouter.swift */; };
 		CE60E961255302E400FFDD0F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E960255302E400FFDD0F /* RegisterRequest.swift */; };
 		CE60E96925530E9000FFDD0F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */; };
 		CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */; };
@@ -81,6 +90,7 @@
 		CE77EC5325610E24004E9F42 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */; };
 		CE77EC562562F523004E9F42 /* GetUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77EC552562F523004E9F42 /* GetUserInfo.swift */; };
 		CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */; };
+		CEDEB72A257C0712007B2BCA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEB729257C0712007B2BCA /* Router.swift */; };
 		CEFE522A2558719A00032BE1 /* MySkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52292558719900032BE1 /* MySkillsViewController.swift */; };
 		CEFE522D2559B36200032BE1 /* MySkillsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE522C2559B36100032BE1 /* MySkillsTableView.swift */; };
 		E0720668554978E8C17752D0 /* Pods_DoSport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A06897C0CD08F51C213544 /* Pods_DoSport.framework */; };
@@ -157,6 +167,15 @@
 		16A06897C0CD08F51C213544 /* Pods_DoSport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoSport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798F93902398718CE4ECE3B6 /* Pods-DoSport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoSport.debug.xcconfig"; path = "Target Support Files/Pods-DoSport/Pods-DoSport.debug.xcconfig"; sourceTree = "<group>"; };
 		CE545FDA256BDA9900C4C63A /* MyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileModel.swift; sourceTree = "<group>"; };
+		CE545FE825718F6400C4C63A /* EditUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfo.swift; sourceTree = "<group>"; };
+		CE545FEB25729CE800C4C63A /* EditPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordRequest.swift; sourceTree = "<group>"; };
+		CE545FEF25740CDA00C4C63A /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		CE545FF3257410F500C4C63A /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CE545FF62574117600C4C63A /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		CE545FF92574132000C4C63A /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		CE545FFC257413FE00C4C63A /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		CE545FFF25741CB800C4C63A /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		CE54600225741D9600C4C63A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		CE60E960255302E400FFDD0F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CE60E96825530E9000FFDD0F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		CE60E96B25530EA000FFDD0F /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
@@ -166,6 +185,7 @@
 		CE77EC5225610E24004E9F42 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		CE77EC552562F523004E9F42 /* GetUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfo.swift; sourceTree = "<group>"; };
 		CEBBE73A254099C5002FFBEB /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		CEDEB729257C0712007B2BCA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CEFE52292558719900032BE1 /* MySkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsViewController.swift; sourceTree = "<group>"; };
 		CEFE522C2559B36100032BE1 /* MySkillsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -396,6 +416,7 @@
 		04D40A5E2533E88A00DEB14B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE545FEE25740C9200C4C63A /* (notActive)NetworkLayer */,
 				CE77EC4E256108DE004E9F42 /* Security */,
 				04AB6DBB2537D21D00D412AC /* Network2 */,
 				04D40A70253495E400DEB14B /* Network */,
@@ -517,6 +538,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE545FEE25740C9200C4C63A /* (notActive)NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CE545FEF25740CDA00C4C63A /* EndPointType.swift */,
+				CE54600225741D9600C4C63A /* NetworkRouter.swift */,
+				CEDEB729257C0712007B2BCA /* Router.swift */,
+				CE545FF3257410F500C4C63A /* HTTPMethod.swift */,
+				CE545FF62574117600C4C63A /* HTTPTask.swift */,
+				CE545FF92574132000C4C63A /* ParameterEncoding.swift */,
+				CE545FFC257413FE00C4C63A /* URLParameterEncoder.swift */,
+				CE545FFF25741CB800C4C63A /* JSONParameterEncoder.swift */,
+			);
+			path = "(notActive)NetworkLayer";
+			sourceTree = "<group>";
+		};
 		CE60E9702558708200FFDD0F /* MySkills */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,6 +588,8 @@
 			children = (
 				04AB6DC02537D24C00D412AC /* AuthRequest.swift */,
 				CE77EC552562F523004E9F42 /* GetUserInfo.swift */,
+				CE545FE825718F6400C4C63A /* EditUserInfo.swift */,
+				CE545FEB25729CE800C4C63A /* EditPasswordRequest.swift */,
 				CE60E960255302E400FFDD0F /* RegisterRequest.swift */,
 			);
 			path = RequestList;
@@ -725,6 +763,7 @@
 				04AB6DBE2537D24400D412AC /* Responses.swift in Sources */,
 				04B5A5442570E3670099D568 /* OpeningViewController.swift in Sources */,
 				04D40A85253539F500DEB14B /* RegistrationViewController.swift in Sources */,
+				CE545FFA2574132000C4C63A /* ParameterEncoding.swift in Sources */,
 				04D40A972536869900DEB14B /* MenuViewController.swift in Sources */,
 				CE60E96C25530EA000FFDD0F /* RegistrationModel.swift in Sources */,
 				045EED0E2552554C00B89F69 /* SideMenuViewController.swift in Sources */,
@@ -746,6 +785,7 @@
 				04D40A902535773500DEB14B /* CustomAuthLabel.swift in Sources */,
 				04D40A92253681F500DEB14B /* UILabel+Extensions.swift in Sources */,
 				04B5A53C256F25460099D568 /* SectionCellModel.swift in Sources */,
+				CE545FF72574117600C4C63A /* HTTPTask.swift in Sources */,
 				04D40A612533E9BA00DEB14B /* UIButton+Extensions.swift in Sources */,
 				04D40A2A2533DC7700DEB14B /* AppDelegate.swift in Sources */,
 				CE76982825370681003D8344 /* MyProfileViewController.swift in Sources */,
@@ -753,12 +793,15 @@
 				0474FB40253FD045006011C1 /* RecoveryPasswordController.swift in Sources */,
 				0474FB4225406B8E006011C1 /* CustomPopupLogoutController.swift in Sources */,
 				04B9178125612ABE00E401A4 /* UIColor+Extensions.swift in Sources */,
+				CE54600325741D9600C4C63A /* NetworkRouter.swift in Sources */,
 				04B9177F2561282800E401A4 /* UIImage+Extensions.swift in Sources */,
 				04D40A8225349D9A00DEB14B /* Configuration.swift in Sources */,
 				04D40A73253495F900DEB14B /* AuthUser.swift in Sources */,
 				04D40A9E253740E900DEB14B /* MenuHeaderCell.swift in Sources */,
+				CE545FFD257413FE00C4C63A /* URLParameterEncoder.swift in Sources */,
 				04B91785256187EA00E401A4 /* UIImageView+Extensions.swift in Sources */,
 				04D40A6B2534945200DEB14B /* CustomPopAnimator.swift in Sources */,
+				CE545FE925718F6500C4C63A /* EditUserInfo.swift in Sources */,
 				04D40A2C2533DC7700DEB14B /* SceneDelegate.swift in Sources */,
 				04B5A541256F45C00099D568 /* NavigationBar.swift in Sources */,
 				04D40A532533E17D00DEB14B /* MapViewController.swift in Sources */,
@@ -770,14 +813,17 @@
 				0474FB38253D8367006011C1 /* MainMenuTabController.swift in Sources */,
 				04D40A6425342B4200DEB14B /* PageViewCell.swift in Sources */,
 				0474FB3B253E64F3006011C1 /* CustomPopupRegViewСontroller.swift in Sources */,
+				CE545FEC25729CE800C4C63A /* EditPasswordRequest.swift in Sources */,
 				045EED042551B62E00B89F69 /* ButtomMenuView.swift in Sources */,
 				CE545FDB256BDA9900C4C63A /* MyProfileModel.swift in Sources */,
+				CE54600025741CB800C4C63A /* JSONParameterEncoder.swift in Sources */,
 				CEBBE73B254099C5002FFBEB /* ChangePasswordView.swift in Sources */,
 				04D40A5B2533E6B800DEB14B /* UIFont+Extensions.swift in Sources */,
 				04D40A8025349D6F00DEB14B /* NetworkServiceFactory.swift in Sources */,
 				0474FB36253D8367006011C1 /* TabItem.swift in Sources */,
 				04D40A7E25349C6A00DEB14B /* ErrorParser.swift in Sources */,
 				04B5A535256EA6C20099D568 /* PlacesViewController.swift in Sources */,
+				CEDEB72A257C0712007B2BCA /* Router.swift in Sources */,
 				04D40A782534984E00DEB14B /* UserModel.swift in Sources */,
 				CEFE522D2559B36200032BE1 /* MySkillsTableView.swift in Sources */,
 				04D40A552533E17D00DEB14B /* StartViewController.swift in Sources */,
@@ -787,8 +833,10 @@
 				CEFE522A2558719A00032BE1 /* MySkillsViewController.swift in Sources */,
 				04D40A7C25349BE200DEB14B /* NetworkService.swift in Sources */,
 				04D40A7A25349B7200DEB14B /* AuthService.swift in Sources */,
+				CE545FF4257410F500C4C63A /* HTTPMethod.swift in Sources */,
 				04B9178325612FE500E401A4 /* CustomPageControl.swift in Sources */,
 				CE77EC562562F523004E9F42 /* GetUserInfo.swift in Sources */,
+				CE545FF025740CDA00C4C63A /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

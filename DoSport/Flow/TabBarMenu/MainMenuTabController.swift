@@ -17,7 +17,7 @@ final class MainMenuTabController: UITabBarController, UINavigationControllerDel
     var customTabBar: CustomTabView!
 
     // MARK: - Properteis
-    var tabBarHeight: CGFloat = 80.0
+    var tabBarHeight: CGFloat = 74.0
 
     // MARK: - Init
     override func viewDidLoad() {

@@ -19,6 +19,7 @@ protocol RequestRouter: URLRequestConvertible {
     var path: String { get }
     var parameters: Parameters? { get }
     var fullUrl: URL { get }
+    var headers: HTTPHeaders {get}
     var encoding: RequestRouterEncoding { get }
 }
 
@@ -34,6 +35,7 @@ extension RequestRouter {
     func asURLRequest() throws -> URLRequest {
         var urlRequest = URLRequest(url: fullUrl)
         urlRequest.httpMethod = method.rawValue
+        urlRequest.headers = headers
 
         switch self.encoding {
         case .url:

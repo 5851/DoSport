@@ -29,6 +29,6 @@ extension AbstractRequestFactory {
             return sessionManager
                 .request(request)
                 .responseDecodable(completionHandler: completionHandler)
-                .validate(statusCode: 200...300)
+                .validate()
     }
 }

@@ -9,11 +9,11 @@
 import Foundation
 import Alamofire
 
-protocol UserInfoRequestFactory {
-    func getInfo(token: String, completionHandler: @escaping (AFDataResponse<UserInfoResult>) -> Void)
+protocol EditInfoRequestFactory {
+    func editInfo(token: String, completionHandler: @escaping (AFDataResponse<UserInfoResult>) -> Void)
 }
 
-class GetInfoRequest: AbstractRequestFactory {
+class EditInfoRequest: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue?
@@ -28,22 +28,22 @@ class GetInfoRequest: AbstractRequestFactory {
     }
 }
 
-extension GetInfoRequest: UserInfoRequestFactory {
-    func getInfo(token: String, completionHandler: @escaping (AFDataResponse<UserInfoResult>) -> Void) {
+extension EditInfoRequest: EditInfoRequestFactory {
+    func editInfo(token: String, completionHandler: @escaping (AFDataResponse<UserInfoResult>) -> Void) {
         let header = HTTPHeader(name: "Authorization", value: token)
         let headers = HTTPHeaders([header])
-        let requestModel = GetInfo(headers: headers, baseUrl: baseUrl)
+        let requestModel = EditInfo(headers: headers, baseUrl: baseUrl)
         self.request(request: requestModel, completionHandler: completionHandler)
         print("requestmodel printng \(requestModel)")
     }
 }
 
-extension GetInfoRequest {
-    struct GetInfo: RequestRouter {
+extension EditInfoRequest {
+    struct EditInfo: RequestRouter {
         var headers: HTTPHeaders
-        var parameters: Parameters?
         let baseUrl: URL
-        let method: HTTPMethod = .get
+        let method: HTTPMethod = .patch
         let path: String = "profile"
+        var parameters: Parameters?
     }
 }

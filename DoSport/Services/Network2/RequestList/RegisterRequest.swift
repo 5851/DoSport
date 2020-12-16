@@ -42,6 +42,7 @@ extension RegisterRequest: RegisterRequestFactory {
                   username: String,
                   completionHandler: @escaping (AFDataResponse<RegisterResult>) -> Void) {
         let requestModel = Register(
+            headers: HTTPHeaders([]),
             baseUrl: baseUrl,
             firstname: firstname,
             lastname: lastname,
@@ -54,6 +55,7 @@ extension RegisterRequest: RegisterRequestFactory {
 
 extension RegisterRequest {
     struct Register: RequestRouter {
+        var headers: HTTPHeaders
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "profile" //адрес послеbaseUrl

@@ -30,13 +30,15 @@ class AuthRequest: AbstractRequestFactory {
 
 extension AuthRequest: AuthRequestFactory {
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
+        let requestModel = Login(headers: HTTPHeaders([]), baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
+
     }
 }
 
 extension AuthRequest {
     struct Login: RequestRouter {
+        var headers: HTTPHeaders
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "auth/login"

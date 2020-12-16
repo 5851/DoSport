@@ -190,17 +190,18 @@ final class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     func downloadModel() {
         let baseModel = UserInfoResult(birthdayDate: "", firstName: "",
                                        gender: "", hideBirthdayDate: true,
-                                       id: 0, info: "", lastName: "",
-                                       photoLink: "", username: "")
+                                       id: 0, info: "",photoLink: "",
+                                       lastName: "",
+                                       username: "")
         self.viewModel = MyProfileViewModelImpl(model: baseModel)
         let token = Token()
         let temp = token.loadToken()
 //        print("temp token \(temp)")
         let headers: HTTPHeaders = ["Authorization": "Bearer_\(token)"]
-
-        let request = AF.request("https://dosport-ru.herokuapp.com/api/v1/profile", method: .get, parameters: nil, headers: headers).validate(statusCode: 200...300).response { (response) in
-            print("test response from new request \(response)")
-        }
+//
+//        let request = AF.request("https://dosport-ru.herokuapp.com/api/v1/profile", method: .get, parameters: nil, headers: headers).validate(statusCode: 200...300).response { (response) in
+//            print("test response from new request \(response)")
+//        }
 
 //        self.viewModel?.getUserInfo(token: temp, completion: { (response) in
 //            let model = UserInfoResult(birthdayDate: response.birthdayDate, firstName: response.firstName,
